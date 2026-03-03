@@ -139,18 +139,202 @@ body {
 }
 
 /* -- About Me -- */
-.about-img {
+.about {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
+  background: #3d3d3d;
+  padding: 20px 60px 60px 60px;
+  color: #f5f5f5;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.about-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* 제목 */
+.about-header {
+  margin-bottom: 50px;
+  margin-left: 65px;
+}
+
+.about-header h2 {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 18px;
+}
+
+.about-header .line {
+  width: 60%;
+  height: 1px;
+  background: #d9d9d9;
+}
+
+.name-line {
+  margin-left: -40px;
+  margin-right: 10px;
+}
+
+/* 전체*/
+
+.about-content {
+  display: flex;
+  gap: 120px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  column-gap: 200px;
+  margin-top: -30px;
+}
+
+/* 왼쪽 */
+
+.about-left {
+  width: 430px;
+  text-align: center;
+}
+
+.profile-img {
+  width: 180px;
+  height: 250px;
+  margin: 150px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
+}
+
+.about-quote {
+  margin-top: 28px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 오른쪽 */
+
+.about-right {
+  flex: 1;
+}
+
+/* 정보 */
+.info-block {
+  margin-bottom: 40px;
+}
+
+.info-block h3 {
+  font-size: 20px;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.info-block p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #e8e8e8;
+}
+
+/* 구분선 */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #cfcfcf;
+  margin: 10px 0;
+}
+
+.about-right .divider:nth-of-type(2) {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+/* 날짜 */
+
+.info-block p strong {
+  display: inline-block;
+  width: 90px;
+  font-weight: 500;
+}
+
+/* 하단 */
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: 520px 1px 200px;
+  column-gap: 20px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+/* SKILLS */
+
+.skills {
+  width: 500px;
+}
+
+.skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 18px;
+}
+
+.skill-icons img {
+  width: 48px;
+  height: 48px;
+}
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: 350px 1px 200px;
+  column-gap: 50px;
+  align-items: start;
+}
+
+/* 줄 바꿈 */
+.break {
+  flex-basis: 100%;
+}
+
+/* 세로선 */
+
+.vertical-line {
+  width: 1px;
+  height: 120px;
+  background: #cfcfcf;
+  margin-top: 10px;
+}
+
+/* LICENSE */
+
+.license {
+  margin-top: 0;
+}
+
+.license p {
+  margin-top: 20px;
+  font-size: 15px;
 }
 
 /* -- Project 01 -- */
 .project01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -158,7 +342,7 @@ body {
 
 .project01-01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -166,7 +350,7 @@ body {
 
 .project01-02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -174,7 +358,7 @@ body {
 
 .project01-03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -182,7 +366,7 @@ body {
 
 .project01-04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -190,7 +374,7 @@ body {
 
 .project01-05-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -199,7 +383,7 @@ body {
 /* -- Project 02 -- */
 .project02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -207,7 +391,7 @@ body {
 
 .project02-01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -215,7 +399,7 @@ body {
 
 .project02-02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -223,7 +407,7 @@ body {
 
 .project02-03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -231,7 +415,7 @@ body {
 
 .project02-04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -240,7 +424,7 @@ body {
 /* -- Project 03 -- */
 .project03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -248,7 +432,7 @@ body {
 
 .project03-01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -256,7 +440,7 @@ body {
 
 .project03-02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -264,7 +448,7 @@ body {
 
 .project03-03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -272,7 +456,7 @@ body {
 
 .project03-04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -281,7 +465,7 @@ body {
 /* -- Project 04 -- */
 .project04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -289,7 +473,7 @@ body {
 
 .project04-01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -297,7 +481,7 @@ body {
 
 .project04-02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -305,7 +489,7 @@ body {
 
 .project04-03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -313,7 +497,7 @@ body {
 
 .project04-04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -322,7 +506,7 @@ body {
 /* -- Project 05 -- */
 .project05-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -330,7 +514,7 @@ body {
 
 .project05-01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -338,7 +522,7 @@ body {
 
 .project05-02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -346,7 +530,7 @@ body {
 
 .project05-03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -354,7 +538,7 @@ body {
 
 .project05-04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -362,7 +546,7 @@ body {
 
 .project05-05-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -370,7 +554,7 @@ body {
 
 .project05-06-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -379,7 +563,7 @@ body {
 /* -- Project 06 -- */
 .project06-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -387,7 +571,7 @@ body {
 
 .project06-01-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -395,7 +579,7 @@ body {
 
 .project06-02-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -403,7 +587,7 @@ body {
 
 .project06-03-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -411,7 +595,7 @@ body {
 
 .project06-04-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -419,7 +603,7 @@ body {
 
 .project06-05-img {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -429,7 +613,7 @@ body {
 
 .thankyou {
   width: 100%;
-  height: 860px;
+  height: calc(100vh - 75px);
   background: #0c0c0c;
   display: flex;
   justify-content: center;
