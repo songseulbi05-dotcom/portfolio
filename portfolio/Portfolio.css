@@ -1953,23 +1953,38 @@ body {
 .project04-hero {
   width: 100%;
   height: calc(100dvh - 75px);
-  background-image: url("./portfoilo/assets/spacedesign.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
   color: white;
 }
 
-.p04-img img {
+/* 배경 이미지 */
+.project4-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.project4-img {
   width: 100%;
-  transform: translateY(-20px);
+  height: 100%;
+}
+
+.Background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* 클릭 방지 */
 }
 
 .project04-overlay {
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 10;
 }
 
 /* 왼쪽 위 project04 */
@@ -1979,6 +1994,7 @@ body {
   left: 140px;
   font-size: 18px;
   font-weight: 500;
+  z-index: 10;
 }
 
 /* 오른쪽 위 Space Design */
@@ -1987,6 +2003,7 @@ body {
   top: 40px;
   right: 140px;
   font-size: 18px;
+  z-index: 10;
 }
 
 /* 가운데 왼쪽 제목 */
@@ -1995,18 +2012,21 @@ body {
   left: 140px;
   top: 30%;
   transform: translateY(-50%);
+  z-index: 10;
 }
 
 .p04-title h1 {
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 12px;
+  z-index: 10;
 }
 
 .p04-title p {
   font-size: 20px;
   font-weight: 300;
   opacity: 0.9;
+  z-index: 10;
 }
 
 /* 오른쪽 아래 프로젝트 정보 */
@@ -2017,6 +2037,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0;
+  z-index: 10;
 }
 
 .p04-info .info-row {
@@ -2025,15 +2046,18 @@ body {
   font-size: 15px;
   line-height: 1.4;
   margin-bottom: 10px;
+  z-index: 10;
 }
 
 .p04-info .label {
   width: 90px;
   opacity: 0.8;
+  z-index: 10;
 }
 
 .p04-info .value {
   opacity: 0.9;
+  z-index: 10;
 }
 
 /* ----- overview ------ */
@@ -2456,7 +2480,7 @@ body {
 .detail-bottom img {
   width: 60%;
   display: block;
-  transform: translate(-60px, -40px);
+  transform: translate(-80px, -100px);
 }
 
 /* -- Project 04 mock up -- */
