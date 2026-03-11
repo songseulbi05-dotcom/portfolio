@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Page | GYEOL</title>
+    <link rel="stylesheet" href="./mypage.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="logo">
+          <a href="./Brand.html">
+            <img src="./assets/로고.png" alt="GYEOL logo" />
+          </a>
+        </h1>
+
+        <div class="header-actions">
+          <nav class="nav">
+            <ul class="nav-list">
+              <li><a href="./Brand.html">Brand</a></li>
+              <li><a href="./scent.html">Scent</a></li>
+              <li><a href="./shop.html">Shop</a></li>
+            </ul>
+          </nav>
+
+          <a href="./cart.html" class="header-cart-btn icon-btn">
+            <img src="./assets/장바구니 아이콘.png" alt="Cart icon" />
+          </a>
+          <a href="./Login.html" class="login-btn icon-btn">
+            <img src="./assets/사람 아이콘.png" alt="Login icon" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="mypage-section">
+      <div class="mypage-box">
+        <h2>My Page</h2>
+
+        <p class="user-name" id="mypage-user-name">Guest</p>
+        <p class="user-email" id="mypage-user-email">guest@gyeol.com</p>
+
+        <div class="mypage-btns">
+          <a href="./shop.html" class="shop-btn"> Shop Fragrance </a>
+
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="./mypage.js"></script>
+  </body>
+</html>

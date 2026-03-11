@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | GYEOL</title>
+    <link rel="stylesheet" href="./cart.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="logo">
+          <a href="./Brand.html">
+            <img src="./assets/로고.png" alt="GYEOL logo" />
+          </a>
+        </h1>
+
+        <div class="header-actions">
+          <nav class="nav">
+            <ul class="nav-list">
+              <li><a href="./Brand.html">Brand</a></li>
+              <li><a href="./scent.html">Scent</a></li>
+              <li><a href="./shop.html">Shop</a></li>
+            </ul>
+          </nav>
+
+          <a href="./cart.html" class="header-cart-btn icon-btn">
+            <img src="./assets/장바구니 아이콘.png" alt="Cart icon" />
+          </a>
+          <a href="./Login.html" class="login-btn icon-btn">
+            <img src="./assets/사람 아이콘.png" alt="Login icon" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart-hero">
+        <p class="hero-eyebrow">Selected Fragrance</p>
+        <h1>Cart</h1>
+        <p class="hero-copy">
+          선택한 향을 확인하고 수량을 조정한 뒤 결제를 진행해 주세요.
+        </p>
+      </section>
+
+      <section class="cart-section">
+        <div class="cart-container">
+          <div class="cart-grid">
+            <section class="cart-list-card">
+              <div class="section-head">
+                <p class="section-kicker">Items</p>
+                <h2>장바구니 상품</h2>
+              </div>
+
+              <div id="cartItems" class="cart-items"></div>
+
+              <div id="cartEmptyState" class="cart-empty" hidden>
+                <p>장바구니가 비어 있습니다.</p>
+                <a href="./shop.html" class="secondary-btn">Shop Again</a>
+              </div>
+            </section>
+
+            <aside class="cart-summary-card">
+              <p class="section-kicker">Summary</p>
+              <h2>Order Summary</h2>
+
+              <div class="summary-row">
+                <span>상품 금액</span>
+                <strong>₩<span id="totalPrice">0</span></strong>
+              </div>
+
+              <div class="summary-row">
+                <span>배송비</span>
+                <strong id="shippingFee">무료</strong>
+              </div>
+
+              <div class="summary-row total">
+                <span>총 결제 금액</span>
+                <strong>₩<span id="grandTotal">0</span></strong>
+              </div>
+
+              <a href="./checkout.html" class="checkout-btn" id="checkoutButton"
+                >Proceed to Checkout</a
+              >
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-col">
+            <h3>GYEOL</h3>
+            <ul>
+              <li><a href="./Brand.html">Brand</a></li>
+              <li><a href="./scent.html">Scent</a></li>
+              <li><a href="./shop.html">Shop</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>서비스</h3>
+            <ul>
+              <li><a href="./FaQ.html">자주 묻는 질문</a></li>
+              <li><a href="./cart.html">구매</a></li>
+              <li><a href="./Login.html">로그인 및 회원가입</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>고객센터</h3>
+            <p>
+              평일 09:00 ~ 18:00<br />
+              주말 및 공휴일 휴무
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-policy">
+          <a href="./terms.html">이용 약관</a>
+          <span>|</span>
+          <a href="./privacy.html">개인정보처리방침</a>
+        </div>
+
+        <div class="footer-info">
+          <p>
+            (주) GYEOL │ 사업자 등록번호 :000-00-0115 │ 주소 : 서울특별시 노원구
+            월계동 일대
+            <br />
+            문의 : contact@gyeol-studio.kr
+          </p>
+
+          <p class="copyright">© 2026 GYEOL. All RIGHTS RESERVED.</p>
+
+          <div class="footer-logo">
+            <img src="./assets/로고.png" alt="GYEOL small logo" />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./login-state.js"></script>
+    <script src="./cart.js"></script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background: #f6f6f6;
+  color: #111;
+  padding-top: 96px;
+}
+
+/* header */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  background: rgba(71, 55, 44, 0.9);
+  backdrop-filter: blur(18px);
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 80px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #f8f3eb;
+  font-size: 20px;
+  letter-spacing: -0.3px;
+}
+
+.login-btn,
+.header-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 243, 235, 0.32);
+  background: rgba(248, 243, 235, 0.12);
+  color: #f8f3eb;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.header-actions .login-btn {
+  margin-left: 32px;
+}
+
+.icon-btn {
+  min-width: 52px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  background: rgba(248, 243, 235, 0.12);
+}
+
+.icon-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.header-cart-btn {
+  margin-left: 32px;
+}
+
+/* section */
+
+.mypage-section {
+  height: calc(100vh - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* box */
+
+.mypage-box {
+  width: 420px;
+  background: #fff;
+  padding: 70px;
+  border: 1px solid #eee;
+  text-align: center;
+  animation: fadeUp 0.8s ease;
+}
+
+.mypage-box h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+/* user info */
+
+.user-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.user-email {
+  color: #777;
+  margin-bottom: 40px;
+}
+
+/* buttons */
+
+.mypage-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.shop-btn {
+  border: 1px solid #000;
+  padding: 12px;
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
+}
+
+.shop-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.logout-btn {
+  padding: 12px;
+  border: none;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #333;
+}
+
+/* animation */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

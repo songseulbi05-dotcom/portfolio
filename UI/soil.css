@@ -1,0 +1,497 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 96px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #2b241f;
+  background:
+    radial-gradient(circle at top, rgba(228, 214, 198, 0.72), transparent 34%),
+    linear-gradient(180deg, #f6f0e9 0%, #eee4d7 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  background: rgba(71, 55, 44, 0.9);
+  backdrop-filter: blur(18px);
+  z-index: 1000;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+.nav-list {
+  display: flex;
+  gap: 80px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-list a {
+  font-size: 20px;
+  color: #f8f3eb;
+  letter-spacing: -0.3px;
+}
+
+.login-btn,
+.header-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 243, 235, 0.32);
+  background: rgba(248, 243, 235, 0.12);
+  color: #f8f3eb;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.header-actions .login-btn {
+  margin-left: 32px;
+}
+
+.icon-btn {
+  min-width: 52px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  background: rgba(248, 243, 235, 0.12);
+}
+
+.icon-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.header-cart-btn {
+  margin-left: 32px;
+}
+
+.scent-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 110px 80px 60px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  margin-bottom: 18px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #856d58;
+}
+
+.scent-hero h1 {
+  font-size: 84px;
+  font-weight: 500;
+  letter-spacing: 8px;
+}
+
+.hero-copy {
+  max-width: 620px;
+  margin: 22px auto 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #5e4f42;
+}
+
+.scent-content {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto 140px;
+  padding: 32px 0 0;
+  display: grid;
+  grid-template-columns: minmax(320px, 460px) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.scent-image-wrap {
+  position: sticky;
+  top: 140px;
+}
+
+.scent-image {
+  padding: 42px;
+  border: 1px solid rgba(90, 70, 54, 0.14);
+  border-radius: 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 251, 246, 0.8),
+    rgba(244, 234, 222, 0.92)
+  );
+  box-shadow: 0 24px 60px rgba(98, 75, 57, 0.12);
+}
+
+.scent-image img {
+  width: 100%;
+  display: block;
+}
+
+.info-card {
+  margin-top: 20px;
+  padding: 24px 28px;
+  border-radius: 24px;
+  background: #4b3a2f;
+  color: #f7f0e6;
+}
+
+.info-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(247, 240, 230, 0.72);
+}
+
+.info-card p {
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.scent-info {
+  padding-top: 18px;
+}
+
+.info-kicker {
+  margin-bottom: 12px;
+  font-size: 14px;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  color: #856d58;
+}
+
+.scent-info h2 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.lead {
+  margin-top: 28px;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #5d4c3f;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+
+.detail-card,
+.ritual {
+  border: 1px solid rgba(90, 70, 54, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 249, 242, 0.7);
+  box-shadow: 0 12px 30px rgba(98, 75, 57, 0.06);
+}
+
+.detail-card {
+  padding: 28px;
+}
+
+.detail-card h3,
+.ritual h3 {
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.notes,
+.usage-list {
+  display: grid;
+  gap: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4e4034;
+}
+
+.notes strong {
+  display: inline-block;
+  min-width: 58px;
+}
+
+.ritual {
+  margin-top: 20px;
+  padding: 32px 28px;
+}
+
+.ritual p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #5d4c3f;
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.detail-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  padding: 15px 26px;
+  border-radius: 999px;
+  background: #4b3a2f;
+  color: #f8f3eb;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.detail-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(75, 58, 47, 0.18);
+}
+
+.buy-btn {
+  background: transparent;
+  border: 1px solid rgba(75, 58, 47, 0.28);
+  color: #4b3a2f;
+}
+
+.buy-btn:hover {
+  box-shadow: 0 12px 24px rgba(75, 58, 47, 0.08);
+}
+
+.text-link {
+  font-size: 15px;
+  color: #705846;
+}
+
+.footer {
+  margin-top: 120px;
+  padding: 80px 0;
+  background: #2d221b;
+  color: #ece1d4;
+}
+
+.footer-inner {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  gap: 120px;
+  margin-bottom: 60px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-policy {
+  border-top: 1px solid rgba(236, 225, 212, 0.2);
+  border-bottom: 1px solid rgba(236, 225, 212, 0.2);
+  padding: 15px 0;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.footer-info {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.copyright {
+  margin-top: 12px;
+}
+
+.footer-logo img {
+  margin-top: 20px;
+  height: 24px;
+}
+
+@media (max-width: 1024px) {
+  .header-inner,
+  .scent-hero {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .nav-list {
+    gap: 36px;
+  }
+
+  .nav-list a {
+    font-size: 17px;
+  }
+
+  .header-actions {
+    gap: 16px;
+  }
+
+  .scent-hero h1 {
+    font-size: 64px;
+  }
+
+  .scent-content {
+    width: min(1200px, calc(100% - 48px));
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .scent-image-wrap {
+    position: static;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 84px;
+  }
+
+  .header {
+    height: 84px;
+  }
+
+  .header-inner {
+    padding: 0 20px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+
+  .nav-list {
+    gap: 18px;
+  }
+
+  .nav-list a {
+    font-size: 15px;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .login-btn {
+    min-width: 78px;
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .scent-hero {
+    padding: 72px 20px 36px;
+  }
+
+  .scent-hero h1 {
+    font-size: 48px;
+    letter-spacing: 4px;
+  }
+
+  .hero-copy {
+    font-size: 16px;
+  }
+
+  .scent-content {
+    width: calc(100% - 32px);
+    margin-bottom: 96px;
+  }
+
+  .scent-image {
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .info-card p {
+    font-size: 18px;
+  }
+
+  .scent-info h2 {
+    font-size: 30px;
+  }
+
+  .lead,
+  .ritual p {
+    font-size: 15px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-card,
+  .ritual {
+    border-radius: 22px;
+  }
+
+  .action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .text-link {
+    text-align: center;
+  }
+
+  .footer {
+    padding: 60px 0;
+  }
+
+  .footer-inner {
+    width: calc(100% - 32px);
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+}

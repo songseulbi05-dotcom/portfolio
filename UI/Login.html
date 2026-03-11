@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | GYEOL</title>
+    <link rel="stylesheet" href="./Login.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="logo">
+          <a href="./Brand.html">
+            <img src="./assets/로고.png" alt="GYEOL logo" />
+          </a>
+        </h1>
+
+        <div class="header-actions">
+          <nav class="nav">
+            <ul class="nav-list">
+              <li><a href="./Brand.html">Brand</a></li>
+              <li><a href="./scent.html">Scent</a></li>
+              <li><a href="./shop.html">Shop</a></li>
+            </ul>
+          </nav>
+
+          <a href="./cart.html" class="header-cart-btn icon-btn">
+            <img src="./assets/장바구니 아이콘.png" alt="Cart icon" />
+          </a>
+          <a href="./Login.html" class="login-btn icon-btn">
+            <img src="./assets/사람 아이콘.png" alt="Login icon" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="login-section">
+      <div class="login-box">
+        <h2>Login</h2>
+
+        <form id="login-form">
+          <div
+            id="login-status"
+            class="form-status"
+            role="status"
+            aria-live="polite"
+          ></div>
+
+          <div class="input-group">
+            <label for="login-email">Email</label>
+            <input
+              id="login-email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="login-password">Password</label>
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <button type="submit" class="login-btn">Login</button>
+
+          <p class="signup-text">
+            Not a member?
+            <a href="./signup.html">Sign up</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <script src="./login-state.js"></script>
+  </body>
+</html>
