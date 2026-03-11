@@ -1953,7 +1953,7 @@ body {
 .project04-hero {
   width: 100%;
   height: calc(100dvh - 75px);
-  background-image: url("./portfolio/assets/공간디자인\ 표지.png");
+  background-image: url("./portfoilo/assets/spacedesign.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
