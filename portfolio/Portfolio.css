@@ -399,7 +399,7 @@ body {
 .label-top-right {
   position: absolute;
   top: 40px;
-  right: 120px;
+  right: 70px;
   font-size: 16px;
   color: #666;
   letter-spacing: 0px;
@@ -432,7 +432,7 @@ body {
 .project-info {
   position: absolute;
   bottom: 30px;
-  right: 120px;
+  right: 70px;
 }
 
 .project-info .category {
@@ -773,39 +773,69 @@ body {
 }
 
 /* ------ UI/UX Section ------ */
-.projects2 {
+.preview {
   width: 100%;
   height: calc(100dvh - 75px);
-  padding: 80px 0;
-  background: #efefef;
+  padding: 50px 0;
+  background: #ffffff;
+  overflow: hidden;
 }
 
-/* 전체 이미지 정렬 */
-.projects__gallery {
-  width: 100%;
+.preview-container {
+  width: 1400px;
   margin: 0 auto;
-
   display: flex;
-  justify-content: center;
   align-items: flex-start;
-
-  gap: 75px; /* 이미지 사이 간격 */
+  justify-content: space-between;
+  gap: 40px;
 }
 
-/* 각 이미지 */
-.ui-img {
-  width: 60px; /* 모바일 사이즈 */
-  height: auto;
-
-  object-fit: contain;
-
-  transition: 0.3s;
+/* 왼쪽 텍스트 */
+.preview-text {
+  flex: 0 0 200px;
+  margin-top: 20px;
+  margin-left: 90px;
+  width: 500px;
+  position: absolute;
 }
 
-/* 데스크탑 이미지 조금 크게 */
-.ui-img:nth-child(1),
-.ui-img:nth-child(2) {
-  width: 100px;
+.preview h2 {
+  font-size: 20px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1;
+  color: #444;
+  width: 500px;
+  margin-bottom: 60px;
+}
+
+/* 브라우저 링크 */
+.browser-title {
+  font-size: 20px;
+  color: #777;
+  margin-bottom: 15px;
+  margin-top: 400px;
+}
+
+.browser-link {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 오른쪽 목업 */
+
+.preview-image img {
+  position: relative;
+  top: -20px;
+  right: -300px;
+  bottom: 0;
+  width: 1150px;
+  display: block;
+  overflow: hidden;
 }
 
 /* ------ Wrapper ------ */
