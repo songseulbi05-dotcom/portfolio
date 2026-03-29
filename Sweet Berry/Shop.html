@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweet Berry Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Burned&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Shop.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Sweet Berry</div>
+
+      <nav>
+        <ul>
+          <li><a href="./Home.html">Home</a></li>
+          <li><a href="./Shop.html">Shop</a></li>
+          <li><a href="./About.html">About</a></li>
+          <li><a href="./Cart.html">Cart</a></li>
+          <li><a href="./Login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="shop-hero">
+        <div class="shop-hero-bg">
+          <img src="./assets/Shop img.JPG" alt="딸기 이미지" />
+        </div>
+        <div class="shop-hero-content">
+          <p class="shop-label">Sweet Berry Shop</p>
+          <h1>Pick The Berry You Love</h1>
+          <p class="shop-subtitle">
+            오늘 가장 좋은 컨디션의 딸기만 골라 담은 스위트베리 컬렉션입니다.
+          </p>
+          <div class="shop-actions">
+            <a href="#collection" class="btn-primary">Shop Collection</a>
+            <a href="#fresh" class="btn-secondary">See Freshness</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="shop-intro">
+        <div class="shop-intro-header">
+          <p class="intro-label">Curated Selection</p>
+          <h2>Seasonal Strawberry Lineup</h2>
+          <p class="intro-description">
+            품종마다 다른 향과 식감, 당도를 한눈에 고를 수 있도록 준비했습니다.
+          </p>
+        </div>
+
+        <div class="shop-feature-grid">
+          <article class="shop-feature-card">
+            <p class="feature-number">01</p>
+            <h3>오늘 수확 중심</h3>
+            <p>매일 입고되는 신선한 딸기만 기준으로 컬렉션이 구성됩니다.</p>
+          </article>
+          <article class="shop-feature-card">
+            <p class="feature-number">02</p>
+            <h3>취향별 선택</h3>
+            <p>
+              달콤한 맛, 진한 향, 선물용 사이즈까지 취향대로 고를 수 있습니다.
+            </p>
+          </article>
+          <article class="shop-feature-card">
+            <p class="feature-number">03</p>
+            <h3>안심 포장</h3>
+            <p>흔들림을 줄이는 포장으로 가장 예쁜 상태를 오래 지켜드립니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="collection" class="collection">
+        <div class="collection-header">
+          <p class="collection-label">Signature Picks</p>
+          <h2>Best Berry Collection</h2>
+          <p class="collection-description">
+            가장 사랑받는 품종부터 선물하기 좋은 프리미엄 라인까지 담았습니다.
+          </p>
+        </div>
+
+        <div class="collection-highlight">
+          <p class="highlight-label">Editor's Pick</p>
+          <div class="highlight-copy">
+            <p class="highlight-title">오늘 가장 먼저 담아야 할 Sweet Berry</p>
+            <p class="highlight-description">
+              신선도, 향, 당도를 기준으로 가장 만족도가 높은 딸기만 골라
+              추천합니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="collection-grid">
+          <article class="berry-card">
+            <div class="berry-image">
+              <img src="./assets/Best Strawberry 1.JPG" alt="금실 딸기" />
+            </div>
+            <div class="berry-info">
+              <p class="berry-tag">Daily Sweet</p>
+              <h3>금실 딸기 500g</h3>
+              <p class="berry-copy">
+                가볍고 산뜻한 단맛이 매력적인 데일리 픽입니다.
+              </p>
+              <div class="berry-meta">
+                <span>Fresh Today</span>
+                <strong>₩12,000</strong>
+              </div>
+              <a
+                href="./Cart.html"
+                class="berry-link"
+                data-add-to-cart
+                data-product-name="금실 딸기 500g"
+                data-product-price="12000"
+                >Add To Basket</a
+              >
+            </div>
+          </article>
+
+          <article class="berry-card berry-card-accent">
+            <div class="berry-image">
+              <img src="./assets/Best Strawberry 2.JPG" alt="알프스 딸기" />
+            </div>
+            <div class="berry-info">
+              <p class="berry-tag">Balanced Flavor</p>
+              <h3>알프스 딸기 500g</h3>
+              <p class="berry-copy">
+                부드러운 향과 풍성한 과즙이 조화로운 베스트셀러입니다.
+              </p>
+              <div class="berry-meta">
+                <span>Most Loved</span>
+                <strong>₩15,000</strong>
+              </div>
+              <a
+                href="./Cart.html"
+                class="berry-link"
+                data-add-to-cart
+                data-product-name="알프스 딸기 500g"
+                data-product-price="15000"
+                >Add To Basket</a
+              >
+            </div>
+          </article>
+
+          <article class="berry-card">
+            <div class="berry-image">
+              <img src="./assets/Best Strawberry 3.png" alt="킹스베리 딸기" />
+            </div>
+            <div class="berry-info">
+              <p class="berry-tag">Premium Gift</p>
+              <h3>킹스베리 딸기 500g</h3>
+              <p class="berry-copy">
+                크기와 존재감이 돋보여 특별한 날 선물용으로 잘 어울립니다.
+              </p>
+              <div class="berry-meta">
+                <span>Limited Pick</span>
+                <strong>₩20,000</strong>
+              </div>
+              <a
+                href="./Cart.html"
+                class="berry-link"
+                data-add-to-cart
+                data-product-name="킹스베리 딸기 500g"
+                data-product-price="20000"
+                >Add To Basket</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="fresh" class="freshness">
+        <div class="freshness-image">
+          <img src="./assets/Why Sweet Berry.JPG" alt="딸기 수확" />
+        </div>
+        <div class="freshness-content">
+          <p class="freshness-label">Freshness Promise</p>
+          <h2>From Farm To Table, Still Sweet</h2>
+          <p class="freshness-main">
+            스위트베리는 가장 맛있는 순간을 놓치지 않도록 수확과 포장, 배송의
+            간격을 짧게 유지합니다.
+          </p>
+          <p class="freshness-sub">
+            당일 선별된 딸기를 기준으로 출고하며, 향과 식감이 가장 좋은 상태를
+            오래 유지할 수 있는 포장 방식을 적용합니다.
+          </p>
+        </div>
+      </section>
+
+      <section id="order" class="shop-cta">
+        <div class="shop-cta-container">
+          <p class="shop-cta-label">Order Now</p>
+          <h2>오늘 가장 예쁜 딸기를 담아보세요</h2>
+          <p class="shop-cta-copy">
+            취향에 맞는 품종을 고르고, 스위트베리의 신선함을 집에서 바로
+            만나보세요.
+          </p>
+          <a href="#collection" class="btn-primary">Start Shopping</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <!-- 상단 3컬럼 -->
+      <div class="footer-top">
+        <!-- 1. 브랜드 -->
+        <div class="footer-col">
+          <h3>스윗 베리</h3>
+          <ul>
+            <li><a href="./Home.html">Home</a></li>
+            <li><a href="./Shop.html">Shop</a></li>
+            <li><a href="./About.html">About</a></li>
+          </ul>
+        </div>
+
+        <!-- 2. 서비스 -->
+        <div class="footer-col">
+          <h3>서비스</h3>
+          <ul>
+            <li><a href="./FAQ.html">자주 묻는 질문</a></li>
+            <li><a href="./Contact.html">문의</a></li>
+            <li><a href="./Login.html">로그인 및 회원가입</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. 고객센터 -->
+        <div class="footer-col">
+          <h3>고객센터</h3>
+          <p>평일 09:00 ~ 18:00</p>
+          <p>주말 및 공휴일 휴무</p>
+        </div>
+      </div>
+
+      <!-- 구분선 -->
+      <div class="footer-line"></div>
+
+      <!-- 하단 정보 -->
+      <div class="footer-bottom">
+        <p class="policy">이용 약관 ㅣ 개인정보처리방침</p>
+
+        <p class="company-info">
+          (주)Sweet Berry ㅣ 사업자 등록번호 : 000-00-0115 ㅣ 주소 : 서울특별시
+          노원구 월계동 일대<br />
+          문의 : contact@sweetberry-studio.kr
+        </p>
+
+        <p class="copyright">© 2026 Sweet Berry. ALL RIGHTS RESERVED.</p>
+
+        <!-- 로고 -->
+        <div class="footer-logo">Sweet Berry</div>
+      </div>
+    </footer>
+    <script src="./cart.js"></script>
+  </body>
+</html>
