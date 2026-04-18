@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>송슬비 포트폴리오</title>
-    <link rel="stylesheet" href="./portfolio/Portfolio.css" />
+    <link rel="stylesheet" href="./portfolio/portfolio.css" />
   </head>
   <body>
     <!-- header Section -->
@@ -20,7 +20,7 @@
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About Me</a>
-        <a href="#project-01">Project</a>
+        <a href="#project">Project</a>
       </nav>
     </header>
 
@@ -125,12 +125,80 @@
       </div>
     </section>
 
-    <!-- Project1 Section -->
-    <main id="project"></main>
-    <!-- project 01 : cover -->
-    <section class="project-card" id="project-01">
+    <!-- project : cover -->
+    <main id="project">
+      <section class="project-section">
+        <div class="top-left">Project</div>
+        <div class="top-right">UI/UX Design</div>
+        <div class="project-title-wrap">
+          <p class="project-kicker">Premium Strawberry Brand</p>
+          <h1 class="project-title">Sweet Berry</h1>
+          <p class="project-summary">
+            자연 그대로의 달콤함을 전달하는 프리미엄 딸기 브랜드를 위해 감성적인
+            비주얼과 <br />
+            미니멀한 사용자 흐름을 담은 UI/UX 프로젝트
+          </p>
+        </div>
+        <img
+          src="./portfolio/assets/딸기 히어로.png"
+          alt="딸기"
+          class="bg"
+        />
+        <div class="project-info">
+          <p class="category">개인 프로젝트</p>
+          <table>
+            <tr>
+              <th>기간</th>
+              <td>2026/03 ~ 2026/04</td>
+            </tr>
+            <tr>
+              <th>프로그램</th>
+              <td>Ps / Ai / Figma / HTML / CSS</td>
+            </tr>
+            <tr>
+              <th>기여도</th>
+              <td>100%</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- Project : UI/UX -->
+    <section class="preview">
+      <div class="preview-container">
+        <div class="preview-text">
+          <p class="preview-label">Project</p>
+          <h2>UI/UX Preview</h2>
+          <p class="preview-heading">Sweet Berry Website</p>
+
+          <p class="description">
+            본 프로젝트는 자연 그대로의 달콤함을 전달하기 위해,<br />
+            불필요한 요소를 덜어내고 이미지와 여백 중심의 미니멀한 UI로<br />
+            설계된 프리미엄 딸기 브랜드 프로젝트입니다.
+          </p>
+
+          <div class="browser">
+            <p class="browser-title">browser</p>
+            <a class="browser-link" href="./Sweet Berry/Home.html"
+              >웹 사이트 보러가기</a
+            >
+          </div>
+        </div>
+
+        <div class="preview-image">
+          <img
+            src="./portfolio/assets/딸기 목업 .png"
+            alt="website preview"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- project 01 -->
+    <section class="project-01 project-card" id="project01">
       <div class="visual-side">
-        <span class="label-top-left">project</span>
+        <span class="label-top-left">project 01</span>
         <img
           src="./portfolio/assets/프로젝트 1-표지.png"
           alt="GYEOL Perfume"
@@ -155,7 +223,7 @@
             </tr>
             <tr>
               <th>프로그램</th>
-              <td>Ps / Ai / Figma / HTML / Css</td>
+              <td>Ps / Ai / Figma / HTML / CSS</td>
             </tr>
             <tr>
               <th>기여도</th>
@@ -345,39 +413,11 @@
       </div>
     </section>
 
-    <!-- Mock Up -->
-    <div class="wrapper">
-      <section class="left">
-        <div class="floating-images">
-          <img
-            src="./portfolio/assets/UI:UX 핸드폰 목업 1.png"
-            class="phone"
-          />
-        </div>
-      </section>
-
-      <section class="right">
-        <div class="right-visual">
-          <img
-            src="./portfolio/assets/UI:UX 핸드폰 목업 2 .png"
-            class="main-visual"
-          />
-        </div>
-      </section>
-    </div>
-
-    <section class="macbook-section">
-      <img
-        src="./portfolio/assets/B07 Macbook Air M2 복사 1.png"
-        class="macbook-img"
-      />
-    </section>
-
     <!-- Project2 Section-->
     <main id="project2"></main>
     <!-- project 02 : cover -->
     <section class="project2-top" id="project-02">
-      <div class="project2-top-left">project 2</div>
+      <div class="project2-top-left">project 02</div>
       <div class="project2-top-right">Product Design</div>
 
       <div class="project2-left">
@@ -947,7 +987,7 @@
           <div class="project4-img">
             <img
               class="Background-img"
-              src="./portfolio/assets//spacedesign.png"
+              src="./portfolio/assets/spacedesign.png"
               alt="cover"
             />
           </div>
@@ -1037,6 +1077,7 @@
         </div>
       </div>
     </section>
+
     <!-- project 04 : Module -->
     <section class="p04-modul">
       <div class="p04-grid">
@@ -1227,10 +1268,10 @@
       </div>
     </section>
 
-    <!-- project 04 : story  -->
+    <!-- project 05 : story  -->
     <section class="story-section">
       <img
-        src="./portfolio/assets/제습기 배경-왼쪽.png"
+        src="./portfolio/assets/제습기 배경-왼쪽(배경).png"
         class="corner-left"
       />
 
@@ -1466,7 +1507,7 @@
       </div>
     </section>
 
-    <!-- Project5 Section-->
+    <!-- Project06 Section-->
     <!-- project 06 : cover -->
     <section class="project06">
       <!-- 배경 이미지 -->
@@ -1738,20 +1779,42 @@
       <div class="end-text-wrap">
         <h2 class="end-bg">Thank You</h2>
         <h2 class="end-main">Thank You</h2>
+        <p class="end-sub">끝까지 봐주셔서 감사합니다.</p>
+        <div class="end-line"></div>
       </div>
     </section>
 
     <!-- footer -->
     <footer class="footer">
       <div class="footer-inner">
-        <p class="footer-name">송슬비</p>
+        <div class="footer-top">
+          <div class="footer-brand">
+            <p class="footer-kicker">Portfolio</p>
+            <h2 class="footer-name">Songseulbi</h2>
+            <p class="footer-message">
+              감각적인 시선과 꾸준한 태도로 사용자와 공간, 제품을 연결합니다.
+            </p>
+          </div>
 
-        <p class="footer-phone">010-5126-1115</p>
+          <div class="footer-contact">
+            <p class="footer-label">Contact</p>
+            <p class="footer-phone">010-5126-1115</p>
+            <p class="footer-email">songseulbi05@naver.com</p>
+          </div>
+        </div>
 
-        <p class="footer-email">songseulbi05@naver.com</p>
+        <div class="footer-line"></div>
 
-        <p class="footer-copy">© 2026 Songseulbi. All Rights Reserved.</p>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Songseulbi. All Rights Reserved.</p>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#project">Project</a>
+          </div>
+        </div>
       </div>
     </footer>
+    <script src="./portfolio/portfolio.js"></script>
   </body>
 </html>
