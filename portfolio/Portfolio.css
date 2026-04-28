@@ -23,7 +23,8 @@ body {
   align-items: center;
   padding: 0 8%;
   height: 75px;
-  background-color: #131313;
+  background: rgba(19, 19, 19, 0.92);
+  backdrop-filter: blur(12px);
   position: fixed;
   top: 0;
   left: 0;
@@ -58,6 +59,18 @@ body {
   z-index: 1002;
 }
 
+.menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .bar {
   width: 24px;
   height: 2px;
@@ -67,11 +80,98 @@ body {
     opacity 0.3s ease;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .nav-links a {
   text-decoration: none;
   color: #f5f5f5;
-  margin-left: 40px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: #ffedd6;
+  transform: translateY(-1px);
+}
+
+.nav-links.active {
+  position: fixed;
+  inset: 75px 0 0;
+  background: rgba(19, 19, 19, 0.98);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 0 32px;
+  gap: 18px;
+  transform: translateY(-130%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.nav-links.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(19, 19, 19, 0.98);
+    padding: 24px 0 32px;
+    gap: 18px;
+    transform: translateY(-130%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-left: 0;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .navbar {
+    padding: 0 5%;
+    height: 68px;
+  }
 }
 
 /* -- title Section -- */
@@ -86,8 +186,13 @@ body {
   position: relative;
 }
 
-#home {
+#home,
+#project-folder {
   scroll-margin-top: 75px;
+}
+
+#project-folder {
+  min-height: calc(100dvh - 75px);
 }
 
 .title-inner {
@@ -124,12 +229,12 @@ body {
   letter-spacing: 0.1em;
   margin: 0;
   line-height: 1;
-  top: 18px;
-  left: 30px;
+  top: 15px;
+  left: 16px;
   position: absolute;
   z-index: 3;
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(23px);
   animation: titleFront 1.4s ease-out forwards;
   animation-delay: 1.2s;
 }
@@ -226,7 +331,6 @@ body {
 }
 
 /* 전체*/
-
 .about-content {
   display: flex;
   gap: 120px;
@@ -237,7 +341,6 @@ body {
 }
 
 /* 왼쪽 */
-
 .about-left {
   width: 430px;
   text-align: center;
@@ -363,8 +466,283 @@ body {
   font-size: 15px;
 }
 
-/* -- project0 --  */
-#project {
+/* -- contact -- */
+.canvas {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  padding: 40px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
+    "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(113, 151, 255, 0.34),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(255, 186, 132, 0.32),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #d8e3f3 0%, #f4efe8 48%, #cfdae9 100%);
+}
+
+.canvas h1,
+.canvas h2,
+.canvas h3,
+.canvas h4,
+.canvas h5,
+.canvas h6,
+.canvas p,
+.canvas span,
+.canvas a,
+.canvas label,
+.canvas button,
+.canvas input,
+.canvas textarea,
+.canvas .nav-item span,
+.canvas .toolbar-title,
+.canvas .folder p,
+.canvas .statusbar {
+  font-weight: 300;
+}
+
+.window {
+  width: min(100%, 1500px);
+  height: min(760px, calc(100dvh - 155px));
+  min-height: 560px;
+  background: #f6f6f6;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(78, 86, 98, 0.18);
+  display: flex;
+  box-shadow:
+    0 36px 90px rgba(35, 43, 58, 0.24),
+    0 12px 34px rgba(35, 43, 58, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+}
+
+.sidebar {
+  width: 270px;
+  background: rgba(234, 237, 242, 0.72);
+  position: relative;
+  border-right: 1px solid rgba(167, 174, 184, 0.35);
+  backdrop-filter: blur(30px) saturate(1.45);
+}
+
+.traffic {
+  display: flex;
+  gap: 8px;
+  padding: 16px 18px 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.16);
+}
+
+.red {
+  background: #ff5f57;
+}
+.yellow {
+  background: #febc2e;
+}
+.green {
+  background: #28c840;
+}
+
+.sidebar-content {
+  padding: 6px 10px 20px;
+}
+
+.section-title {
+  color: #8b929e;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 17px 12px 7px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.nav-item {
+  padding: 6px 10px;
+  border-radius: 7px;
+  margin-bottom: 2px;
+  color: #313846;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-item.active {
+  background: rgba(0, 122, 255, 0.2);
+  color: #174ea6;
+}
+
+.locations {
+  margin: 20px 12px 0;
+  color: #9aa1ac;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  height: 52px;
+  background: rgba(249, 250, 252, 0.86);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(167, 174, 184, 0.34);
+  backdrop-filter: blur(20px);
+}
+
+.toolbar-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.toolbar-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #242a34;
+  margin-left: 8px;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(227, 230, 236, 0.8);
+  color: #7e8794;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.content {
+  flex: 1;
+  padding: 68px 54px 48px;
+  background: #fbfbfb;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(130px, 1fr));
+  gap: 46px 52px;
+}
+
+.folder {
+  text-align: center;
+  color: #252b35;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.folder:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.04);
+}
+
+.folder-icon {
+  width: 116px;
+  height: 78px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 36%),
+    linear-gradient(180deg, #65c1ff 0%, #1d8ef5 100%);
+  border-radius: 8px 10px 15px 15px;
+  margin: 14px auto 0;
+  position: relative;
+  box-shadow:
+    0 14px 22px rgba(32, 119, 210, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58),
+    inset 0 -1px 0 rgba(0, 82, 168, 0.16);
+}
+
+.folder-icon::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: -11px;
+  width: 54px;
+  height: 20px;
+  background: linear-gradient(180deg, #9edbff 0%, #5dbbff 100%);
+  border-radius: 10px 12px 0 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 0 rgba(21, 120, 218, 0.16);
+}
+
+.folder-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  height: 20px;
+  border-radius: 8px 10px 0 0;
+  background: linear-gradient(
+    180deg,
+    rgba(143, 211, 255, 0.85),
+    rgba(91, 184, 255, 0.16)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.46);
+}
+
+.folder p {
+  margin-top: 13px;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+}
+
+.pathbar {
+  height: 34px;
+  background: #f4f5f7;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #657080;
+  border-top: 1px solid rgba(167, 174, 184, 0.3);
+}
+
+.statusbar {
+  height: 32px;
+  background: #eef0f3;
+  font-size: 12px;
+  color: #657080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.slider {
+  display: none;
+}
+
+/* -- UI/UX Section --  */
+#uiux-section {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
@@ -391,7 +769,14 @@ body {
   z-index: 2;
 }
 
-#project {
+#uiux-section {
+  scroll-margin-top: 75px;
+}
+
+#BX-Design,
+#bx-design-overview,
+#bx-design-brand {
+  min-height: calc(100dvh - 75px);
   scroll-margin-top: 75px;
 }
 
@@ -662,9 +1047,9 @@ body {
   filter: none;
 }
 
-/* -- Project 01 -- */
+/* -- BX Design -- */
 /* ------ cover ------ */
-.project-01 {
+.bx-design {
   width: 100%;
   min-height: calc(100dvh - 75px);
   background: #ffffff;
@@ -673,14 +1058,14 @@ body {
 }
 
 /* 왼쪽 */
-.project-01 .visual-side {
+.bx-design .visual-side {
   position: absolute;
   inset: 0;
   overflow: hidden;
   z-index: 1;
 }
 
-.project-01 .product-img {
+.bx-design .product-img {
   position: absolute;
   width: min(47vw, 670px);
   bottom: 0;
@@ -689,7 +1074,7 @@ body {
 }
 
 /* 왼쪽 상단 */
-.project-01 .label-top-left {
+.bx-design .label-top-left {
   position: absolute;
   top: 34px;
   left: 120px;
@@ -702,7 +1087,7 @@ body {
 }
 
 /* 오른쪽 */
-.project-01 .content-side {
+.bx-design .content-side {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
@@ -713,7 +1098,7 @@ body {
 }
 
 /* 오른쪽 상단 */
-.project-01 .label-top-right {
+.bx-design .label-top-right {
   position: absolute;
   top: 34px;
   right: 120px;
@@ -725,7 +1110,7 @@ body {
 }
 
 /* 타이틀 */
-.project-01 .main-title {
+.bx-design .main-title {
   position: absolute;
   top: 48%;
   left: 50%;
@@ -738,7 +1123,7 @@ body {
   backdrop-filter: blur(5px);
 }
 
-.project-01 .main-title h1 {
+.bx-design .main-title h1 {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(42px, 4.4vw, 58px);
   font-weight: 500;
@@ -747,7 +1132,7 @@ body {
   color: #2a241f;
 }
 
-.project-01 .subtitle {
+.bx-design .subtitle {
   margin-top: 16px;
   font-size: 15px;
   line-height: 1.8;
@@ -755,7 +1140,7 @@ body {
 }
 
 /* 정보 */
-.project-01 .project-info {
+.bx-design .project-info {
   position: absolute;
   bottom: 40px;
   right: 120px;
@@ -771,25 +1156,25 @@ body {
   text-align: left;
 }
 
-.project-01 .project-info table {
+.bx-design .project-info table {
   border-collapse: collapse;
 }
 
-.project-01 .project-info .category {
+.bx-design .project-info .category {
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 600;
   color: #54483d;
 }
 
-.project-01 .project-info th {
+.bx-design .project-info th {
   text-align: left;
   font-weight: 500;
   padding-right: 20px;
   color: #7a6d6d;
 }
 
-.project-01 .project-info td {
+.bx-design .project-info td {
   color: #2d2d2d;
 }
 
@@ -865,7 +1250,7 @@ body {
   background: #cfcfcf;
 }
 
-#project-01-overview .concept-wrapper::after {
+#bx-design-overview .concept-wrapper::after {
   left: calc(50% + 24px);
 }
 
@@ -885,15 +1270,15 @@ body {
   margin-top: 50px;
 }
 
-#project-01-overview .right-col .block:last-child {
+#bx-design-overview .right-col .block:last-child {
   transform: translateY(24px);
 }
 
-#project-01-overview .right-col .line-horizontal {
+#bx-design-overview .right-col .line-horizontal {
   transform: translate(-22px, 56px);
 }
 
-#project-01-overview .right-col {
+#bx-design-overview .right-col {
   transform: translateX(62px);
 }
 
@@ -940,8 +1325,8 @@ body {
   line-height: 1.8;
 }
 
-/* ------ project 01 - naming ------ */
-#project-01-brand {
+/* ------ BX Design - naming ------ */
+#bx-design-brand {
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
@@ -951,25 +1336,25 @@ body {
 }
 
 /* -- Naming -- */
-#project-01-brand .naming-section {
+#bx-design-brand .naming-section {
   width: 100%;
   padding: 0 0 20px;
   border-bottom: 1px solid #cfcfcf;
   margin: 0 0 28px;
 }
 
-#project-01-brand .naming-section h2 {
+#bx-design-brand .naming-section h2 {
   font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 18px;
 }
 
-#project-01-brand .content-text {
+#bx-design-brand .content-text {
   max-width: 760px;
 }
 
-#project-01-brand .content-text p {
+#bx-design-brand .content-text p {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.8;
@@ -978,7 +1363,7 @@ body {
 }
 
 /* -- Logo Design grid -- */
-#project-01-brand .bottom-grid {
+#bx-design-brand .bottom-grid {
   width: min(100%, 1800px);
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
@@ -988,7 +1373,7 @@ body {
 }
 
 /* -- 가운데 세로선 -- */
-#project-01-brand .bottom-grid::before {
+#bx-design-brand .bottom-grid::before {
   content: "";
   position: absolute;
   left: calc(50% + 4px);
@@ -999,13 +1384,13 @@ body {
 }
 
 /* -- Logo Design -- */
-#project-01-brand .logo-design h2 {
+#bx-design-brand .logo-design h2 {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 14px;
 }
 
-#project-01-brand .logo-design p {
+#bx-design-brand .logo-design p {
   max-width: 480px;
   font-size: 14px;
   line-height: 1.7;
@@ -1015,54 +1400,54 @@ body {
 }
 
 /* -- 로고 이미지 -- */
-#project-01-brand .logo-image-container {
+#bx-design-brand .logo-image-container {
   position: relative;
   width: 380px;
   height: 220px;
   margin-top: 8px;
 }
 
-#project-01-brand .img-grid {
+#bx-design-brand .img-grid {
   margin-left: 15px;
   width: 300px;
 }
 
-#project-01-brand .img-symbol-logo {
+#bx-design-brand .img-symbol-logo {
   position: absolute;
   left: 45px;
   top: 2px;
   width: 55px;
 }
 
-#project-01-brand .img-main-logo {
+#bx-design-brand .img-main-logo {
   position: absolute;
   left: 120px;
   top: 25px;
   width: 170px;
 }
 
-#project-01-brand .img-main-instruction-line {
+#bx-design-brand .img-main-instruction-line {
   position: absolute;
   left: 210px;
   top: 100px;
   width: 40px;
 }
 
-#project-01-brand .img-symbol-instruction-line {
+#bx-design-brand .img-symbol-instruction-line {
   position: absolute;
   left: 75px;
   top: 105px;
   width: 3px;
 }
 
-#project-01-brand .img-symbol {
+#bx-design-brand .img-symbol {
   position: absolute;
   left: 50px;
   top: 190px;
   width: 50px;
 }
 
-#project-01-brand .img-main {
+#bx-design-brand .img-main {
   position: absolute;
   left: 250px;
   top: 165px;
@@ -1070,22 +1455,22 @@ body {
 }
 
 /* -- Logo Font -- */
-#project-01-brand .logo-font {
+#bx-design-brand .logo-font {
   min-width: 0;
   padding-left: 48px;
 }
 
-#project-01-brand .logo-font h2 {
+#bx-design-brand .logo-font h2 {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-#project-01-brand .font-item {
+#bx-design-brand .font-item {
   margin-bottom: 24px;
 }
 
-#project-01-brand .font-item h3 {
+#bx-design-brand .font-item h3 {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
@@ -1093,7 +1478,7 @@ body {
   word-break: keep-all;
 }
 
-#project-01-brand .font-item p {
+#bx-design-brand .font-item p {
   font-size: 14px;
   line-height: 1.7;
   color: #333;
@@ -1101,16 +1486,16 @@ body {
   word-break: keep-all;
 }
 
-#project-01-brand .font-item .desc {
+#bx-design-brand .font-item .desc {
   margin-top: 6px;
 }
 
-#project-01-brand .font-item .desc br {
+#bx-design-brand .font-item .desc br {
   display: none;
 }
 
 /* ------ UI/UX Section ------ */
-#project-01-brand + .preview {
+#bx-design-brand + .preview {
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
@@ -1120,7 +1505,7 @@ body {
   position: relative;
 }
 
-#project-01-brand + .preview .preview-container {
+#bx-design-brand + .preview .preview-container {
   position: relative;
   width: min(1400px, calc(100% - 96px));
   height: 100%;
@@ -1133,7 +1518,7 @@ body {
 }
 
 /* 왼쪽 텍스트 */
-#project-01-brand + .preview .preview-text {
+#bx-design-brand + .preview .preview-text {
   flex: 0 0 440px;
   width: min(440px, 100%);
   margin-left: 64px;
@@ -1149,7 +1534,7 @@ body {
   border-left: 2px solid rgba(97, 85, 72, 0.32);
 }
 
-#project-01-brand + .preview .preview-label {
+#bx-design-brand + .preview .preview-label {
   margin-bottom: 18px;
   font-size: 12px;
   font-weight: 600;
@@ -1158,7 +1543,7 @@ body {
   color: rgba(88, 64, 64, 0.68);
 }
 
-#project-01-brand + .preview h2 {
+#bx-design-brand + .preview h2 {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -1167,7 +1552,7 @@ body {
   margin-bottom: 14px;
 }
 
-#project-01-brand + .preview .preview-heading {
+#bx-design-brand + .preview .preview-heading {
   margin-bottom: 28px;
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(30px, 3.2vw, 42px);
@@ -1177,7 +1562,7 @@ body {
   color: #4f4337;
 }
 
-#project-01-brand + .preview .description {
+#bx-design-brand + .preview .description {
   font-size: 16px;
   line-height: 1.95;
   color: #353131;
@@ -1186,7 +1571,7 @@ body {
 }
 
 /* 브라우저 링크 */
-#project-01-brand + .preview .browser-title {
+#bx-design-brand + .preview .browser-title {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -1196,7 +1581,7 @@ body {
   margin-top: 0;
 }
 
-#project-01-brand + .preview .browser-link {
+#bx-design-brand + .preview .browser-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -1210,7 +1595,7 @@ body {
 }
 
 /* 오른쪽 목업 */
-#project-01-brand + .preview .preview-image {
+#bx-design-brand + .preview .preview-image {
   flex: 0 0 1100px;
   width: 1100px;
   min-width: 1100px;
@@ -1222,7 +1607,7 @@ body {
   z-index: 1;
 }
 
-#project-01-brand + .preview .preview-image img {
+#bx-design-brand + .preview .preview-image img {
   position: relative;
   top: 60px;
   bottom: auto;
@@ -1238,149 +1623,244 @@ body {
   filter: none;
 }
 
-/* -- Project 02 -- */
-/* ------ cover ------ */
-#project-02 {
+/* -- Product Design -- */
+#Product-Design {
   position: relative;
+  min-height: calc(100dvh - 75px);
+  scroll-margin-top: 75px;
 }
-/* 전체 */
-.project2-top {
+
+.product-design {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
   background: #ffffff;
   overflow: hidden;
-  padding: 80px 120px;
+  padding: 84px 120px 48px;
   box-sizing: border-box;
-  overflow: hidden;
+  color: #111111;
 }
 
-/* 상단 테스트 */
-.project2-top-left {
+.product-design::before {
+  content: "";
   position: absolute;
-  top: 40px;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
+  background-size: 84px 84px;
+  mask-image: linear-gradient(90deg, #000 0%, transparent 80%);
+}
+
+.product-design::after {
+  content: "THERONE";
+  position: absolute;
+  left: 7vw;
+  bottom: 8vh;
+  color: rgba(17, 17, 17, 0.035);
+  font-size: clamp(78px, 13vw, 190px);
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  pointer-events: none;
+}
+
+.product-design-top-left {
+  position: absolute;
+  top: 36px;
   left: 120px;
-  font-size: 18px;
-  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.72);
   z-index: 30;
 }
 
-.project2-top-right {
+.product-design-top-right {
   position: absolute;
-  top: 40px;
+  top: 36px;
   right: 120px;
-  font-size: 18px;
-  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.62);
   z-index: 30;
 }
 
-/* 메인 타이틀 */
-.project2-left {
+.product-design-left {
   position: absolute;
-  top: 240px;
-  left: 160px;
+  top: 42%;
+  left: 120px;
+  width: min(470px, 38vw);
+  transform: translateY(-50%);
   z-index: 30;
 }
 
-/* 제목 */
-.project2-title {
-  font-family: "LINE Seed Sans", serif;
-  font-size: 35px;
+.product-design-kicker,
+.section-kicker {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.product-design-kicker {
+  color: #666666;
+}
+
+.section-kicker {
+  color: #777777;
+}
+
+.product-design-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(48px, 6.6vw, 88px);
   font-weight: 500;
-  letter-spacing: -2px;
-  margin-bottom: 15px;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+  margin: 0 0 22px;
+  color: #111111;
 }
 
-/* 서브 타이틀 */
-.project2-subtitle {
+.product-design-subtitle {
   font-family: "Avenir Next", sans-serif;
-  font-size: 20px;
-  font-weight: 290;
-  letter-spacing: -1px;
-  margin-left: 10px;
-  color: #777;
+  font-size: clamp(17px, 1.7vw, 23px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: #444444;
 }
 
-/* 하단 정보 */
-.project2-meta {
+.product-design-summary {
+  width: min(100%, 420px);
+  margin: 22px 0 0;
+  font-size: 15px;
+  line-height: 1.8;
+  word-break: keep-all;
+  color: #666666;
+}
+
+.product-design-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.product-design-tags span {
+  padding: 8px 13px;
+  border: 1px solid rgba(17, 17, 17, 0.16);
+  border-radius: 999px;
+  background: #f6f6f6;
+  color: #444444;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.product-design-meta {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 120px 30px;
+  left: 120px;
+  bottom: 46px;
+  width: min(390px, calc(100% - 240px));
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  z-index: 20;
+  gap: 12px;
+  z-index: 32;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
 }
 
-/* 정보 줄 */
-.project2-meta .row {
+.product-design-meta .row {
   display: flex;
-  gap: 30px;
-  font-size: 15px;
+  gap: 18px;
+  font-size: 14px;
   line-height: 1.4;
-  color: #333;
+  color: #333333;
   z-index: 50;
 }
 
-.project2-meta dt {
-  width: 75px;
+.product-design-meta dt {
+  width: 76px;
   font-weight: 500;
+  color: #777777;
 }
 
-.project2-meta dd {
+.product-design-meta dd {
   margin: 0;
-  color: #555;
+  color: #222222;
 }
 
-/* 오른쪽 제품 이미지 */
-.project2-right {
+.product-design-right {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 65%;
+  right: -4vw;
+  bottom: -7vh;
+  width: min(68vw, 980px);
   display: flex;
   justify-content: flex-end;
-  z-index: 1;
+  z-index: 5;
 }
 
-.project2-product .pot-img {
-  width: auto !important;
-  height: 78vh !important;
+.product-design-product {
+  position: relative;
+}
+
+.product-design-product::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  width: 64%;
+  height: 16%;
+  transform: translateX(-45%);
+  border-radius: 50%;
+  background: rgba(27, 27, 27, 0.26);
+  filter: blur(22px);
+  z-index: -1;
+}
+
+.product-design-product .pot-img {
+  width: auto;
+  height: min(91vh, 820px);
   max-width: none !important;
   display: block;
-  transform: scale(1.25);
+  transform: scale(1.2);
   transform-origin: 100% 100%;
+  filter: drop-shadow(0 36px 54px rgba(0, 0, 0, 0.22));
 }
 
-/* ------  selected ------ */
-/* 전체 */
+/* ------ Product Design : selected ------ */
 .selected {
   width: 100%;
   min-height: calc(100dvh - 75px);
-  background: #f7f5f2;
+  background: #ffffff;
   display: grid;
   grid-template-columns: 1.1fr 1px 0.9fr;
-  column-gap: 72px;
-  padding: 88px 120px;
+  column-gap: 76px;
+  padding: 96px 120px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-/* 왼쪽 */
 .selected-left {
   padding-right: 8px;
 }
 
-/* 제목 */
 .selected-left h2,
 .selected-right h2 {
   font-size: 20px;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 42px;
-  color: #121212;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  color: #171716;
 }
 
 .selected-left .block h3:not(.small-title) {
@@ -1397,7 +1877,6 @@ body {
   color: #121212;
 }
 
-/* 라벨 */
 .selected .label {
   font-size: 13px;
   margin-bottom: 14px;
@@ -1407,37 +1886,32 @@ body {
   color: #646866;
 }
 
-/* 설명 글 */
 .selected .desc {
   font-size: 15px;
   line-height: 1.95;
-  color: #2f3130;
+  color: #34312c;
   word-break: keep-all;
 }
 
-/* 가운데 세로 선 */
 .selected .vertical-line {
   width: 1px;
-  background: rgba(19, 19, 19, 0.14);
   height: 100%;
+  background: rgba(19, 19, 19, 0.14);
 }
 
-/* 중간 가로 선 */
 .selected .horizontal-line {
   width: 100%;
   height: 1px;
-  background: rgba(19, 19, 19, 0.14);
   margin: 48px 0;
+  background: rgba(19, 19, 19, 0.14);
   transform: translateX(-12px);
 }
 
-/* 오른쪽 */
 .selected-right {
-  padding-left: 8px;
   position: relative;
+  padding-left: 8px;
 }
 
-/* 다이어그램 전체 */
 .selected .diagram-container {
   position: relative;
   width: min(100%, 330px);
@@ -1445,22 +1919,23 @@ body {
   margin: 56px auto 0;
 }
 
-/* 원 스타일 */
 .selected .sp-circle {
+  position: absolute;
   width: 150px;
   height: 150px;
-  border: 1px solid #333;
+  border: 1px solid rgba(47, 44, 39, 0.42);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(7px);
   font-size: 14px;
-  font-weight: 400;
-  position: absolute;
-  background: transparent;
+  font-weight: 600;
+  color: #26231f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-/* 원 위치 */
 .selected .sp-circle.top {
   top: 50px;
   left: 90px;
@@ -1472,18 +1947,17 @@ body {
 }
 
 .selected .sp-circle.right {
-  bottom: 10px;
   right: 22px;
+  bottom: 10px;
 }
 
-/* 설명 테스트 */
 .selected .annotation {
   position: absolute;
+  width: 170px;
   font-size: 12px;
   line-height: 1.7;
-  color: #454847;
+  color: #4b463f;
   text-align: center;
-  width: 170px;
 }
 
 .selected .note-top {
@@ -1497,50 +1971,44 @@ body {
 }
 
 .selected .note-right {
-  bottom: -120px;
   right: -24px;
+  bottom: -120px;
 }
 
-/* 지시선 공통 */
 .selected .diagram-container img {
   position: absolute;
   pointer-events: none;
 }
 
-/* 다기능 지시선 */
 .img-multifunction-instruction-line {
-  top: 0px;
+  top: 0;
   left: 175px;
   width: 34px;
 }
 
-/* AI 지시선 */
 .img-ai-instruction-line {
   bottom: -45px;
   left: 55px;
   width: 22px;
 }
 
-/* 편리성 지시선 */
 .img-convenience-instruction-line {
-  bottom: -50px;
   right: 80px;
+  bottom: -50px;
   width: 24px;
 }
 
-/* ------  design objective ------ */
-/* 전체 섹션 */
+/* ------ Product Design : design objective ------ */
 .design-section {
-  background: #f3f3f3;
   min-height: calc(100dvh - 75px);
-  height: calc(100dvh - 75px);
-  padding: 88px 110px;
+  padding: 96px 110px;
+  overflow: hidden;
+  background: #ffffff;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  overflow: hidden;
+  color: #111111;
 }
 
-/* 전체 레이아웃 */
 .design-wrapper {
   width: 100%;
   display: grid;
@@ -1548,89 +2016,80 @@ body {
   column-gap: 72px;
 }
 
-/* 가운데 세로선 */
 .design-section .vertical-line {
   width: 1px;
-  background: rgba(19, 19, 19, 0.14);
   height: 80%;
-}
-
-.design-section .vertical-line {
+  background: rgba(17, 17, 17, 0.12);
   transform: translateX(18px);
 }
 
-/* 왼쪽 / 오른쪽 공통 */
 .design-left,
 .design-right {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  min-width: 0;
 }
 
 .design-right {
   transform: translateY(-20px);
 }
 
-.design-section .ux-desc {
-  white-space: normal;
-}
-
-/* 블록 간격 */
 .design-section .block {
   margin-bottom: 32px;
 }
 
-/* 제목 */
 .design-section .block h2 {
+  margin-bottom: 24px;
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 24px;
-  color: #121212;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  color: #111111;
 }
 
-/* 체크 리스트 */
 .design-section .check-list {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .design-section .check-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 22px;
   font-size: 15px;
   line-height: 1.8;
-  margin-bottom: 10px;
-  position: relative;
-  padding-left: 22px;
-  color: #2f3130;
+  color: #444444;
 }
 
 .design-section .check-list li::before {
-  content: "✓";
+  content: "";
   position: absolute;
+  top: 12px;
   left: 0;
-  top: 0;
-  font-weight: 600;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #555555;
 }
 
-/* 설명 텍스트 */
 .design-section .block p {
   font-size: 15px;
   line-height: 1.9;
-  color: #2f3130;
+  color: #555555;
   word-break: keep-all;
 }
 
-/* UX 설명 */
 .design-section .ux-desc {
   margin-bottom: 20px;
+  white-space: normal;
 }
 
-/* 가운데 가로선 */
 .design-section .line-horizontal {
   width: 100%;
   height: 1px;
-  background: rgba(19, 19, 19, 0.14);
   margin: 24px 0;
+  background: rgba(17, 17, 17, 0.12);
 }
 
 .design-section .design-right .line-horizontal {
@@ -1643,43 +2102,39 @@ body {
   margin-bottom: 34px;
 }
 
-/* 컬러 영역 */
 .design-section .color-block {
   margin-top: 20px;
 }
 
-/* 컬러 원 영역 */
 .design-section .color-wrap {
   display: flex;
-  gap: 30px;
-  margin-top: 30px;
-  align-items: center;
-  margin-left: 50px;
   flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 50px;
 }
 
-/* 컬러 개별 */
 .design-section .color-item {
   text-align: center;
 }
 
-/* 컬러 원 */
 .design-section .color-circle {
   width: 88px;
   height: 88px;
-  border-radius: 50%;
   margin-bottom: 14px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(17, 17, 17, 0.08),
+    0 14px 34px rgba(0, 0, 0, 0.08);
 }
 
-/* 컬러 값 */
 .design-section .color-item p {
   font-size: 13px;
   letter-spacing: 0.08em;
-  color: #555;
+  color: #666666;
 }
 
-/* 컬러 */
 .design-section .black {
   background: #111212;
 }
@@ -1693,111 +2148,285 @@ body {
   border: 1px solid #ddd;
 }
 
-/* ------  detail ------ */
+/* ------ Product Design : detail ------ */
 .detail-gallery-section {
+  position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
-  height: calc(100dvh - 75px);
-  background: #f8f6f3;
-  padding: 90px 120px;
+  padding: 102px 120px 86px;
+  background: #ffffff;
   box-sizing: border-box;
 }
 
-/* 전체 레이아웃 */
+.product-section-heading {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+}
+
+.product-section-heading h2,
+.product-scene-caption h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  color: #171716;
+}
+
 .detail-gallery-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   column-gap: 64px;
   align-items: center;
-  height: 100%;
 }
 
-/* 왼쪽 큰 이미지 */
 .detail-left {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(-50px);
+  min-height: 560px;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.44);
+  box-shadow: 0 28px 70px rgba(40, 35, 27, 0.1);
 }
 
 .detail-main-img {
-  width: min(100%, 720px);
+  width: min(92%, 680px);
   height: auto;
   object-fit: contain;
-  transform: none;
 }
 
-/* 오른쪽 영역 */
 .detail-right {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  transform: translateY(-50px);
 }
 
-/* 오른쪽 위 이미지 */
-.detail-top {
+.detail-top,
+.detail-bottom {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 24px 60px rgba(40, 35, 27, 0.08);
 }
 
 .detail-top img {
   width: min(100%, 400px);
   height: auto;
-  margin-left: 0;
-  margin-top: 0;
-}
-
-/* 오른쪽 아래 이미지 */
-.detail-bottom {
-  display: flex;
-  justify-content: flex-start;
 }
 
 .detail-bottom img {
   width: min(100%, 360px);
   height: auto;
-  margin-top: 0;
-  margin-left: 80px;
 }
 
-/* ------  Mock Up ------ */
+/* ------ Product Design : mock up ------ */
 .product-scene-section {
+  position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
-  background: #ece9e4;
-  padding: 32px 0 0;
   margin: 0;
+  padding: 0;
   overflow: hidden;
-  display: flex;
-  align-items: center;
+  background: #ffffff;
+}
+
+.product-scene-caption {
+  position: absolute;
+  top: 62px;
+  left: 120px;
+  z-index: 3;
+  padding: 18px 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
 }
 
 .product-scene-wrap {
   width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .scene-image {
-  width: auto;
-  max-width: 112%;
-  height: auto;
-  max-height: calc(100dvh - 40px);
+  width: 100%;
+  height: 100%;
   display: block;
-  object-fit: contain;
-  transform: translateY(-24px) scale(1.18);
-  transform-origin: center center;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* -- Project 03 -- */
-/* ------ cover ------ */
-.project03 {
+@media (max-width: 1100px) {
+  .product-design,
+  .selected,
+  .design-section,
+  .detail-gallery-section {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .product-design-top-left,
+  .product-design-left,
+  .product-design-meta,
+  .product-scene-caption {
+    left: 48px;
+  }
+
+  .product-design-top-right {
+    right: 48px;
+  }
+
+  .product-design-left {
+    width: min(480px, 52vw);
+  }
+
+  .product-design-right {
+    right: -2vw;
+    width: 70vw;
+  }
+
+  .selected,
+  .design-wrapper,
+  .detail-gallery-wrap {
+    column-gap: 42px;
+  }
+}
+
+@media (max-width: 900px) {
+  .product-design {
+    min-height: auto;
+    padding: 72px 24px 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background: #ffffff;
+  }
+
+  .product-design-top-left,
+  .product-design-top-right {
+    position: static;
+    color: rgba(17, 17, 17, 0.72);
+  }
+
+  .product-design-top-right {
+    margin-top: -28px;
+    align-self: flex-end;
+  }
+
+  .product-design-left,
+  .product-design-meta,
+  .product-design-right {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    width: 100%;
+    transform: none;
+  }
+
+  .product-design-title {
+    font-size: clamp(46px, 15vw, 74px);
+  }
+
+  .product-design-meta {
+    max-width: 100%;
+  }
+
+  .product-design-right {
+    justify-content: center;
+    order: 3;
+  }
+
+  .product-design-product .pot-img {
+    width: min(94vw, 520px) !important;
+    height: auto;
+    transform: none;
+  }
+
+  .selected,
+  .design-wrapper,
+  .detail-gallery-wrap {
+    display: block;
+  }
+
+  .selected,
+  .design-section,
+  .detail-gallery-section {
+    min-height: auto;
+    padding: 72px 24px;
+  }
+
+  .selected .vertical-line,
+  .design-section .vertical-line {
+    display: none;
+  }
+
+  .selected-left,
+  .selected-right,
+  .design-left,
+  .design-right {
+    padding: 0;
+    transform: none;
+  }
+
+  .selected-left {
+    margin-bottom: 64px;
+  }
+
+  .selected .diagram-container {
+    margin-bottom: 140px;
+  }
+
+  .design-right {
+    margin-top: 54px;
+  }
+
+  .design-section .color-wrap {
+    margin-left: 0;
+  }
+
+  .detail-left {
+    min-height: auto;
+    padding: 28px 14px;
+    margin-bottom: 24px;
+  }
+
+  .detail-top,
+  .detail-bottom {
+    min-height: auto;
+    padding: 28px 18px;
+  }
+
+  .product-scene-section {
+    min-height: calc(100dvh - 75px);
+    height: calc(100dvh - 75px);
+  }
+
+  .product-scene-caption {
+    top: 32px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .scene-image {
+    width: 100%;
+    height: 100%;
+    transform: none;
+  }
+}
+
+/* -- Product Design 02 -- */
+#Product-Design-02 {
+  scroll-margin-top: 75px;
+}
+
+.product-design-02 {
   width: 100%;
   min-height: calc(100dvh - 75px);
   position: relative;
@@ -1806,23 +2435,18 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* 배경 선 이미지 */
-.project03::before {
+.product-design-02::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("./portfolio/assets/가습기\ 표지.png");
+  inset: 0;
+  background-image: url("./assets/가습기 표지.png");
   background-size: cover;
   background-position: center;
   opacity: 0.35;
   pointer-events: none;
 }
 
-/* 상단 텍스트 */
-.project03-top-left {
+.product-design-02-top-left {
   position: absolute;
   top: 40px;
   left: 120px;
@@ -1830,7 +2454,7 @@ body {
   color: #cfd6df;
 }
 
-.project03-top-right {
+.product-design-02-top-right {
   position: absolute;
   top: 40px;
   right: 120px;
@@ -1838,48 +2462,45 @@ body {
   color: #cfd6df;
 }
 
-/* 제목 영역 */
-.project03-title-area {
-  font-family: "LINE Seed Sans", sans-serif;
+.product-design-02-title-area {
   position: absolute;
   top: 140px;
   left: 160px;
+  font-family: "LINE Seed Sans", sans-serif;
 }
 
-.project03-title {
+.product-design-02-title {
+  margin-bottom: 10px;
   font-size: 40px;
   font-weight: 600;
-  color: white;
-  margin-bottom: 10px;
+  color: #fff;
 }
 
-.project03-subtitle {
+.product-design-02-subtitle {
   font-size: 20px;
   color: #cfd6df;
 }
 
-/* 가운데 로고 */
-.project03-logo {
+.product-design-02-logo {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.project03-logo img {
+.product-design-02-logo img {
   width: 160px;
   height: auto;
 }
 
-/* 하단 프로젝트 정보 */
-.project03-info {
+.product-design-02-info {
   position: absolute;
   bottom: 30px;
   left: 120px;
   color: #d5dce5;
 }
 
-.project03-info .info-row {
+.product-design-02-info .info-row {
   display: flex;
   gap: 30px;
   margin-bottom: 10px;
@@ -1887,170 +2508,155 @@ body {
   line-height: 1.4;
 }
 
-.info-label {
+.product-design-02-info .info-label {
   width: 80px;
 }
 
-.info-value {
+.product-design-02-info .info-value {
   color: #e5ebf2;
 }
 
-/* ----- overview ------ */
-/* 전체 영역 */
-.project03-overview {
+.product-design-02-overview {
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
+  padding: 36px 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: #7ea1ba;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  padding: 36px 0;
-  overflow: hidden;
 }
 
-.project03-overview .overview-section {
+.product-design-02-overview .overview-section {
   width: 100%;
   max-width: none;
-  padding-top: 0;
   margin-left: 110px;
+  padding-top: 0;
 }
 
-.project03-overview .overview-title {
+.product-design-02-overview .overview-title {
+  margin: 0 0 40px;
   font-size: 20px;
   font-weight: 600;
-  margin: 0 0 40px 0;
   line-height: 1;
   color: #131313;
 }
 
-.project03-overview .overview-text {
+.product-design-02-overview .overview-text {
+  margin: 0;
   font-size: 15px;
   line-height: 1.95;
   color: #333;
-  margin: 0;
 }
 
-/* 가로선 */
-.project03-overview .horizontal-line {
-  width: calc(100% - 110px - 110px);
+.product-design-02-overview .horizontal-line {
+  width: calc(100% - 220px);
   height: 0;
-  border-top: 1px solid rgba(34, 34, 34, 0.8);
   flex: 0 0 auto;
   margin: 40px 0 0 110px;
+  border-top: 1px solid rgba(34, 34, 34, 0.8);
 }
 
-/* bottom layout */
-.project03-overview .overview-bottom {
+.product-design-02-overview .overview-bottom {
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   column-gap: 92px;
   align-items: start;
-  margin-top: 28px;
-  margin-left: 110px;
-  margin-right: 110px;
+  margin: 28px 110px 0;
 }
 
-/*  Selected Products */
-.project03-overview .selected-products {
+.product-design-02-overview .selected-products {
   min-width: 0;
 }
 
-.project03-overview .selected-products h2 {
-  font-size: 20px;
+.product-design-02-overview .selected-products h2 {
   margin-bottom: 18px;
+  font-size: 20px;
 }
 
-.project03-overview .selected-products h3 {
-  font-size: 15px;
+.product-design-02-overview .selected-products h3 {
   margin-bottom: 12px;
+  font-size: 15px;
 }
 
-.project03-overview .selected-products p {
-  font-size: 14px;
-  line-height: 1.6;
+.product-design-02-overview .selected-products p,
+.product-design-02-overview .selected-products li {
   margin-bottom: 10px;
-}
-
-.project03-overview .selected-products li {
   font-size: 14px;
   line-height: 1.6;
-  margin-bottom: 8px;
 }
 
-.project03-overview .section-title {
+.product-design-02-overview .section-title {
+  margin: 0 0 52px;
   font-size: 20px;
   font-weight: 600;
   line-height: 1;
-  margin: 0 0 52px 0;
   color: #131313;
 }
 
-.project03-overview .product-name {
+.product-design-02-overview .product-name {
+  margin: 0 0 34px;
   font-size: 20px;
   font-weight: 500;
-  margin: 0 0 34px 0;
   color: #131313;
 }
 
-.project03-overview .reason-title {
+.product-design-02-overview .reason-title {
+  margin: 0 0 28px;
   font-size: 15px;
   font-weight: 500;
-  margin: 0 0 28px 0;
   color: #222;
 }
 
-.project03-overview .reason-block {
-  margin: 0 0 30px 0;
+.product-design-02-overview .reason-block {
+  margin: 0 0 30px;
 }
 
-.project03-overview .reason-number {
+.product-design-02-overview .reason-number {
+  margin: 0 0 6px;
   font-size: 15px;
   font-weight: 600;
   line-height: 1.8;
-  margin: 0 0 6px 0;
   color: #222;
 }
 
-.project03-overview .reason-text {
+.product-design-02-overview .reason-text {
+  max-width: 560px;
+  margin: 0;
   font-size: 15px;
   line-height: 1.85;
   color: #333;
-  margin: 0;
-  max-width: 560px;
   word-break: keep-all;
 }
 
-/* ---------- 세로선 ---------- */
-.project03-overview .vertical-line {
+.product-design-02-overview .vertical-line {
   width: 1px;
-  background: rgba(0, 0, 0, 0.3);
   height: 100%;
-  opacity: 0.5;
   margin-left: 52px;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.5;
 }
 
-/* ---------- Keyword ---------- */
-.project03-overview .keyword-section {
+.product-design-02-overview .keyword-section {
   position: relative;
   padding-left: 80px;
 }
 
-.project03-overview .keyword-section .section-title {
+.product-design-02-overview .keyword-section .section-title {
   transform: translateX(-34px);
 }
 
-.project03-overview .keyword-diagram {
+.product-design-02-overview .keyword-diagram {
   position: relative;
   width: 400px;
   height: 320px;
   margin-top: 40px;
 }
 
-/* 원 공통 */
-.project03-overview .circle {
+.product-design-02-overview .circle {
   position: absolute;
   width: 150px;
   height: 150px;
@@ -2059,42 +2665,40 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 15px;
   color: #2d3742;
+  font-size: 15px;
   line-height: 1;
+  text-align: center;
 }
 
-/* 원 위치 */
-.project03-overview .circle-top {
-  top: 0px;
+.product-design-02-overview .circle-top {
+  top: 0;
   left: 100px;
 }
 
-.project03-overview .circle-left {
+.product-design-02-overview .circle-left {
   bottom: 60px;
   left: 40px;
 }
 
-.project03-overview .circle-right {
-  bottom: 60px;
+.product-design-02-overview .circle-right {
   right: 90px;
+  bottom: 60px;
 }
 
-/* -- Project 03 naming -- */
-/* 전체 */
-.p03-branding-light {
+/* -- Product Design 02 : naming -- */
+.product-design-02-branding-light {
   width: 100%;
   min-height: calc(100dvh - 75px);
-  background: #bbd1e2;
-  padding: 40px 0 40px;
+  padding: 40px 0;
   position: relative;
+  background: #bbd1e2;
   font-family: "Poppins", sans-serif;
 }
 
-.p03-branding-wrap {
+.product-design-02-branding-wrap {
   width: 1280px;
-  margin-left: 120px; /* ← 오른쪽 이동 */
+  margin-left: 120px;
   margin-right: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2102,146 +2706,140 @@ body {
   position: relative;
 }
 
-/* 가운데 세로선 */
-.p03-vline {
+.product-design-02-vline {
   position: absolute;
-  left: calc(50% + 40px);
   top: 60px;
+  left: calc(50% + 40px);
   width: 1px;
   height: 600px;
-  opacity: 0.5;
   background: rgba(0, 0, 0, 0.3);
+  opacity: 0.5;
 }
 
-.p03-col {
+.product-design-02-col {
   position: relative;
 }
 
-.p03-col-left {
+.product-design-02-col-left {
   padding-right: 42px;
 }
 
-.p03-col-right {
+.product-design-02-col-right {
   padding-left: 42px;
 }
 
-.p03-block {
+.product-design-02-block {
   width: 100%;
 }
 
-.p03-title {
+.product-design-02-section-title {
+  margin-bottom: 34px;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 34px;
   color: #171717;
 }
 
-.p03-desc {
+.product-design-02-desc {
+  margin: 0;
   font-size: 15px;
   line-height: 1.95;
   color: #333;
-  margin: 0;
 }
 
-.p03-subtitle {
+.product-design-02-subtitle-text {
+  margin-top: 34px;
+  margin-bottom: 18px;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.4;
-  margin-top: 34px;
-  margin-bottom: 18px;
   color: #222;
 }
 
-.p03-label {
+.product-design-02-label {
+  margin-bottom: 12px;
   font-size: 15px;
   color: #222;
-  margin-bottom: 12px;
 }
 
-.p03-bold {
-  font-weight: 700;
-}
-
-/* 가로 선 */
-.p03-hr {
+.product-design-02-hr {
   width: 100%;
   height: 1px;
+  margin: 30px 0;
   background: rgba(0, 0, 0, 0.3);
   opacity: 0.5;
-  margin: 30px 0 30px;
 }
 
-.p03-hr-right {
+.product-design-02-hr-right {
   margin: -105px 0 44px;
 }
 
-.p03-logo-area {
+.product-design-02-logo-area {
   position: relative;
   width: 390px;
   height: 300px;
   margin-top: 28px;
 }
 
-.p03-logo-grid {
+.product-design-02-logo-grid {
   width: 180px;
   display: block;
   margin-left: 10px;
 }
 
-.p03-logo-blue {
+.product-design-02-logo-blue {
   position: absolute;
-  left: 55px;
   top: 8px;
+  left: 55px;
   width: 100px;
 }
 
-.p03-logo-symbol-instruction-line {
+.product-design-02-logo-symbol-instruction-line {
   position: absolute;
-  left: 200px;
   top: 60px;
+  left: 200px;
   width: 100px;
 }
 
-.p03-logo-main-instruction-line {
+.product-design-02-logo-main-instruction-line {
   position: absolute;
-  left: 150px;
   top: 140px;
+  left: 150px;
   width: 120px;
 }
 
 .main-logo-font {
   position: absolute;
-  left: 285px;
   top: 150px;
+  left: 285px;
   width: 40px;
 }
 
 .symbol-logo-font {
   position: absolute;
-  left: 310px;
   top: 58px;
+  left: 310px;
   width: 40px;
 }
 
-.p03-available {
+.product-design-02-available {
   margin-top: 0;
 }
 
-.p03-available-title {
+.product-design-02-available-title {
+  margin-bottom: 28px;
   font-size: 22px;
   font-weight: 600;
   line-height: 1.2;
-  margin-bottom: 28px;
   color: #171717;
 }
 
-.p03-color-grid {
+.product-design-02-color-grid {
   display: flex;
   gap: 24px;
 }
 
-.p03-color-card {
+.product-design-02-color-card {
   width: 130px;
   height: 130px;
   display: flex;
@@ -2249,127 +2847,120 @@ body {
   justify-content: center;
 }
 
-.p03-color-card img {
+.product-design-02-color-card img {
   width: 90px;
   height: auto;
   display: block;
 }
 
-.p03-color-card.navy {
+.product-design-02-color-card.navy {
   background: #0b3c63;
 }
 
-.p03-color-card.light {
+.product-design-02-color-card.light {
   background: #f4f4f2;
 }
 
-/* -- Project 03 detail -- */
-.p03-detail-section {
+/* -- Product Design 02 : detail -- */
+.product-design-02-detail-section {
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
-  background: linear-gradient(180deg, #e8edf1 0%, #dfe5ea 100%);
   position: relative;
   overflow: hidden;
+  background: linear-gradient(180deg, #e8edf1 0%, #dfe5ea 100%);
 }
 
-.p03-detail-wrap {
+.product-design-02-detail-wrap {
   position: relative;
   width: 100%;
   height: 100%;
   min-height: calc(100dvh - 75px);
 }
 
-.p03-detail-wrap img {
-  display: block;
+.product-design-02-detail-wrap img {
   height: auto;
+  display: block;
 }
 
-/* 왼쪽 메인 가습기 */
-.p03-main {
+.product-design-02-main {
   position: absolute;
   left: 280px;
   bottom: 170px;
   z-index: 2;
 }
 
-.p03-main img {
+.product-design-02-main img {
   width: 430px;
 }
 
-/* 오른쪽 위 컷 */
-.p03-top-cut {
+.product-design-02-top-cut {
   position: absolute;
-  right: 280px;
   top: 50px;
+  right: 280px;
   z-index: 2;
 }
 
-.p03-top-cut img {
+.product-design-02-top-cut img {
   width: 320px;
 }
 
-/* 오른쪽 아래 컷 */
-.p03-bottom-cut {
+.product-design-02-bottom-cut {
   position: absolute;
   right: 310px;
   bottom: -10px;
   z-index: 2;
 }
 
-.p03-bottom-cut img {
+.product-design-02-bottom-cut img {
   width: 320px;
 }
 
-/* -- Project 03 Mock Up -- */
-.p03-hero-section {
+/* -- Product Design 02 : mock up -- */
+.product-design-02-hero-section {
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
+  position: relative;
   overflow: hidden;
-  position: relative;
 }
 
-.p03-hero-wrap {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.p03-hero-img {
+.product-design-02-hero-img {
   width: 100%;
   height: 100%;
 }
 
-.p03-hero-img img {
+.product-design-02-hero-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
 }
 
-/* -- Project 04 -- */
-/* ------ cover ------ */
-.project04-hero {
+/* -- Space Design -- */
+#Space-Design {
+  scroll-margin-top: 75px;
+}
+
+.space-design-hero {
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
+  position: relative;
+  overflow: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-  color: white;
+  color: #fff;
 }
 
-/* 배경 이미지 */
-.project4-cover {
+.space-design-cover {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.project4-img {
+.space-design-img {
   width: 100%;
   height: 100%;
 }
@@ -2377,102 +2968,92 @@ body {
 .Background-img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
-  pointer-events: none; /* 클릭 방지 */
+  pointer-events: none;
 }
 
-.project04-overlay {
+.space-design-overlay {
   width: 100%;
   height: 100%;
   position: relative;
   z-index: 10;
 }
 
-/* 왼쪽 위 project04 */
-.p04-top-left {
+.space-design-top-left {
   position: absolute;
   top: 40px;
   left: 140px;
+  z-index: 10;
   font-size: 18px;
   font-weight: 500;
-  z-index: 10;
 }
 
-/* 오른쪽 위 Space Design */
-.p04-top-right {
+.space-design-top-right {
   position: absolute;
   top: 40px;
   right: 140px;
+  z-index: 10;
   font-size: 18px;
-  z-index: 10;
 }
 
-/* 가운데 왼쪽 제목 */
-.p04-title {
+.space-design-title {
   position: absolute;
-  left: 140px;
   top: 30%;
-  transform: translateY(-50%);
+  left: 140px;
   z-index: 10;
+  transform: translateY(-50%);
 }
 
-.p04-title h1 {
+.space-design-title h1 {
+  margin-bottom: 12px;
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 12px;
-  z-index: 10;
 }
 
-.p04-title p {
+.space-design-title p {
   font-size: 20px;
   font-weight: 300;
   opacity: 0.9;
-  z-index: 10;
 }
 
-/* 오른쪽 아래 프로젝트 정보 */
-.p04-info {
+.space-design-info {
   position: absolute;
   right: 140px;
   bottom: 20px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  z-index: 10;
 }
 
-.p04-info .info-row {
+.space-design-info .info-row {
   display: flex;
   gap: 30px;
+  margin-bottom: 10px;
   font-size: 15px;
   line-height: 1.4;
-  margin-bottom: 10px;
-  z-index: 10;
 }
 
-.p04-info .label {
+.space-design-info .label {
   width: 90px;
   opacity: 0.8;
-  z-index: 10;
 }
 
-.p04-info .value {
+.space-design-info .value {
   opacity: 0.9;
-  z-index: 10;
 }
 
-/* ----- overview ------ */
-/* 전체 섹션 */
-.p04-concept {
+.space-design-concept {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   padding: 60px 0;
-  background: #7f8d6a; /* 올리브 배경 */
+  overflow: hidden;
+  background: #7f8d6a;
   color: #eaece5;
 }
 
-/* 전체 레이아웃 */
-.p04-concept-wrap {
+.space-design-concept-wrap {
   width: 1280px;
   margin: 0 auto;
   display: grid;
@@ -2481,81 +3062,81 @@ body {
   position: relative;
 }
 
-/* 가운데 세로선 */
-.p04-vline {
+.space-design-vline {
   width: 1px;
-  left: 20%;
   background: rgba(255, 255, 255, 0.25);
   transform: translateX(20px);
 }
 
-/* 왼쪽 영역 */
-.p04-left {
+.space-design-left {
   display: flex;
   flex-direction: column;
   gap: 60px;
   margin-left: 40px;
 }
 
-/* 제목 */
-.p04-left h2,
-.p04-right h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
+.space-design-story,
+.space-design-design {
+  width: 100%;
 }
 
-/* 본문 텍스트 */
-.p04-left p {
+.space-design-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.space-design-left h2,
+.space-design-right h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.space-design-left p {
   font-size: 15px;
   line-height: 1.8;
   opacity: 0.9;
 }
 
-/* 가로 구분선 */
-.p04-line {
+.space-design-line {
   width: 100%;
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* 리스트 */
-.p04-design ul {
+.space-design-design ul {
   margin-top: 20px;
   padding-left: 18px;
 }
 
-.p04-design li {
+.space-design-design li {
+  position: relative;
+  list-style: none;
   font-size: 16px;
   line-height: 2;
-  list-style: none;
-  position: relative;
 }
 
-.p04-design li::before {
+.space-design-design li::before {
   content: "✓";
   position: absolute;
   left: -18px;
 }
 
-/* 오른쪽 영역 */
-.p04-right {
-  position: relative;
-}
-
-.p04-diagram-container {
+.space-design-diagram-container {
   position: relative;
   width: 420px;
   height: 420px;
 }
 
-.p04-diagram-container img {
+.space-design-diagram-container img {
   position: absolute;
   pointer-events: none;
 }
 
-/* 원 공통 */
-.p04-circle {
+.space-design-circle {
+  position: absolute;
   width: 170px;
   height: 170px;
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -2563,173 +3144,142 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: absolute;
   font-size: 18px;
+  text-align: center;
 }
 
-/* 위 원 */
-.p04-circle.top {
+.space-design-circle.top {
   top: 40px;
   left: 175px;
 }
 
-/* 왼쪽 아래 원 */
-.p04-circle.left {
+.space-design-circle.left {
   bottom: 90px;
   left: 100px;
 }
 
-/* 오른쪽 아래 원 */
-.p04-circle.right {
+.space-design-circle.right {
+  right: 0;
   bottom: 90px;
-  right: 0px;
 }
 
-/* 지시선 공통 */
-.keyword-diagram img {
-  position: absolute;
-  pointer-events: none;
-}
-
-.p04-line-top {
+.space-design-line-top {
   top: -20px;
   left: 265px;
   width: 40px;
 }
 
-.p04-line-left {
+.space-design-line-left {
   bottom: -10px;
   left: 165px;
   width: 25px;
 }
 
-.p04-line-right {
-  bottom: -5px;
+.space-design-line-right {
   right: 40px;
+  bottom: -5px;
   width: 30px;
 }
 
-/* 설명 텍스트 */
-.k1,
-.k2,
-.k3 {
+.space-design-concept .k1,
+.space-design-concept .k2,
+.space-design-concept .k3 {
   position: absolute;
   font-size: 14px;
-  opacity: 0.9;
   line-height: 1.6;
+  opacity: 0.9;
 }
 
-/* 위 설명 */
-.k1 {
+.space-design-concept .k1 {
   top: 40px;
   left: 230px;
 }
 
-/* 왼쪽 설명 */
-.k2 {
+.space-design-concept .k2 {
   bottom: -10px;
-  left: 0px;
+  left: 0;
 }
 
-/* 오른쪽 설명 */
-.k3 {
-  bottom: -25px;
+.space-design-concept .k3 {
   right: 50px;
-  text-align: right;
+  bottom: -25px;
   text-align: center;
 }
 
-/* -- Project 04 Modul -- */
-/* 전체 영역 */
-.p04-modul {
+.space-design-module {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   padding: 40px 90px;
-  background: #e7ebdf; /* 사진 배경 톤 */
-  font-family: "Pretendard", sans-serif;
+  overflow: hidden;
+  background: #e7ebdf;
   color: #222;
+  font-family: "Pretendard", sans-serif;
 }
 
-/* 2컬럼 레이아웃 */
-.p04-grid {
+.space-design-grid {
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   gap: 80px;
   align-items: start;
 }
 
-/* 세로선 */
-.vertical-line {
-  background: #cfd3c7;
+.space-design-module-vline {
   width: 1px;
   height: 90%;
-  left: 53%;
+  background: #cfd3c7;
 }
 
-/* 왼쪽 / 오른쪽 공통 */
-.p04-left,
-.p04-right {
+.space-design-module .space-design-left,
+.space-design-module .space-design-right {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-/* 제목 */
-.p04-detail h2 {
+.space-design-module h2 {
+  margin-bottom: 20px;
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 20px;
   letter-spacing: 0.5px;
 }
 
-/* 설명 텍스트 */
-.ux-desc,
-.module-desc {
+.space-design-module .ux-desc,
+.space-design-module .module-desc {
+  margin-bottom: 20px;
   font-size: 15px;
   line-height: 1.8;
-  margin-bottom: 20px;
 }
 
-/* 리스트 */
-.ux-list {
-  list-style: none;
-  padding: 0;
+.space-design-module .ux-list {
   margin: 20px 0;
+  padding: 0;
+  list-style: none;
 }
 
-.ux-list li {
+.space-design-module .ux-list li {
   margin-bottom: 12px;
   font-size: 15px;
 }
 
-/* 체크 표시 */
-.ux-list li::before {
+.space-design-module .ux-list li::before {
   content: "✓ ";
   margin-right: 6px;
 }
 
-/* 마지막 설명 */
-.ux-desc2 {
+.space-design-module .ux-desc2 {
   margin-top: 20px;
   line-height: 1.8;
 }
 
-/* 가로선 */
-.line-horizontal {
+.space-design-module .line-horizontal {
   width: 100%;
   height: 1px;
-  background: #cfd3c7;
   margin-top: -10px;
+  background: #cfd3c7;
 }
 
-.right-col .line-horizontal {
-  margin-top: 120px;
-  margin-bottom: 100px;
-}
-
-/* module 이미지 */
-.module-img {
+.space-design-module .module-img {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -2738,52 +3288,46 @@ body {
   transform: translateX(140px);
 }
 
-/* 왼쪽 모듈 */
-.module-img img:first-child {
+.space-design-module .module-img img:first-child {
   width: 80px;
   height: auto;
   display: block;
   transform: translateY(-10px);
 }
 
-/* 오른쪽 모듈 */
-.module-img img:last-child {
+.space-design-module .module-img img:last-child {
   width: 200px;
   height: auto;
   display: block;
-  transform: translateY(0px);
 }
 
-/* project04 module-color 구분선 */
-.project04-line-horizontal {
+.space-design-line-horizontal {
   width: 100%;
   height: 1px;
-  background: #cfd3c7;
   margin: 24px 0 28px;
+  background: #cfd3c7;
 }
 
-/* dimension 이미지 */
-.dimension {
+.space-design-module .dimension {
   transform: translateY(-40px);
 }
 
-.dimension-img {
+.space-design-module .dimension-img {
   margin-top: -15px;
   transform: translateX(150px);
 }
 
-.dimension-img img {
+.space-design-module .dimension-img img {
   width: 200px;
   max-width: 100%;
 }
 
-/* color 영역 */
-.project04-color {
+.space-design-color {
   margin-top: -10px;
   transform: translateY(-28px);
 }
 
-.project04-color-wrap {
+.space-design-color-wrap {
   display: flex;
   align-items: flex-start;
   gap: 30px;
@@ -2791,141 +3335,136 @@ body {
   margin-left: 100px;
 }
 
-.project04-color-item {
+.space-design-color-item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* 색상 원 */
-.project04-circle {
+.space-design-color-circle {
   width: 90px;
   height: 90px;
-  border-radius: 50%;
   margin-bottom: 12px;
+  border-radius: 50%;
 }
 
-/* 색상값 */
-.p04-black {
+.space-design-black {
   background: #212121;
 }
 
-.p04-brown {
+.space-design-brown {
   background: #3a3329;
 }
 
-.p04-gray {
+.space-design-gray {
   background: #dcdcdc;
 }
 
-/* 색상 코드 */
-.project04-color-item p {
+.space-design-color-item p {
+  margin-top: 15px;
   font-size: 15px;
   letter-spacing: 1px;
-  margin-top: 15px;
 }
 
-/* -- Project 04 detail -- */
-.detail-section {
+.space-design-detail-section {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   padding: 60px 120px 0;
-  background: #c9cdc5;
   overflow: hidden;
+  background: #c9cdc5;
 }
 
-.detail-container {
+.space-design-detail-container {
+  width: 85%;
+  margin-left: auto;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 80px;
   align-items: center;
-  margin-left: auto;
-  width: 85%;
 }
 
-/* 왼쪽 큰 이미지 */
-.detail-left {
+.space-design-detail-left {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.left-top {
+.space-design-left-top {
   width: 110%;
   height: auto;
   display: block;
   transform: translate(-80px, -30px);
 }
 
-.left-bottom {
+.space-design-left-bottom {
   width: 90%;
   height: auto;
   display: block;
   transform: translate(-80px, -120px);
 }
-/* 오른쪽 */
-.detail-right {
+
+.space-design-detail-right {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* 오른쪽 위 */
-.detail-top img {
+.space-design-detail-top img {
   width: 80%;
   display: block;
   transform: translate(-50px, -20px);
 }
 
-/* 오른쪽 아래 */
-.detail-bottom img {
+.space-design-detail-bottom img {
   width: 60%;
   display: block;
   transform: translate(-80px, -35px);
 }
 
-/* -- Project 04 mock up -- */
-.scene-section {
+.space-design-scene-section {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   overflow: hidden;
 }
 
-/* 배경 */
-.scene-bg {
+.space-design-scene-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
 }
 
-.scene-bg img {
+.space-design-scene-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
 }
 
-/* -- Project 05 -- */
-/* ------ cover ------ */
-/* 전체 영역 */
-.project05 {
+/* -- Capstone Design -- */
+#Capstone-Design {
+  scroll-margin-top: 75px;
+}
+
+.capstone-design {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  overflow: hidden;
   background: #f5f5f5;
   font-family: "LINE Seed Sans", sans-serif;
 }
 
-/* 상단 텍스트 */
-.project05-top {
+.capstone-design-top {
   position: static;
 }
 
-.project05-top .top-left,
-.project05-top .top-right {
+.capstone-design-top-left,
+.capstone-design-top-right {
   position: absolute;
   top: 34px;
   font-size: 13px;
@@ -2934,103 +3473,94 @@ body {
   text-transform: uppercase;
 }
 
-.project05-top .top-left {
+.capstone-design-top-left {
   left: 120px;
   color: rgba(46, 35, 35, 0.74);
 }
 
-.project05-top .top-right {
+.capstone-design-top-right {
   right: 120px;
   color: rgba(46, 35, 35, 0.68);
 }
 
-/* 왼쪽 세로 이미지 */
-.project05-left-img {
+.capstone-design-left-img {
   position: absolute;
-  left: 0;
   top: 50px;
+  left: 0;
 }
 
-.project05-left-img img {
-  height: 70vh;
+.capstone-design-left-img img {
   width: auto;
+  height: 70vh;
 }
 
-/* 오른쪽 작은 이미지 */
-.project05-right-img {
+.capstone-design-right-img {
   position: absolute;
-  right: 0px;
   top: 140px;
+  right: 0;
 }
 
-.project05-right-img img {
+.capstone-design-right-img img {
   width: 100px;
   height: auto;
 }
 
-/* 중앙 타이틀 */
-.project05-title {
+.capstone-design-title {
   position: absolute;
-  left: 200px;
   top: 35%;
+  left: 200px;
   transform: translateY(-50%);
 }
 
-.project05-title h1 {
+.capstone-design-title h1 {
+  margin-bottom: 10px;
   font-size: 40px;
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
-.project05-title p {
+.capstone-design-title p {
   font-size: 20px;
   color: #555;
 }
 
-/* 우측 하단 정보 */
-.project05-info {
+.capstone-design-info {
   position: absolute;
   right: 120px;
   bottom: 30px;
   text-align: left;
 }
 
-.project05-info h3 {
-  font-size: 18px;
+.capstone-design-info h3 {
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
-.project05-info .info-row {
+.capstone-design-info .info-row {
   display: flex;
   gap: 30px;
+  margin-bottom: 10px;
   font-size: 15px;
   line-height: 1.4;
-  margin-bottom: 10px;
 }
 
-.project05-info .info-row span:first-child {
+.capstone-design-info .info-row span:first-child {
   width: 80px;
   color: #555;
 }
 
-/* ------story ------ */
-/* 전체 섹션 */
-.story-section {
+.capstone-design-story-section {
+  position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
-  background: #e6e6e6;
+  height: calc(100dvh - 75px);
   padding: 50px 110px 0;
+  overflow: hidden;
+  background: #e6e6e6;
   box-sizing: border-box;
   font-family: "Poppins", "Noto Sans KR", sans-serif;
-  overflow: hidden;
 }
 
-.story-section {
-  position: relative;
-}
-
-/* 왼쪽 위 */
-.story-section .corner-left {
+.capstone-design-corner-left {
   position: absolute;
   top: 0;
   left: 0;
@@ -3040,144 +3570,100 @@ body {
   pointer-events: none;
 }
 
-/* 오른쪽 아래 */
-.story-section .corner-right {
+.capstone-design-corner-right {
   position: absolute;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   width: 80px;
   height: auto;
   z-index: 0;
   pointer-events: none;
 }
 
-/* 전체 레이아웃 */
-.story-wrapper {
+.capstone-design-story-wrapper {
   position: relative;
   z-index: 1;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   column-gap: 60px;
-  height: 100%;
 }
 
-/* 왼쪽 영역 */
-.story-left {
+.capstone-design-story-left {
   display: flex;
   flex-direction: column;
 }
 
-/* 블록 */
-.story-block {
+.capstone-design-story-block {
   margin-bottom: 20px;
 }
 
-.story-block h2 {
+.capstone-design-story-block h2,
+.capstone-design-story-right h2,
+.capstone-design-concept h2 {
+  position: static;
+  display: block;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-family: "Poppins", "Noto Sans KR", sans-serif;
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 25px;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  white-space: normal;
 }
 
-.story-block p {
+.capstone-design-story-block p {
+  margin-bottom: 25px;
   font-size: 15px;
   line-height: 2;
   color: #333;
-  margin-bottom: 25px;
 }
 
-/* 가로선 */
-.story-line {
+.capstone-design-story-line {
   width: 100%;
   height: 1px;
+  margin: 10px 0 20px;
   background: #cfcfcf;
-  margin: 20px 0;
 }
 
-.story-section .story-left > .story-line {
-  transform: translateY(-10px);
-}
-
-/* 리스트 */
-.story-block ul {
+.capstone-design-story-block ul {
   margin-top: 25px;
-  list-style: none;
   padding-left: 0;
+  list-style: none;
 }
 
-.story-block li {
-  font-size: 15px;
-  margin-bottom: 8px;
+.capstone-design-story-block li {
   position: relative;
+  margin-bottom: 8px;
   padding-left: 18px;
+  font-size: 15px;
 }
 
-.story-block li::before {
+.capstone-design-story-block li::before {
   content: "✓";
   position: absolute;
   left: 0;
 }
 
-/* 가운데 세로선 */
-.story-divider {
+.capstone-design-story-divider {
   width: 1px;
-  background: #cfcfcf;
   height: 90%;
-  left: 53%;
   align-self: center;
+  background: #cfcfcf;
   transform: translateX(20px);
 }
 
-/* 오른쪽 영역 */
-
-.story-right h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.story-section h2,
-.project05-concept h2 {
-  font-family: "Poppins", "Noto Sans KR", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* 제목 겹침 방지 (project05/06 전용) */
-.story-section h2,
-.project05-concept h2,
-.p06-story h2,
-.p06-concept h2 {
-  position: static;
-  display: block;
-  margin-top: 0;
-  line-height: 1.3;
-  white-space: normal;
-}
-
-/* 제목 겹침 방지 보강 */
-.story-section .story-block h2,
-.project05-concept .block h2,
-.p06-story .story-left h2,
-.p06-story .story-right h2,
-.p06-concept h2 {
-  clear: both;
-  position: relative;
-  z-index: 2;
-}
-
-/* 키워드 그리드 */
-.keyword-grid {
+.capstone-design-keyword-grid {
+  width: max-content;
   display: grid;
   grid-template-columns: repeat(2, 130px);
   column-gap: 50px;
   row-gap: 60px;
-  width: max-content;
   transform: translate(130px, 90px);
 }
 
-/* 원 */
-.keyword-circle {
+.capstone-design-keyword-circle {
   width: 150px;
   height: 150px;
   border: 1px solid #333;
@@ -3186,335 +3672,192 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  margin: 0;
 }
 
-/* ------ concept ------ */
-/* 전체 섹션 */
-.project05-concept {
+.capstone-design-concept {
+  position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
-  position: relative;
+  height: calc(100dvh - 75px);
   padding: 72px 120px;
-  background: #f5f5f5;
   overflow: hidden;
+  background: #f5f5f5;
 }
 
-/* 좌우 장식 */
-.concept-section .corner-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-}
-
-.concept-section .corner-right {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 80px;
-}
-
-/* 전체 레이아웃 */
-.project05-concept .concept-wrapper {
+.capstone-design-concept-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   gap: 80px;
-  max-width: 1320px;
-  margin: 0 auto;
   align-items: start;
 }
 
-/* 가운데 세로선 */
-.project05-concept .vertical-line {
-  background: #cfcfcf;
+.capstone-design-vertical-line {
   width: 1px;
   height: 100%;
   align-self: center;
+  background: #cfcfcf;
 }
 
-/* 텍스트 영역 */
-.project05-concept .block {
+.capstone-design-block {
   margin-bottom: 24px;
 }
 
-/* 제목 */
-.project05-concept .block h2 {
-  font-size: 20px;
-  font-weight: 600;
+.capstone-design-block p {
   margin-bottom: 22px;
-  letter-spacing: 0.5px;
-}
-
-/* 본문 */
-.project05-concept .block p {
   font-size: 15px;
   line-height: 1.9;
   color: #555;
-  margin-bottom: 22px;
 }
 
-/* 체크 리스트 */
-.project05-concept .check-list {
+.capstone-design-check-list {
   margin-top: 22px;
   margin-bottom: 22px;
   padding-left: 0;
 }
 
-.project05-concept .check-list li {
-  margin-bottom: 14px;
-  font-size: 15px;
-  color: #444;
-  list-style: none;
+.capstone-design-check-list li {
   position: relative;
+  margin-bottom: 14px;
   padding-left: 18px;
+  color: #444;
+  font-size: 15px;
+  list-style: none;
 }
 
-.project05-concept .check-list li::before {
+.capstone-design-check-list li::before {
   content: "✓";
   position: absolute;
   left: 0;
 }
 
-/* 가로 구분선 */
-.project05-concept .line-horizontal {
+.capstone-design-line-horizontal {
   width: 100%;
   height: 1px;
-  background: #cfcfcf;
   margin: 28px 0;
+  background: #cfcfcf;
 }
 
-.project05-concept .left-col .line-horizontal,
-.project05-concept .right-col .line-horizontal {
-  margin-top: 28px;
-  margin-bottom: 28px;
-}
-
-.project05-concept .left-col .block:first-child,
-.project05-concept .left-col .block:last-child,
-.project05-concept .right-col .block:last-child {
-  margin-top: 0;
-}
-
-.project05-concept .left-col {
-  transform: none;
-}
-
-/* Color 영역 */
-.project05-concept .color-block {
-  margin-top: 0;
-  transform: none;
-}
-
-.project05-concept .color-wrap {
+.capstone-design-color-wrap {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 28px;
   margin-top: 24px;
-  margin-left: 0;
-  transform: none;
-  flex-wrap: wrap;
 }
 
-.project05-concept .color-item {
+.capstone-design-color-item {
   text-align: center;
 }
 
-/* 컬러 원 */
-.project05-concept .color-circle {
+.capstone-design-color-circle {
   width: 96px;
   height: 96px;
-  border-radius: 50%;
   margin-bottom: 10px;
+  border-radius: 50%;
 }
 
-.project05-concept .color-circle.black {
+.capstone-design-color-circle.black {
   background: #4b4a4e;
 }
 
-.project05-concept .color-circle.white {
+.capstone-design-color-circle.white {
   background: #dcdcdc;
 }
 
-/* ------ detail ------ */
-/* 전체 섹션 */
-.product-show-section {
+.capstone-design-product-section {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
   height: calc(100dvh - 75px);
-  background: #e4e3e3;
   overflow: hidden;
+  background: #e4e3e3;
 }
 
-/* 좌우 장식 */
-.corner-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 60px;
-}
-
-.corner-right {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 80px;
-}
-
-/* 전체 레이아웃 */
-.product-show-wrap {
+.capstone-design-product-wrap {
   position: relative;
   width: 1200px;
-  margin: 0 auto;
   height: 100%;
   min-height: calc(100dvh - 75px);
+  margin: 0 auto;
 }
 
-/* 큰 제품 */
-.product-main {
+.capstone-design-product-main {
   position: absolute;
-  left: 200px;
   top: 150px;
+  left: 200px;
 }
 
-.product-main img {
+.capstone-design-product-main img {
   width: 450px;
 }
 
-/* 오른쪽 위 */
-.product-top {
+.capstone-design-product-top {
   position: absolute;
-  right: 230px;
   top: 60px;
+  right: 230px;
 }
 
-.product-top img {
+.capstone-design-product-top img {
   width: 300px;
 }
 
-/* 오른쪽 아래 */
-.product-bottom {
+.capstone-design-product-bottom {
   position: absolute;
   right: 220px;
   bottom: 40px;
 }
 
-.product-bottom img {
+.capstone-design-product-bottom img {
   width: 320px;
 }
 
-/* ------ mock up ------ */
-/* 욕실 장면 섹션 */
-.product-scene {
+.capstone-design-scene,
+.capstone-design-scene-02,
+.capstone-design-scene-03 {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
-  overflow: hidden;
+  height: calc(100dvh - 75px);
   margin: 0;
   padding: 0;
+  overflow: hidden;
   line-height: 0;
 }
 
-.scene-wrap {
+.capstone-design-scene-wrap,
+.capstone-design-scene-wrap-02,
+.capstone-design-scene-wrap-03 {
   width: 100%;
   height: 100%;
 }
 
-.product-scene .scene-bg {
+.capstone-design-scene-bg,
+.capstone-design-scene-bg-02,
+.capstone-design-scene-bg-03 {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
-}
-
-/* 배경 이미지 */
-.scene-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 거실 장면 섹션 */
-.product-scene-02 {
-  position: relative;
-  width: 100%;
-  min-height: calc(100dvh - 75px);
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-}
-
-.scene-wrap-02 {
-  width: 100%;
-  height: 100%;
-}
-
-.scene-bg-02 {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* 배경 이미지 */
-.scene-background-02 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 옷장 장면 섹션 */
-.product-scene-03 {
-  position: relative;
-  width: 100%;
-  min-height: calc(100dvh - 75px);
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-}
-
-.scene-wrap-03 {
-  width: 100%;
-  height: 100%;
-}
-
-.scene-bg-03 {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* 배경 이미지 */
-.scene-background0-03 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
 /* -- Project 06 -- */
 /* ------ cover ------ */
-.project06 {
+#Convergence-Design {
+  scroll-margin-top: 75px;
+}
+
+.convergence-design {
   position: relative;
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   overflow: hidden;
 }
 
 /* 배경 이미지 */
-.p06-bg {
+.convergence-design-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -3522,14 +3865,14 @@ body {
   height: 100%;
 }
 
-.p06-bg img {
+.convergence-design-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* 좌측 상단 project06 */
-.p06-top-left {
+/* 좌측 상단 Convergence Design */
+.convergence-design-top-left {
   position: absolute;
   top: 60px;
   left: 120px;
@@ -3539,7 +3882,7 @@ body {
 }
 
 /* 우측 상단 Convergence Design */
-.p06-top-right {
+.convergence-design-top-right {
   position: absolute;
   top: 60px;
   right: 130px;
@@ -3548,7 +3891,7 @@ body {
 }
 
 /* 메인 타이틀 */
-.p06-title {
+.convergence-design-title {
   position: absolute;
   left: 150px;
   top: 30%;
@@ -3556,19 +3899,19 @@ body {
   color: white;
 }
 
-.p06-title h1 {
+.convergence-design-title h1 {
   font-size: 40px;
   font-weight: 600;
   margin-bottom: 12px;
 }
 
-.p06-title p {
+.convergence-design-title p {
   font-size: 20px;
   opacity: 0.9;
 }
 
 /* 우측 프로젝트 정보 */
-.p06-info {
+.convergence-design-info {
   position: absolute;
   right: 120px;
   bottom: 30px;
@@ -3577,75 +3920,78 @@ body {
 }
 
 /* 개인 프로젝트 */
-.p06-type {
+.convergence-design-type {
   font-size: 18px;
   margin-bottom: 25px;
 }
 
 /* 정보 */
-.p06-detail {
+.convergence-design-detail {
   display: flex;
   gap: 40px;
   margin-bottom: 12px;
 }
 
-.p06-detail p {
+.convergence-design-detail p {
   width: 70px;
   font-size: 14px;
   opacity: 0.8;
 }
 
-.p06-detail span {
+.convergence-design-detail span {
   font-size: 14px;
 }
 
 /* ------ story ------ */
 /* 전체 섹션 */
-.p06-story {
+.convergence-design-story {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   padding: 40px 8%;
   background: #a29585;
   position: relative;
+  overflow: hidden;
 }
 
 /* 전체 레이아웃 */
-.p06-story .story-wrap {
+.convergence-design-story-wrap {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   column-gap: 80px;
 }
 
 /* 가운데 세로선 */
-.p06-story .story-divider {
+.convergence-design-story-divider {
   width: 1px;
   left: 53%;
   background: #cfcfcf;
 }
 
 /* 왼쪽 텍스트 영역 */
-.p06-story .story-left {
+.convergence-design-story-left {
   max-width: 520px;
 }
 
-.p06-story .story-left h2 {
+.convergence-design-story-left h2 {
   font-size: 20px;
   margin-bottom: 24px;
   font-weight: 600;
 }
 
-.p06-story .story-left p {
+.convergence-design-story-left p {
   font-size: 15px;
   line-height: 1.5;
   margin-bottom: 22px;
   color: #333;
 }
 
-.p06-story .story-left ul {
+.convergence-design-story-left ul {
   margin-top: 20px;
 }
 
-.p06-story .story-left li {
+.convergence-design-story-left li {
   margin-bottom: 22px;
   margin-left: 12px;
   font-size: 15px;
@@ -3653,7 +3999,7 @@ body {
 }
 
 /* 중간 가로선 */
-.p06-story .story-line {
+.convergence-design-story-line {
   width: 100%;
   height: 1px;
   background: #cfcfcf;
@@ -3661,25 +4007,25 @@ body {
 }
 
 /* 오른쪽 영역 */
-.p06-story .story-right {
+.convergence-design-story-right {
   position: relative;
 }
 
-.p06-story .story-right h2 {
+.convergence-design-story-right h2 {
   font-size: 20px;
   margin-bottom: 40px;
   font-weight: 600;
 }
 
 /* 키워드 다이어그램 */
-.p06-story .keyword-diagram {
+.convergence-design-keyword-diagram {
   position: relative;
   width: 520px;
   height: 420px;
 }
 
 /* 원 기본 */
-.p06-story .circle {
+.convergence-design-circle {
   width: 160px;
   height: 160px;
   border: 1px solid #333;
@@ -3693,23 +4039,23 @@ body {
 }
 
 /* 원 위치 */
-.p06-story .circle1 {
+.convergence-design-circle.circle1 {
   top: 90px;
   left: 190px;
 }
 
-.p06-story .circle2 {
+.convergence-design-circle.circle2 {
   bottom: 50px;
   left: 120px;
 }
 
-.p06-story .circle3 {
+.convergence-design-circle.circle3 {
   bottom: 50px;
   right: 100px;
 }
 
 /* 설명 텍스트 */
-.p06-story .k-text {
+.convergence-design-keyword-text {
   position: absolute;
   font-size: 14px;
   color: #333;
@@ -3717,22 +4063,21 @@ body {
 }
 
 /* 지시선 */
-.kprean-line {
+.convergence-design-korean-line {
   position: absolute;
   top: 30px;
   left: 270px;
   width: 40px;
 }
 
-.simple-line {
+.convergence-design-simple-line {
   position: absolute;
   bottom: -30px;
   left: 170px;
   width: 30px;
 }
 
-.emotional-line,
-.emotional-lines {
+.convergence-design-emotional-lines {
   position: absolute;
   bottom: -20px;
   right: 130px;
@@ -3740,7 +4085,7 @@ body {
 }
 
 /* 위 텍스트 */
-.p06-story .k1 {
+.convergence-design-story .k1 {
   top: -10px;
   left: 280px;
   width: 220px;
@@ -3748,7 +4093,7 @@ body {
 }
 
 /* 왼쪽 텍스트 */
-.p06-story .k2 {
+.convergence-design-story .k2 {
   bottom: -80px;
   left: 40px;
   width: 180px;
@@ -3756,7 +4101,7 @@ body {
 }
 
 /* 오른쪽 텍스트 */
-.p06-story .k3 {
+.convergence-design-story .k3 {
   bottom: -70px;
   right: 10px;
   width: 200px;
@@ -3764,53 +4109,55 @@ body {
 
 /* ------ concept ------ */
 /* 전체 섹션 */
-.p06-concept {
+.convergence-design-concept {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   padding: 40px 120px;
   background: #f5f0e9;
   position: relative;
+  overflow: hidden;
 }
 
 /* 좌우 레이아웃 */
-.concept-wrap {
+.convergence-design-concept-wrap {
   display: flex;
   justify-content: space-between;
   position: relative;
 }
 
 /* 왼쪽 영역 */
-.concept-left {
+.convergence-design-concept-left {
   width: 45%;
 }
 
-.concept-left h2 {
+.convergence-design-concept-left h2 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 25px;
 }
 
-.concept-left p {
+.convergence-design-concept-left p {
   font-size: 15px;
   line-height: 1.9;
   margin-bottom: 22px;
   color: #444;
 }
 
-.concept-left ul {
+.convergence-design-concept-left ul {
   margin-top: 25px;
   list-style: none;
   padding-left: 0;
 }
 
-.concept-left li {
+.convergence-design-concept-left li {
   position: relative;
   margin-bottom: 20px;
   font-size: 15px;
   padding-left: 22px;
 }
 
-.concept-left li::before {
+.convergence-design-concept-left li::before {
   content: "✓";
   position: absolute;
   left: 0;
@@ -3818,7 +4165,7 @@ body {
 }
 
 /* 가운데 세로선 */
-.concept-divider {
+.convergence-design-concept-divider {
   position: absolute;
   left: 52%;
   top: 0;
@@ -3828,83 +4175,81 @@ body {
 }
 
 /* 오른쪽 영역 */
-.concept-right {
+.convergence-design-concept-right {
   width: 40%;
 }
 
-.concept-right h2 {
+.convergence-design-concept-right h2 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 25px;
 }
 
-.concept-right p {
+.convergence-design-concept-right p {
   font-size: 15px;
   line-height: 1.9;
   margin-bottom: 25px;
   color: #444;
 }
 
-.concept-right ul {
+.convergence-design-concept-right ul {
   margin-top: 25px;
   margin-bottom: 40px;
   list-style: none;
   padding-left: 0;
 }
 
-.concept-right li {
+.convergence-design-concept-right li {
   position: relative;
   margin-bottom: 12px;
   font-size: 15px;
   padding-left: 22px;
 }
 
-.concept-right li::before {
+.convergence-design-concept-right li::before {
   content: "✓";
   position: absolute;
   left: 0;
   top: 0;
 }
 
-.p06-concept .concept-vline,
-.p06-concept .concept-divider {
+.convergence-design-concept-divider {
   width: 1px;
   height: 100%;
   background: rgba(0, 0, 0, 0.28);
 }
 
 /* 가로선 */
-.line {
+.convergence-design-line {
   width: 100%;
   height: 1px;
   background: #444;
   margin: 60px 0;
 }
 
-.p06-concept .line,
-.p06-concept .concept-line {
+.convergence-design-concept .convergence-design-line {
   background: rgba(0, 0, 0, 0.28);
 }
 
 /* 컬러 영역 */
-.color-wrap {
+.convergence-design-color-wrap {
   display: flex;
   gap: 30px;
   margin-top: 40px;
   margin-left: 110px;
 }
 
-.p06-concept .color-wrap {
+.convergence-design-concept .convergence-design-color-wrap {
   margin-left: 92px;
 }
 
 /* 컬러 아이템 */
-.color-item {
+.convergence-design-color-item {
   text-align: center;
 }
 
 /* 컬러 원 */
-.color {
+.convergence-design-color {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -3912,29 +4257,38 @@ body {
 }
 
 /* 컬러 값 */
-.color-item p {
+.convergence-design-color-item p {
   font-size: 15px;
   letter-spacing: 1px;
   color: #555;
 }
 
 /* 각각 컬러 */
-.black {
+.convergence-design-color.black {
   background: #262525;
 }
 
-.red {
+.convergence-design-color.red {
   background: #c9221f;
 }
 
-.blue {
+.convergence-design-color.blue {
   background: #1d3051;
 }
 
 /* ------ detail ------ */
 /* 전체 레이아웃 */
-.p06-product-wrap {
+.convergence-design-product {
+  width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  overflow: hidden;
+  background-color: #d4cabe;
+}
+
+.convergence-design-product-wrap {
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -3944,18 +4298,18 @@ body {
 }
 
 /* 왼쪽 큰 이미지 */
-.p06-product-left {
+.convergence-design-product-left {
   width: 50%;
   transform: translate(150px, 20px);
 }
 
-.p06-product-left img {
+.convergence-design-product-left img {
   width: 90%;
   display: block;
 }
 
 /* 오른쪽 영역 */
-.p06-product-right {
+.convergence-design-product-right {
   width: 32%;
   display: flex;
   flex-direction: column;
@@ -3963,35 +4317,36 @@ body {
 }
 
 /* 오른쪽 위 이미지 */
-.p06-product-top img {
+.convergence-design-product-top img {
   width: 60%;
   display: block;
   transform: translate(-150px, 40px);
 }
 
 /* 오른쪽 아래 이미지 */
-.p06-product-bottom img {
+.convergence-design-product-bottom img {
   width: 60%;
   display: block;
   transform: translate(-150px, 20px);
 }
 
 /* ------ Mock up ------ */
-.project06-scene {
+.convergence-design-scene {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   overflow: hidden;
   margin: 0;
   padding: 0;
   line-height: 0;
 }
 
-.project06-scene .scene-img {
+.convergence-design-scene-img {
   width: 100%;
   height: 100%;
 }
 
-.project06-scene .scene-img img {
+.convergence-design-scene-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3999,21 +4354,22 @@ body {
 }
 
 /* ------ Mock up ------ */
-.project06-scene02 {
+.convergence-design-scene-02 {
   width: 100%;
   min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
   overflow: hidden;
   margin: 0;
   padding: 0;
   line-height: 0;
 }
 
-.project06-scene02 .scene02-img {
+.convergence-design-scene02-img {
   width: 100%;
   height: 100%;
 }
 
-.project06-scene02 .scene02-img img {
+.convergence-design-scene02-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -4228,23 +4584,38 @@ body {
   color: #ffffff;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .footer {
     padding: 56px 24px 32px;
   }
 
-  .footer-top,
+  .footer-inner {
+    gap: 24px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer-contact {
+    width: 100%;
+  }
+
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
 
-  .footer-name {
-    font-size: clamp(36px, 12vw, 56px);
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 16px;
   }
+}
 
-  .footer-phone,
-  .footer-email {
-    font-size: 16px;
-  }
+img {
+  max-width: 100%;
+  height: auto;
 }

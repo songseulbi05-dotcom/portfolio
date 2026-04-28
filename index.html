@@ -11,7 +11,12 @@
     <header class="navbar">
       <div class="logo">Songseulbi</div>
 
-      <div class="menu-toggle" id="mobile-menu">
+      <div
+        class="menu-toggle"
+        id="mobile-menu"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -20,7 +25,7 @@
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About Me</a>
-        <a href="#project">Project</a>
+        <a href="#project-folder">Project</a>
       </nav>
     </header>
 
@@ -125,8 +130,100 @@
       </div>
     </section>
 
-    <!-- project : cover -->
-    <main id="project">
+    <!-- content -->
+    <section class="canvas" id="project-folder">
+      <div class="window">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="traffic">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+          </div>
+
+          <div class="sidebar-content">
+            <div class="section-title">Favorites</div>
+            <div class="nav-item">
+              <span>Downloads</span>
+            </div>
+
+            <div class="section-title">iCloud</div>
+            <div class="nav-item">
+              <span>Documents</span>
+            </div>
+
+            <div class="nav-item active">
+              <span>Desktop</span>
+            </div>
+
+            <div class="nav-item">
+              <span>Shared</span>
+            </div>
+
+            <div class="locations">Locations</div>
+          </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="main">
+          <!-- Toolbar -->
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <span class="arrow">‹</span>
+              <span class="arrow">›</span>
+              <span class="toolbar-title">Desktop</span>
+            </div>
+            <div class="toolbar-right"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="content">
+            <div class="grid">
+              <a class="folder" href="#uiux-section">
+                <div class="folder-icon"></div>
+                <p>01, UI / UX Design</p>
+              </a>
+
+              <a class="folder" href="#BX-Design">
+                <div class="folder-icon"></div>
+                <p>02, BX Design</p>
+              </a>
+
+              <a class="folder" href="#Product-Design">
+                <div class="folder-icon"></div>
+                <p>03, Product Design</p>
+              </a>
+
+              <a class="folder" href="#Space-Design">
+                <div class="folder-icon"></div>
+                <p>04, Space Design</p>
+              </a>
+
+              <a class="folder" href="#Capstone-Design">
+                <div class="folder-icon"></div>
+                <p>05, Capstone Design</p>
+              </a>
+
+              <a class="folder" href="#Convergence-Design">
+                <div class="folder-icon"></div>
+                <p>06, Convergence Design</p>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bottom -->
+          <div class="pathbar">iCloud Drive > Desktop</div>
+
+          <div class="statusbar">
+            6 items, 1.02 TB available on iCloud
+            <div class="slider"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UI/UX Section cover -->
+    <main id="uiux-section">
       <section class="project-section">
         <div class="top-left">Project</div>
         <div class="top-right">UI/UX Design</div>
@@ -164,7 +261,7 @@
       </section>
     </main>
 
-    <!-- Project : UI/UX -->
+    <!-- UI/UX -->
     <section class="preview">
       <div class="preview-container">
         <div class="preview-text">
@@ -195,12 +292,12 @@
       </div>
     </section>
 
-    <!-- project 01 -->
-    <section class="project-01 project-card" id="project01">
+    <!-- BX Design -->
+    <section class="bx-design project-card" id="BX-Design">
       <div class="visual-side">
-        <span class="label-top-left">project 01</span>
+        <span class="label-top-left">Project</span>
         <img
-          src="./portfolio/assets/프로젝트 1-표지.png"
+          src="./portfolio/assets/프로젝트 1-표지.png"
           alt="GYEOL Perfume"
           class="product-img"
         />
@@ -234,8 +331,8 @@
       </div>
     </section>
 
-    <!-- project 01 : overview -->
-    <section class="concept-section" id="project-01-overview">
+    <!-- BX Design : overview -->
+    <section class="concept-section" id="bx-design-overview">
       <div class="concept-wrapper">
         <div class="left-col">
           <div class="block">
@@ -290,8 +387,8 @@
       </div>
     </section>
 
-    <!-- project 01 : naming / logo design -->
-    <section class="brand-section" id="project-01-brand">
+    <!-- BX Design : naming / logo design -->
+    <section class="brand-section" id="bx-design-brand">
       <section class="naming-section">
         <h2>Naming</h2>
         <div class="content-text">
@@ -382,7 +479,7 @@
       </div>
     </section>
 
-    <!-- Project 01 : UI/UX -->
+    <!-- BX Design : UI/UX -->
     <section class="preview">
       <div class="preview-container">
         <div class="preview-text">
@@ -413,54 +510,64 @@
       </div>
     </section>
 
-    <!-- Project2 Section-->
-    <main id="project2"></main>
-    <!-- project 02 : cover -->
-    <section class="project2-top" id="project-02">
-      <div class="project2-top-left">project 02</div>
-      <div class="project2-top-right">Product Design</div>
+    <!-- Product Design Section-->
+    <main id="product-design"></main>
+    <!-- Product Design : cover -->
+    <section class="product-design" id="Product-Design">
+      <div class="product-design-top-left">Project</div>
+      <div class="product-design-top-right">Product Design</div>
 
-      <div class="project2-left">
-        <h1 class="project2-title">THERONE</h1>
-        <p class="project2-subtitle">
+      <div class="product-design-left">
+        <p class="product-design-kicker">Smart Coffee Pot</p>
+        <h1 class="product-design-title">THERONE</h1>
+        <p class="product-design-subtitle">
           Temperature & Time Controlled Smart Coffee Pot
         </p>
+        <p class="product-design-summary">
+          온도와 시간을 직관적으로 제어하는 스마트 커피포트 디자인
+          프로젝트입니다.
+        </p>
+        <div class="product-design-tags">
+          <span>Temperature</span>
+          <span>Time Control</span>
+          <span>Smart UX</span>
+        </div>
       </div>
 
-      <div class="project2-meta">
+      <div class="product-design-meta">
         <div class="row">
-          <dt>팀 프로젝트</dt>
-          <dd></dd>
+          <dt>유형</dt>
+          <dd>팀 프로젝트</dd>
         </div>
 
         <div class="row">
           <dt>기간</dt>
-          <dd>2025/03~2025/07</dd>
+          <dd>2025/03 ~ 2025/07</dd>
         </div>
 
         <div class="row">
           <dt>프로그램</dt>
-          <dd>Ps / AI / Rhino / KeyShot</dd>
+          <dd>Ps / Ai / Rhino / KeyShot</dd>
         </div>
 
         <div class="row">
           <dt>기여도</dt>
           <dd>80%</dd>
         </div>
+      </div>
 
-        <div class="project2-right">
-          <div class="project2-product">
-            <img
-              class="pot-img"
-              src="./portfolio/assets/커피포트 표지.png"
-              alt="coffee pot"
-            />
-          </div>
+      <div class="product-design-right">
+        <div class="product-design-product">
+          <img
+            class="pot-img"
+            src="./portfolio/assets/커피포트 표지.png"
+            alt="THERONE coffee pot"
+          />
         </div>
       </div>
     </section>
 
-    <!-- project 02 : selected -->
+    <!-- Product Design : selected -->
     <section class="selected">
       <div class="selected-left">
         <h2>Selected Products</h2>
@@ -536,7 +643,7 @@
       </div>
     </section>
 
-    <!-- project 02 : design objective -->
+    <!-- Product Design : design objective -->
     <section class="design-section">
       <div class="design-wrapper">
         <!-- LEFT -->
@@ -626,7 +733,7 @@
       </div>
     </section>
 
-    <!-- project 02 : detail -->
+    <!-- Product Design : detail -->
     <section class="detail-gallery-section">
       <div class="detail-gallery-wrap">
         <!-- 왼쪽 큰 이미지 -->
@@ -659,7 +766,7 @@
       </div>
     </section>
 
-    <!-- project 02 : Mock Up -->
+    <!-- Product Design : Mock Up -->
     <section class="product-scene-section">
       <div class="product-scene-wrap">
         <img
@@ -670,27 +777,27 @@
       </div>
     </section>
 
-    <!-- Project3 Section-->
-    <!-- project 03 : cover -->
-    <section class="project03">
+    <!-- Product Design 02 Section-->
+    <!-- Product Design 02 : cover -->
+    <section class="product-design-02" id="Product-Design-02">
       <!-- top texts -->
-      <div class="project03-top-left">project 03</div>
+      <div class="product-design-02-top-left">project</div>
 
-      <div class="project03-top-right">Product Design 02</div>
+      <div class="product-design-02-top-right">Product Design 02</div>
 
       <!-- title -->
-      <div class="project03-title-area">
-        <h1 class="project03-title">Product Design</h1>
-        <p class="project03-subtitle">CUCKOO x NEXT</p>
+      <div class="product-design-02-title-area">
+        <h1 class="product-design-02-title">Product Design</h1>
+        <p class="product-design-02-subtitle">CUCKOO x NEXT</p>
       </div>
 
       <!-- center logo -->
-      <div class="project03-logo">
+      <div class="product-design-02-logo">
         <img src="./portfolio/assets/가습기 로고1.png" alt="NEST logo" />
       </div>
 
       <!-- project info -->
-      <div class="project03-info">
+      <div class="product-design-02-info">
         <div class="info-row">
           <span class="info-label">팀 프로젝트</span>
         </div>
@@ -712,8 +819,8 @@
       </div>
     </section>
 
-    <!-- project 03 : overview -->
-    <section class="project03-overview">
+    <!-- Product Design 02 : overview -->
+    <section class="product-design-02-overview">
       <!-- Overview -->
       <div class="overview-section">
         <h2 class="overview-title">Overview</h2>
@@ -766,7 +873,7 @@
         </div>
 
         <!-- vertical line -->
-        <div class="vertical-line"></div>
+        <div class="space-design-module-vline"></div>
 
         <!-- Keyword -->
         <div class="keyword-section">
@@ -783,39 +890,42 @@
       </div>
     </section>
 
-    <!-- project 03 : Naming  -->
-    <section class="p03-branding-light">
-      <div class="p03-branding-wrap">
+    <!-- Product Design 02 : Naming  -->
+    <section class="product-design-02-branding-light">
+      <div class="product-design-02-branding-wrap">
         <!-- LEFT -->
-        <div class="p03-col p03-col-left">
-          <div class="p03-block">
-            <h2 class="p03-title">Naming</h2>
-            <p class="p03-desc">
+        <div class="product-design-02-col product-design-02-col-left">
+          <div class="product-design-02-block">
+            <h2 class="product-design-02-section-title">Naming</h2>
+            <p class="product-design-02-desc">
               NEST는 사전적으로 ‘둥지’라는 뜻을 가지고 있습니다.<br />
               새 둥지처럼 사용자에게 따뜻하고 안락한 생활환경을 제공하는<br />
               디자인을 목표로 하고 있어 NAST로 선정하게 되었습니다.
             </p>
           </div>
 
-          <div class="p03-hr"></div>
+          <div class="product-design-02-hr"></div>
 
-          <div class="p03-block">
-            <h2 class="p03-title">Logo Font</h2>
+          <div class="product-design-02-block">
+            <h2 class="product-design-02-section-title">Logo Font</h2>
 
-            <div class="p03-subtitle">심볼 로고</div>
-            <div class="p03-label">선정 이유</div>
-            <p class="p03-desc">
+            <div class="product-design-02-subtitle-text">심볼 로고</div>
+            <div class="product-design-02-label">선정 이유</div>
+            <p class="product-design-02-desc">
               둥지는 단순한 자연 요소가 아닌, 안전과 안정을 상징으로 구조적
               개념으로 해석하였습니다.<br />
               이에 브랜드가 제공하는 편안함과 신뢰의 이미지를 강조하며,<br />
               시각적으로 부드럽지만 견고한 인상을 전달하게 합니다.
             </p>
 
-            <div class="p03-subtitle" style="margin-top: 15px">
+            <div
+              class="product-design-02-subtitle-text"
+              style="margin-top: 15px"
+            >
               메인 로고 - <span>LINE Seed Sans</span>
             </div>
-            <div class="p03-label">선정 이유</div>
-            <p class="p03-desc">
+            <div class="product-design-02-label">선정 이유</div>
+            <p class="product-design-02-desc">
               LINE Seed Sans는 균형 잡힌 획 구조와 안정적인 비율을 기반으로
               <br />
               과도한 개성 없이 정돈된 시각적 인상을 형성합니다.<br />
@@ -826,21 +936,21 @@
         </div>
 
         <!-- RIGHT -->
-        <div class="p03-col p03-col-right">
-          <div class="p03-block">
-            <h2 class="p03-title">Logo Design</h2>
-            <p class="p03-desc">
+        <div class="product-design-02-col product-design-02-col-right">
+          <div class="product-design-02-block">
+            <h2 class="product-design-02-section-title">Logo Design</h2>
+            <p class="product-design-02-desc">
               NAST의 로고는 상징적 형상을 중심으로<br />
               브랜드의 개념과 기능적 이미지를 시각적으로 통합하였습니다.
             </p>
-            <p class="p03-desc" style="margin-top: 18px">
+            <p class="product-design-02-desc" style="margin-top: 18px">
               둥지를 모티브로 한 심볼 구조를 통해<br />
               안정성, 보호, 연결의 의미를 담았습니다.
             </p>
 
-            <div class="p03-logo-area">
+            <div class="product-design-02-logo-area">
               <img
-                class="p03-logo-grid"
+                class="product-design-02-logo-grid"
                 src="./portfolio/assets/프로젝트 3- 로고 그리드.png"
                 alt="logo grid"
               />
@@ -848,7 +958,7 @@
               <img
                 src="./portfolio/assets/가습기 로고 2.png"
                 alt="blue logo"
-                class="p03-logo-blue"
+                class="product-design-02-logo-blue"
               />
 
               <img
@@ -864,30 +974,30 @@
               <img
                 src="./portfolio/assets/프로젝트 3- 심볼로고 지시선.png"
                 alt="symbol logo instruction line"
-                class="p03-logo-symbol-instruction-line"
+                class="product-design-02-logo-symbol-instruction-line"
               />
 
               <img
                 src="./portfolio/assets/프로젝트3 - 메인 로고 지시선.png"
                 alt="main logo instruction line"
-                class="p03-logo-main-instruction-line"
+                class="product-design-02-logo-main-instruction-line"
               />
             </div>
 
-            <div class="p03-hr p03-hr-right"></div>
+            <div class="product-design-02-hr product-design-02-hr-right"></div>
 
-            <div class="p03-available">
-              <h2 class="p03-available-title">Available Color</h2>
+            <div class="product-design-02-available">
+              <h2 class="product-design-02-available-title">Available Color</h2>
 
-              <div class="p03-color-grid">
-                <div class="p03-color-card navy">
+              <div class="product-design-02-color-grid">
+                <div class="product-design-02-color-card navy">
                   <img
                     src="./portfolio/assets/가습기 로고1.png"
                     alt="white logo"
                   />
                 </div>
 
-                <div class="p03-color-card light">
+                <div class="product-design-02-color-card light">
                   <img
                     src="./portfolio/assets/가습기 로고 2.png"
                     alt="blue logo"
@@ -899,14 +1009,14 @@
         </div>
       </div>
 
-      <div class="p03-vline"></div>
+      <div class="product-design-02-vline"></div>
     </section>
 
-    <!-- project 03 : detail  -->
-    <section class="p03-detail-section">
-      <div class="p03-detail-wrap">
+    <!-- Product Design 02 : detail  -->
+    <section class="product-design-02-detail-section">
+      <div class="product-design-02-detail-wrap">
         <!-- 왼쪽 메인 가습기 -->
-        <div class="p03-main">
+        <div class="product-design-02-main">
           <img
             src="./portfolio/assets/가습기 디테일 컷1.png"
             alt="humidifier main"
@@ -914,7 +1024,7 @@
         </div>
 
         <!-- 오른쪽 위 디테일 -->
-        <div class="p03-top-cut">
+        <div class="product-design-02-top-cut">
           <img
             src="./portfolio/assets/가습기 디테일 컷 2.png"
             alt="top detail"
@@ -922,7 +1032,7 @@
         </div>
 
         <!-- 오른쪽 아래 디테일 -->
-        <div class="p03-bottom-cut">
+        <div class="product-design-02-bottom-cut">
           <img
             src="./portfolio/assets/가습기 디테일 컷 3.png"
             alt="bottom detail"
@@ -931,9 +1041,9 @@
       </div>
     </section>
 
-    <!-- project 03 : Mock Up  -->
-    <section class="p03-hero-section">
-      <div class="p03-hero-img">
+    <!-- Product Design 02 : Mock Up  -->
+    <section class="product-design-02-hero-section">
+      <div class="product-design-02-hero-img">
         <img
           src="./portfolio/assets/가습기 목업 사진.png"
           alt="humidifier hero"
@@ -941,28 +1051,28 @@
       </div>
     </section>
 
-    <!-- Project4 Section-->
-    <!-- project 04 : cover -->
-    <section class="project04-hero">
-      <div class="project04-overlay">
+    <!-- Space Design Section-->
+    <!-- Space Design : cover -->
+    <section class="space-design-hero" id="Space-Design">
+      <div class="space-design-overlay">
         <!-- 왼쪽 상단 -->
-        <div class="p04-top-left">
-          <p>project 04</p>
+        <div class="space-design-top-left">
+          <p>Space Design</p>
         </div>
 
         <!-- 오른쪽 상단 -->
-        <div class="p04-top-right">
+        <div class="space-design-top-right">
           <p>Space Design</p>
         </div>
 
         <!-- 왼쪽 중앙 제목 -->
-        <div class="p04-title">
+        <div class="space-design-title">
           <h1>Study Space</h1>
           <p>Outdoor Collaborative Workspace Design</p>
         </div>
 
         <!-- 오른쪽 하단 프로젝트 정보 -->
-        <div class="p04-info">
+        <div class="space-design-info">
           <div class="info-row">
             <span class="label">팀 프로젝트</span>
           </div>
@@ -983,8 +1093,8 @@
           </div>
         </div>
 
-        <div class="project4-cover">
-          <div class="project4-img">
+        <div class="space-design-cover">
+          <div class="space-design-img">
             <img
               class="Background-img"
               src="./portfolio/assets/spacedesign.png"
@@ -995,12 +1105,12 @@
       </div>
     </section>
 
-    <!-- project 04 : overview -->
-    <section class="p04-concept">
-      <div class="p04-concept-wrap">
+    <!-- Space Design : overview -->
+    <section class="space-design-concept">
+      <div class="space-design-concept-wrap">
         <!-- 왼쪽 영역 -->
-        <div class="p04-left">
-          <div class="p04-story">
+        <div class="space-design-left">
+          <div class="space-design-story">
             <h2>Project Story</h2>
 
             <p>
@@ -1019,9 +1129,9 @@
             </p>
           </div>
 
-          <div class="p04-line"></div>
+          <div class="space-design-line"></div>
 
-          <div class="p04-design">
+          <div class="space-design-design">
             <h2>Design Concept</h2>
 
             <p>
@@ -1041,30 +1151,30 @@
         </div>
 
         <!-- 가운데 세로선 -->
-        <div class="p04-vline"></div>
+        <div class="space-design-vline"></div>
 
         <!-- 오른쪽 영역 -->
-        <div class="p04-right">
+        <div class="space-design-right">
           <h2>Keyword</h2>
 
-          <div class="p04-diagram-container">
-            <div class="p04-circle top">모던</div>
+          <div class="space-design-diagram-container">
+            <div class="space-design-circle top">모던</div>
 
-            <div class="p04-circle left">정적<br />(기하학적인)</div>
+            <div class="space-design-circle left">정적<br />(기하학적인)</div>
 
-            <div class="p04-circle right">중성색</div>
+            <div class="space-design-circle right">중성색</div>
 
             <img
               src="./portfolio/assets/모던 지시선.png"
-              class="p04-line-top"
+              class="space-design-line-top"
             />
             <img
               src="./portfolio/assets/정적 지시선.png"
-              class="p04-line-left"
+              class="space-design-line-left"
             />
             <img
               src="./portfolio/assets/중성색 지시선.png"
-              class="p04-line-right"
+              class="space-design-line-right"
             />
           </div>
 
@@ -1078,11 +1188,11 @@
       </div>
     </section>
 
-    <!-- project 04 : Module -->
-    <section class="p04-modul">
-      <div class="p04-grid">
+    <!-- Space Design : Module -->
+    <section class="space-design-module">
+      <div class="space-design-grid">
         <!-- LEFT -->
-        <div class="p04-left">
+        <div class="space-design-left">
           <div class="ux">
             <h2>User Experience</h2>
 
@@ -1121,7 +1231,7 @@
         <div class="vertical-line"></div>
 
         <!-- RIGHT -->
-        <div class="p04-right">
+        <div class="space-design-right">
           <div class="module">
             <h2>Module</h2>
 
@@ -1143,24 +1253,24 @@
             </div>
           </div>
 
-          <div class="project04-line-horizontal"></div>
+          <div class="space-design-line-horizontal"></div>
 
-          <div class="project04-color">
+          <div class="space-design-color">
             <h2>Color</h2>
 
-            <div class="project04-color-wrap">
-              <div class="project04-color-item">
-                <div class="project04-circle p04-black"></div>
+            <div class="space-design-color-wrap">
+              <div class="space-design-color-item">
+                <div class="space-design-color-circle space-design-black"></div>
                 <p># 212121</p>
               </div>
 
-              <div class="project04-color-item">
-                <div class="project04-circle p04-brown"></div>
+              <div class="space-design-color-item">
+                <div class="space-design-color-circle space-design-brown"></div>
                 <p># 3A3329</p>
               </div>
 
-              <div class="project04-color-item">
-                <div class="project04-circle p04-gray"></div>
+              <div class="space-design-color-item">
+                <div class="space-design-color-circle space-design-gray"></div>
                 <p># DCDCDC</p>
               </div>
             </div>
@@ -1169,33 +1279,33 @@
       </div>
     </section>
 
-    <!-- project 04 : detail -->
-    <section class="detail-section">
-      <div class="detail-container">
+    <!-- Space Design : detail -->
+    <section class="space-design-detail-section">
+      <div class="space-design-detail-container">
         <!-- 왼쪽 큰 이미지 -->
-        <div class="detail-left">
+        <div class="space-design-detail-left">
           <img
-            class="left-top"
+            class="space-design-left-top"
             src="./portfolio/assets/공간디자인 디테일 컷1.png"
             alt=""
           />
           <img
-            class="left-bottom"
+            class="space-design-left-bottom"
             src="./portfolio/assets/공간 디자인 디테일 컷 3.png"
             alt=""
           />
         </div>
 
         <!-- 오른쪽 영역 -->
-        <div class="detail-right">
-          <div class="detail-top">
+        <div class="space-design-detail-right">
+          <div class="space-design-detail-top">
             <img
               src="./portfolio/assets/공간디자인 디테일컥 2.png"
               alt=""
             />
           </div>
 
-          <div class="detail-bottom">
+          <div class="space-design-detail-bottom">
             <img
               src="./portfolio/assets/공간디자인 디테일 컷 4.png"
               alt=""
@@ -1205,10 +1315,10 @@
       </div>
     </section>
 
-    <!-- project 04 : Mock Up  -->
-    <section class="scene-section">
+    <!-- Space Design : Mock Up  -->
+    <section class="space-design-scene-section">
       <!-- 배경 -->
-      <div class="scene-bg">
+      <div class="space-design-scene-bg">
         <img
           src="./portfolio/assets/공간디자인 목업 복사본.png"
           alt=""
@@ -1216,39 +1326,34 @@
       </div>
     </section>
 
-    <!-- Project5 Section-->
-    <!-- project 05 : cover -->
-    <section class="project05">
-      <!-- 상단 텍스트 -->
-      <div class="project05-top">
-        <div class="top-left">project 05</div>
-        <div class="top-right">Capstone Design</div>
+    <!-- Capstone Design Section-->
+    <!-- Capstone Design : cover -->
+    <section class="capstone-design" id="Capstone-Design">
+      <div class="capstone-design-top">
+        <div class="capstone-design-top-left">Capstone Design</div>
+        <div class="capstone-design-top-right">Capstone Design</div>
       </div>
 
-      <!-- 왼쪽 이미지 -->
-      <div class="project05-left-img">
+      <div class="capstone-design-left-img">
         <img
           src="./portfolio/assets/제습기 배경-왼쪽(배경).png"
           alt=""
         />
       </div>
 
-      <!-- 중앙 타이틀 -->
-      <div class="project05-title">
+      <div class="capstone-design-title">
         <h1>Capstone Design</h1>
         <p>Mirror Type Field Practice</p>
       </div>
 
-      <!-- 오른쪽 이미지 -->
-      <div class="project05-right-img">
+      <div class="capstone-design-right-img">
         <img
           src="./portfolio/assets/제습기 배경 - 오른쪽(표지).png"
           alt=""
         />
       </div>
 
-      <!-- 우측 하단 정보 -->
-      <div class="project05-info">
+      <div class="capstone-design-info">
         <h3>팀 프로젝트</h3>
 
         <div class="info-row">
@@ -1268,22 +1373,23 @@
       </div>
     </section>
 
-    <!-- project 05 : story  -->
-    <section class="story-section">
+    <!-- Capstone Design : story -->
+    <section class="capstone-design-story-section">
       <img
         src="./portfolio/assets/제습기 배경-왼쪽(배경).png"
-        class="corner-left"
+        class="capstone-design-corner-left"
+        alt=""
       />
 
       <img
         src="./portfolio/assets/제습기 배경-오른쪽.png"
-        class="corner-right"
+        class="capstone-design-corner-right"
+        alt=""
       />
 
-      <div class="story-wrapper">
-        <!-- 왼쪽 영역 -->
-        <div class="story-left">
-          <div class="story-block">
+      <div class="capstone-design-story-wrapper">
+        <div class="capstone-design-story-left">
+          <div class="capstone-design-story-block">
             <h2>Project Story</h2>
 
             <p>
@@ -1301,9 +1407,9 @@
             </p>
           </div>
 
-          <div class="story-line"></div>
+          <div class="capstone-design-story-line"></div>
 
-          <div class="story-block">
+          <div class="capstone-design-story-block">
             <h2>Background</h2>
 
             <p>
@@ -1322,42 +1428,38 @@
           </div>
         </div>
 
-        <!-- 가운데 세로선 -->
-        <div class="story-divider"></div>
+        <div class="capstone-design-story-divider"></div>
 
-        <!-- 오른쪽 영역 -->
-        <div class="story-right">
+        <div class="capstone-design-story-right">
           <h2>Keyword</h2>
 
-          <div class="keyword-grid">
-            <div class="keyword-circle">모던</div>
-            <div class="keyword-circle">미니멀</div>
-            <div class="keyword-circle">재활용</div>
-            <div class="keyword-circle">무채색</div>
+          <div class="capstone-design-keyword-grid">
+            <div class="capstone-design-keyword-circle">모던</div>
+            <div class="capstone-design-keyword-circle">미니멀</div>
+            <div class="capstone-design-keyword-circle">재활용</div>
+            <div class="capstone-design-keyword-circle">무채색</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- project 05 : concept -->
-    <section class="concept-section project05-concept">
-      <!-- 왼쪽 위 장식 -->
+    <!-- Capstone Design : concept -->
+    <section class="capstone-design-concept">
       <img
         src="./portfolio/assets/제습기 배경-왼쪽.png"
-        class="corner-left"
+        class="capstone-design-corner-left"
+        alt=""
       />
 
-      <!-- 오른쪽 아래 장식 -->
       <img
         src="./portfolio/assets/제습기 배경-오른쪽.png"
-        class="corner-right"
+        class="capstone-design-corner-right"
+        alt=""
       />
 
-      <div class="concept-wrapper">
-        <!-- 왼쪽 영역 -->
-        <div class="left-col">
-          <!-- Design Concept -->
-          <div class="block">
+      <div class="capstone-design-concept-wrapper">
+        <div class="capstone-design-left-col">
+          <div class="capstone-design-block">
             <h2>Design Concept</h2>
 
             <p>
@@ -1368,15 +1470,14 @@
             </p>
           </div>
 
-          <div class="line-horizontal"></div>
+          <div class="capstone-design-line-horizontal"></div>
 
-          <!-- User Experience -->
-          <div class="block">
+          <div class="capstone-design-block">
             <h2>User Experience</h2>
 
             <p>이번 프로젝트에서는 다음과 같은 사용자 경험을 제공합니다.</p>
 
-            <ul class="check-list">
+            <ul class="capstone-design-check-list">
               <li>사용 상태 직관적 인지</li>
               <li>공간 내 시각적 조화</li>
               <li>관리 및 교체 판단 용이</li>
@@ -1390,18 +1491,15 @@
           </div>
         </div>
 
-        <!-- 가운데 세로선 -->
-        <div class="vertical-line"></div>
+        <div class="capstone-design-vertical-line"></div>
 
-        <!-- 오른쪽 영역 -->
-        <div class="right-col">
-          <!-- User Survey -->
-          <div class="block">
+        <div class="capstone-design-right-col">
+          <div class="capstone-design-block">
             <h2>User Survey Insights</h2>
 
             <p>사용자 설문 조사 결과 핵심 요구사항:</p>
 
-            <ul class="check-list">
+            <ul class="capstone-design-check-list">
               <li>간편한 사용성</li>
               <li>위생 및 안정성 고려</li>
               <li>시각적 부담 최소화</li>
@@ -1413,20 +1511,19 @@
             </p>
           </div>
 
-          <div class="line-horizontal"></div>
+          <div class="capstone-design-line-horizontal"></div>
 
-          <!-- Color -->
-          <div class="block color-block">
+          <div class="capstone-design-block capstone-design-color-block">
             <h2>Color & Material</h2>
 
-            <div class="color-wrap">
-              <div class="color-item">
-                <div class="color-circle black"></div>
+            <div class="capstone-design-color-wrap">
+              <div class="capstone-design-color-item">
+                <div class="capstone-design-color-circle black"></div>
                 <p>#4B4A4E</p>
               </div>
 
-              <div class="color-item">
-                <div class="color-circle white"></div>
+              <div class="capstone-design-color-item">
+                <div class="capstone-design-color-circle white"></div>
                 <p>반투명재질</p>
               </div>
             </div>
@@ -1435,39 +1532,37 @@
       </div>
     </section>
 
-    <!-- project 05 : detail -->
-    <section class="product-show-section">
-      <!-- 좌측 장식 -->
+    <!-- Capstone Design : detail -->
+    <section class="capstone-design-product-section">
       <img
         src="./portfolio/assets/제습기 배경-왼쪽.png"
-        class="corner-left"
+        class="capstone-design-corner-left"
+        alt=""
       />
 
-      <!-- 우측 장식 -->
       <img
         src="./portfolio/assets/제습기 배경-오른쪽.png"
-        class="corner-right"
+        class="capstone-design-corner-right"
+        alt=""
       />
 
-      <div class="product-show-wrap">
-        <!-- 큰 제품 -->
-        <div class="product-main">
+      <div class="capstone-design-product-wrap">
+        <div class="capstone-design-product-main">
           <img
             src="./portfolio/assets/습기제거제 3D 렌더링1.png"
             alt=""
           />
         </div>
 
-        <!-- 우측 제품 -->
-        <div class="product-side">
-          <div class="product-top">
+        <div class="capstone-design-product-side">
+          <div class="capstone-design-product-top">
             <img
               src="./portfolio/assets/습기제거제 3D 렌더링 2.png"
               alt=""
             />
           </div>
 
-          <div class="product-bottom">
+          <div class="capstone-design-product-bottom">
             <img
               src="./portfolio/assets/습기제거제 3D 렌더링 4.png"
               alt=""
@@ -1477,90 +1572,87 @@
       </div>
     </section>
 
-    <!-- project 05 : Mock up -->
-    <section class="product-scene">
-      <div class="scene-wrap">
+    <!-- Capstone Design : Mock Up -->
+    <section class="capstone-design-scene">
+      <div class="capstone-design-scene-wrap">
         <img
           src="./portfolio/assets/습기제거제 목업 1.png"
-          class="scene-bg"
+          class="capstone-design-scene-bg"
+          alt=""
         />
       </div>
     </section>
 
-    <!-- project 05 : Mock up -->
-    <section class="product-scene-02">
-      <div class="scene-wrap-02">
+    <!-- Capstone Design : Mock Up -->
+    <section class="capstone-design-scene-02">
+      <div class="capstone-design-scene-wrap-02">
         <img
           src="./portfolio/assets/습기제거제 목업 2.png"
-          class="scene-bg-02"
+          class="capstone-design-scene-bg-02"
+          alt=""
         />
       </div>
     </section>
 
-    <!-- project 05 : Mock up -->
-    <section class="product-scene-03">
-      <div class="scene-wrap-03">
+    <!-- Capstone Design : Mock Up -->
+    <section class="capstone-design-scene-03">
+      <div class="capstone-design-scene-wrap-03">
         <img
           src="./portfolio/assets/습기제거제 목업3.png"
-          class="scene-bg-03"
+          class="capstone-design-scene-bg-03"
+          alt=""
         />
       </div>
     </section>
 
-    <!-- Project06 Section-->
-    <!-- project 06 : cover -->
-    <section class="project06">
-      <!-- 배경 이미지 -->
-      <div class="p06-bg">
+    <!-- Convergence Design Section-->
+    <!-- Convergence Design : cover -->
+    <section class="convergence-design" id="Convergence-Design">
+      <div class="convergence-design-bg">
         <img
           src="./portfolio/assets/블루투스 스피커 첫페이지.png"
           alt=""
         />
       </div>
 
-      <!-- 좌측 상단 -->
-      <div class="p06-top-left">
-        <p>project 06</p>
-      </div>
-
-      <!-- 우측 상단 -->
-      <div class="p06-top-right">
+      <div class="convergence-design-top-left">
         <p>Convergence Design</p>
       </div>
 
-      <!-- 메인 타이틀 -->
-      <div class="p06-title">
+      <div class="convergence-design-top-right">
+        <p>Convergence Design</p>
+      </div>
+
+      <div class="convergence-design-title">
         <h1>Convergence Design</h1>
         <p>Cheongsachorong Speaker</p>
       </div>
 
-      <!-- 프로젝트 정보 -->
-      <div class="p06-info">
-        <p class="p06-type">개인 프로젝트</p>
+      <div class="convergence-design-info">
+        <p class="convergence-design-type">개인 프로젝트</p>
 
-        <div class="p06-detail">
+        <div class="convergence-design-detail">
           <p>기간</p>
           <span>2025/03~2025/07</span>
         </div>
 
-        <div class="p06-detail">
+        <div class="convergence-design-detail">
           <p>프로그램</p>
           <span>Rhino / KeyShot / PPT</span>
         </div>
 
-        <div class="p06-detail">
+        <div class="convergence-design-detail">
           <p>기여도</p>
           <span>100%</span>
         </div>
       </div>
     </section>
 
-    <!-- project 06 : story -->
-    <section class="p06-story">
-      <div class="story-wrap">
-        <!-- 왼쪽 영역 -->
-        <div class="story-left">
-          <div class="story-text">
+    <!-- Convergence Design : story -->
+    <section class="convergence-design-story">
+      <div class="convergence-design-story-wrap">
+        <div class="convergence-design-story-left">
+          <div class="convergence-design-story-text">
             <h2>Project Story</h2>
 
             <p>
@@ -1578,9 +1670,9 @@
             </p>
           </div>
 
-          <div class="story-line"></div>
+          <div class="convergence-design-story-line"></div>
 
-          <div class="story-text">
+          <div class="convergence-design-story-text">
             <h2>Background</h2>
 
             <p>
@@ -1600,43 +1692,43 @@
           </div>
         </div>
 
-        <!-- 가운데 세로선 -->
-        <div class="story-divider"></div>
+        <div class="convergence-design-story-divider"></div>
 
-        <!-- 오른쪽 영역 -->
-        <div class="story-right">
+        <div class="convergence-design-story-right">
           <h2>Keyword</h2>
 
-          <div class="keyword-diagram">
-            <div class="circle circle1">한국적인</div>
-            <div class="circle circle2">단순함</div>
-            <div class="circle circle3">감성적인</div>
+          <div class="convergence-design-keyword-diagram">
+            <div class="convergence-design-circle circle1">한국적인</div>
+            <div class="convergence-design-circle circle2">단순함</div>
+            <div class="convergence-design-circle circle3">감성적인</div>
 
             <img
               src="./portfolio/assets/한국적인 지시선.png"
-              class="kprean-line"
+              class="convergence-design-korean-line"
+              alt=""
             />
             <img
               src="./portfolio/assets/단순함 지시선.png"
-              class="simple-line"
+              class="convergence-design-simple-line"
+              alt=""
             />
             <img
               src="./portfolio/assets/감성적인 지시선.png"
-              class="emotional-lines"
+              class="convergence-design-emotional-lines"
+              alt=""
             />
 
-            <!-- 설명 텍스트 -->
-            <p class="k-text k1">
+            <p class="convergence-design-keyword-text k1">
               형태, 비례, 색채 구조를 유지하면서<br />
               문화적 인지성을 보존
             </p>
 
-            <p class="k-text k2">
+            <p class="convergence-design-keyword-text k2">
               복잡함을 제거하고<br />
               형태를 단순화
             </p>
 
-            <p class="k-text k3">
+            <p class="convergence-design-keyword-text k3">
               시각적 분위기 형성과<br />
               정서적 경험을 동시에 제공
             </p>
@@ -1645,11 +1737,10 @@
       </div>
     </section>
 
-    <!-- project 06 : concept -->
-    <section class="p06-concept">
-      <div class="concept-wrap">
-        <!-- 왼쪽 -->
-        <div class="concept-left">
+    <!-- Convergence Design : concept -->
+    <section class="convergence-design-concept">
+      <div class="convergence-design-concept-wrap">
+        <div class="convergence-design-concept-left">
           <h2>Design Concept</h2>
 
           <p>
@@ -1662,7 +1753,7 @@
             현대 생활 제품인 블루투스 스피커 기능을 결합하였습니다.
           </p>
 
-          <div class="line"></div>
+          <div class="convergence-design-line"></div>
 
           <h2>User Experience</h2>
 
@@ -1681,11 +1772,9 @@
           <p>제품은 기능 수행 뿐 아니라 공간 무드 형성 장치로 작동합니다.</p>
         </div>
 
-        <!-- 가운데 세로선 -->
-        <div class="concept-divider"></div>
+        <div class="convergence-design-concept-divider"></div>
 
-        <!-- 오른쪽 -->
-        <div class="concept-right">
+        <div class="convergence-design-concept-right">
           <h2>Design Value</h2>
 
           <p>
@@ -1700,23 +1789,23 @@
             <li>생활 맥락 기반 디자인 전략</li>
           </ul>
 
-          <div class="line"></div>
+          <div class="convergence-design-line"></div>
 
           <h2>Color & Material</h2>
 
-          <div class="color-wrap">
-            <div class="color-item">
-              <div class="color black"></div>
+          <div class="convergence-design-color-wrap">
+            <div class="convergence-design-color-item">
+              <div class="convergence-design-color black"></div>
               <p>#262525</p>
             </div>
 
-            <div class="color-item">
-              <div class="color red"></div>
+            <div class="convergence-design-color-item">
+              <div class="convergence-design-color red"></div>
               <p>#C9221F</p>
             </div>
 
-            <div class="color-item">
-              <div class="color blue"></div>
+            <div class="convergence-design-color-item">
+              <div class="convergence-design-color blue"></div>
               <p>#1D3051</p>
             </div>
           </div>
@@ -1724,27 +1813,25 @@
       </div>
     </section>
 
-    <!-- project 06 : detail -->
-    <section class="p06-product">
-      <div class="p06-product-wrap">
-        <!-- 왼쪽 큰 이미지 -->
-        <div class="p06-product-left">
+    <!-- Convergence Design : detail -->
+    <section class="convergence-design-product">
+      <div class="convergence-design-product-wrap">
+        <div class="convergence-design-product-left">
           <img
             src="./portfolio/assets/블루투스 스피커 3D 랜더링.png"
             alt=""
           />
         </div>
 
-        <!-- 오른쪽 이미지 -->
-        <div class="p06-product-right">
-          <div class="p06-product-top">
+        <div class="convergence-design-product-right">
+          <div class="convergence-design-product-top">
             <img
               src="./portfolio/assets/블루투스 스피커 디테일 컷.png"
               alt=""
             />
           </div>
 
-          <div class="p06-product-bottom">
+          <div class="convergence-design-product-bottom">
             <img
               src="./portfolio/assets/블루투스 스피커 디테일컷 2.png"
               alt=""
@@ -1754,9 +1841,9 @@
       </div>
     </section>
 
-    <!-- project 06 : mock up -->
-    <section class="project06-scene">
-      <div class="scene-img">
+    <!-- Convergence Design : mock up -->
+    <section class="convergence-design-scene">
+      <div class="convergence-design-scene-img">
         <img
           src="./portfolio/assets/블루투스 스피커 목업 1.png"
           alt="Cheongsachorong Speaker Scene"
@@ -1764,9 +1851,9 @@
       </div>
     </section>
 
-    <!-- project 06 : mock up -->
-    <section class="project06-scene02">
-      <div class="scene02-img">
+    <!-- Convergence Design : mock up -->
+    <section class="convergence-design-scene-02">
+      <div class="convergence-design-scene02-img">
         <img
           src="./portfolio/assets/블루투스 스피커 목업2.png"
           alt="Cheongsachorong Speaker Scene"
@@ -1785,7 +1872,7 @@
     </section>
 
     <!-- footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand">
@@ -1810,11 +1897,12 @@
           <div class="footer-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#project">Project</a>
+            <a href="#project-folder">Project</a>
           </div>
         </div>
       </div>
     </footer>
+
     <script src="./portfolio/portfolio.js"></script>
   </body>
 </html>
