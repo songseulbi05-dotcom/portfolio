@@ -13,7 +13,6 @@ body {
   background: transparent;
   overflow-x: hidden;
   padding-top: 75px;
-  font-family: "Poppins", sans-serif;
 }
 
 /* -- header Section -- */
@@ -34,6 +33,7 @@ body {
 
 .logo {
   position: relative;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: #f5f5f5;
@@ -1623,66 +1623,33 @@ body {
   min-height: calc(100dvh - 75px);
   background: #ffffff;
   overflow: hidden;
-  padding: 84px 120px 48px;
+  padding: 80px 120px;
   box-sizing: border-box;
   color: #111111;
 }
 
-.product-design::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
-  background-size: 84px 84px;
-  mask-image: linear-gradient(90deg, #000 0%, transparent 80%);
-}
-
-.product-design::after {
-  content: "THERONE";
-  position: absolute;
-  left: 7vw;
-  bottom: 8vh;
-  color: rgba(17, 17, 17, 0.035);
-  font-size: clamp(78px, 13vw, 190px);
-  font-weight: 600;
-  letter-spacing: -0.08em;
-  line-height: 0.8;
-  pointer-events: none;
-}
-
 .product-design-top-left {
   position: absolute;
-  top: 36px;
+  top: 40px;
   left: 120px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(17, 17, 17, 0.72);
+  font-size: 18px;
+  color: #333333;
   z-index: 30;
 }
 
 .product-design-top-right {
   position: absolute;
-  top: 36px;
+  top: 40px;
   right: 120px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(17, 17, 17, 0.62);
+  font-size: 18px;
+  color: #555555;
   z-index: 30;
 }
 
 .product-design-left {
   position: absolute;
-  top: 42%;
-  left: 120px;
-  width: min(470px, 38vw);
-  transform: translateY(-50%);
+  top: 240px;
+  left: 160px;
   z-index: 30;
 }
 
@@ -1704,123 +1671,70 @@ body {
 }
 
 .product-design-title {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(48px, 6.6vw, 88px);
+  font-family: "LINE Seed Sans", serif;
+  font-size: 35px;
   font-weight: 500;
-  letter-spacing: -0.055em;
-  line-height: 0.94;
-  margin: 0 0 22px;
-  color: #111111;
+  letter-spacing: -2px;
+  margin: 0 0 15px;
 }
 
 .product-design-subtitle {
   font-family: "Avenir Next", sans-serif;
-  font-size: clamp(17px, 1.7vw, 23px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  margin: 0;
-  color: #444444;
-}
-
-.product-design-summary {
-  width: min(100%, 420px);
-  margin: 22px 0 0;
-  font-size: 15px;
-  line-height: 1.8;
-  word-break: keep-all;
-  color: #666666;
-}
-
-.product-design-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.product-design-tags span {
-  padding: 8px 13px;
-  border: 1px solid rgba(17, 17, 17, 0.16);
-  border-radius: 999px;
-  background: #f6f6f6;
-  color: #444444;
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 20px;
+  font-weight: 290;
+  letter-spacing: -1px;
+  margin: 0 0 0 10px;
+  color: #777777;
 }
 
 .product-design-meta {
   position: absolute;
-  left: 120px;
-  bottom: 46px;
-  width: min(390px, calc(100% - 240px));
-  padding: 20px 22px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 120px 30px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  z-index: 32;
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
+  gap: 10px;
+  z-index: 20;
 }
 
 .product-design-meta .row {
   display: flex;
-  gap: 18px;
-  font-size: 14px;
+  gap: 30px;
+  font-size: 15px;
   line-height: 1.4;
-  color: #333333;
+  color: #333;
   z-index: 50;
 }
 
 .product-design-meta dt {
-  width: 76px;
+  width: 75px;
   font-weight: 500;
-  color: #777777;
 }
 
 .product-design-meta dd {
   margin: 0;
-  color: #222222;
+  color: #555555;
 }
 
 .product-design-right {
   position: absolute;
-  right: -4vw;
-  bottom: -7vh;
-  width: min(68vw, 980px);
+  right: 0;
+  bottom: 0;
+  width: 65%;
   display: flex;
   justify-content: flex-end;
-  z-index: 5;
-}
-
-.product-design-product {
-  position: relative;
-}
-
-.product-design-product::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 7%;
-  width: 64%;
-  height: 16%;
-  transform: translateX(-45%);
-  border-radius: 50%;
-  background: rgba(27, 27, 27, 0.26);
-  filter: blur(22px);
-  z-index: -1;
+  z-index: 1;
 }
 
 .product-design-product .pot-img {
-  width: auto;
-  height: min(91vh, 820px);
+  width: auto !important;
+  height: 78vh !important;
   max-width: none !important;
   display: block;
-  transform: scale(1.2);
+  transform: scale(1.25);
   transform-origin: 100% 100%;
-  filter: drop-shadow(0 36px 54px rgba(0, 0, 0, 0.22));
 }
 
 /* ------ Product Design : selected ------ */
@@ -2420,163 +2334,81 @@ body {
   background: #0b3c63;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
-  color: #f5f8fb;
 }
 
 .product-design-02::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("./assets/가습기 표지.png");
   background-size: cover;
   background-position: center;
-  opacity: 0.58;
-  transform: scale(1.02);
-  pointer-events: none;
-}
-
-.product-design-02::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5, 24, 38, 0.86) 0%,
-      rgba(5, 24, 38, 0.48) 46%,
-      rgba(5, 24, 38, 0.16) 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(5, 24, 38, 0.25) 0%,
-      rgba(5, 24, 38, 0.64) 100%
-    );
+  opacity: 0.35;
   pointer-events: none;
 }
 
 .product-design-02-top-left {
   position: absolute;
-  top: 36px;
+  top: 40px;
   left: 120px;
-  z-index: 3;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(245, 248, 251, 0.78);
+  font-size: 18px;
+  color: #cfd6df;
 }
 
 .product-design-02-top-right {
   position: absolute;
-  top: 36px;
+  top: 40px;
   right: 120px;
-  z-index: 3;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(245, 248, 251, 0.74);
+  font-size: 18px;
+  color: #cfd6df;
 }
 
 .product-design-02-title-area {
+  font-family: "LINE Seed Sans", sans-serif;
   position: absolute;
-  top: 50%;
-  left: 120px;
-  width: min(560px, 44vw);
-  padding: 24px 28px 26px;
-  transform: translateY(-50%);
-  z-index: 3;
-  border-left: 2px solid rgba(176, 219, 232, 0.44);
-  background: rgba(5, 24, 38, 0.2);
-  backdrop-filter: blur(6px);
-}
-
-.product-design-02-kicker {
-  margin: 0 0 16px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(207, 231, 239, 0.86);
+  top: 140px;
+  left: 160px;
 }
 
 .product-design-02-title {
-  margin: 0 0 14px;
-  font-size: clamp(54px, 7vw, 96px);
-  font-weight: 500;
-  line-height: 0.94;
-  letter-spacing: -0.04em;
-  color: #ffffff;
+  margin: 0 0 10px;
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
 }
 
 .product-design-02-subtitle {
   margin: 0;
-  font-size: clamp(17px, 1.6vw, 23px);
-  line-height: 1.5;
-  color: rgba(229, 239, 244, 0.9);
-}
-
-.product-design-02-summary {
-  width: min(100%, 500px);
-  margin: 22px 0 0;
-  font-size: 15px;
-  line-height: 1.85;
-  word-break: keep-all;
-  color: rgba(229, 239, 244, 0.82);
-}
-
-.product-design-02-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.product-design-02-tags span {
-  padding: 8px 13px;
-  border: 1px solid rgba(220, 239, 246, 0.26);
-  border-radius: 999px;
-  background: rgba(220, 239, 246, 0.12);
-  color: rgba(245, 248, 251, 0.92);
-  font-size: 12px;
-  letter-spacing: 0.06em;
+  font-size: 20px;
+  color: #cfd6df;
 }
 
 .product-design-02-logo {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .product-design-02-logo img {
-  width: clamp(130px, 12vw, 190px);
+  width: 160px;
   height: auto;
-  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.24));
 }
 
 .product-design-02-info {
   position: absolute;
-  right: 120px;
-  bottom: 40px;
-  z-index: 3;
-  min-width: 310px;
-  padding: 20px 22px;
+  bottom: 30px;
+  left: 120px;
   color: #d5dce5;
-  border: 1px solid rgba(220, 239, 246, 0.2);
-  border-radius: 22px;
-  background: rgba(5, 24, 38, 0.42);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22);
 }
 
 .product-design-02-info .info-row {
   display: flex;
-  gap: 18px;
-  margin-bottom: 12px;
+  gap: 30px;
+  margin-bottom: 10px;
   font-size: 15px;
   line-height: 1.4;
 }
@@ -2587,86 +2419,10 @@ body {
 
 .product-design-02-info .info-label {
   width: 80px;
-  color: rgba(213, 220, 229, 0.76);
 }
 
 .product-design-02-info .info-value {
   color: #e5ebf2;
-}
-
-@media (max-width: 1100px) {
-  .product-design-02-top-left,
-  .product-design-02-title-area {
-    left: 48px;
-  }
-
-  .product-design-02-top-right,
-  .product-design-02-info {
-    right: 48px;
-  }
-
-  .product-design-02-title-area {
-    width: min(520px, 52vw);
-  }
-
-}
-
-@media (max-width: 900px) {
-  .product-design-02 {
-    min-height: auto;
-    padding: 72px 24px 38px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .product-design-02::before {
-    background-position: center right;
-  }
-
-  .product-design-02::after {
-    background:
-      linear-gradient(180deg, rgba(5, 24, 38, 0.9) 0%, rgba(5, 24, 38, 0.62) 55%, rgba(5, 24, 38, 0.8) 100%);
-  }
-
-  .product-design-02-top-left,
-  .product-design-02-top-right,
-  .product-design-02-title-area,
-  .product-design-02-logo,
-  .product-design-02-info {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    transform: none;
-  }
-
-  .product-design-02-top-left,
-  .product-design-02-top-right {
-    z-index: 3;
-  }
-
-  .product-design-02-top-right {
-    margin-top: -24px;
-    align-self: flex-end;
-    text-align: right;
-  }
-
-  .product-design-02-title-area {
-    padding: 22px 0 24px 20px;
-    background: rgba(5, 24, 38, 0.28);
-  }
-
-  .product-design-02-logo {
-    position: absolute;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-  }
-
-  .product-design-02-info {
-    min-width: 0;
-  }
 }
 
 .product-design-02-overview {
