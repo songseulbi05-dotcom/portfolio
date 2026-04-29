@@ -474,23 +474,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR",
-    "Helvetica Neue", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 300;
   line-height: 1.7;
-  background:
-    radial-gradient(
-      circle at 18% 20%,
-      rgba(113, 151, 255, 0.34),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 82% 72%,
-      rgba(255, 186, 132, 0.32),
-      transparent 30%
-    ),
-    linear-gradient(135deg, #d8e3f3 0%, #f4efe8 48%, #cfdae9 100%);
+  background: #d8e3f3;
 }
 
 .canvas h1,
@@ -2433,6 +2420,7 @@ body {
   background: #0b3c63;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
+  color: #f5f8fb;
 }
 
 .product-design-02::before {
@@ -2442,78 +2430,243 @@ body {
   background-image: url("./assets/가습기 표지.png");
   background-size: cover;
   background-position: center;
-  opacity: 0.35;
+  opacity: 0.58;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+.product-design-02::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 24, 38, 0.86) 0%,
+      rgba(5, 24, 38, 0.48) 46%,
+      rgba(5, 24, 38, 0.16) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 24, 38, 0.25) 0%,
+      rgba(5, 24, 38, 0.64) 100%
+    );
   pointer-events: none;
 }
 
 .product-design-02-top-left {
   position: absolute;
-  top: 40px;
+  top: 36px;
   left: 120px;
-  font-size: 18px;
-  color: #cfd6df;
+  z-index: 3;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 248, 251, 0.78);
 }
 
 .product-design-02-top-right {
   position: absolute;
-  top: 40px;
+  top: 36px;
   right: 120px;
-  font-size: 18px;
-  color: #cfd6df;
+  z-index: 3;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 248, 251, 0.74);
 }
 
 .product-design-02-title-area {
   position: absolute;
-  top: 140px;
-  left: 160px;
-  font-family: "LINE Seed Sans", sans-serif;
+  top: 50%;
+  left: 120px;
+  width: min(560px, 44vw);
+  padding: 24px 28px 26px;
+  transform: translateY(-50%);
+  z-index: 3;
+  border-left: 2px solid rgba(176, 219, 232, 0.44);
+  background: rgba(5, 24, 38, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.product-design-02-kicker {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(207, 231, 239, 0.86);
 }
 
 .product-design-02-title {
-  margin-bottom: 10px;
-  font-size: 40px;
-  font-weight: 600;
-  color: #fff;
+  margin: 0 0 14px;
+  font-size: clamp(54px, 7vw, 96px);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  color: #ffffff;
 }
 
 .product-design-02-subtitle {
-  font-size: 20px;
-  color: #cfd6df;
+  margin: 0;
+  font-size: clamp(17px, 1.6vw, 23px);
+  line-height: 1.5;
+  color: rgba(229, 239, 244, 0.9);
+}
+
+.product-design-02-summary {
+  width: min(100%, 500px);
+  margin: 22px 0 0;
+  font-size: 15px;
+  line-height: 1.85;
+  word-break: keep-all;
+  color: rgba(229, 239, 244, 0.82);
+}
+
+.product-design-02-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.product-design-02-tags span {
+  padding: 8px 13px;
+  border: 1px solid rgba(220, 239, 246, 0.26);
+  border-radius: 999px;
+  background: rgba(220, 239, 246, 0.12);
+  color: rgba(245, 248, 251, 0.92);
+  font-size: 12px;
+  letter-spacing: 0.06em;
 }
 
 .product-design-02-logo {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .product-design-02-logo img {
-  width: 160px;
+  width: clamp(130px, 12vw, 190px);
   height: auto;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.24));
 }
 
 .product-design-02-info {
   position: absolute;
-  bottom: 30px;
-  left: 120px;
+  right: 120px;
+  bottom: 40px;
+  z-index: 3;
+  min-width: 310px;
+  padding: 20px 22px;
   color: #d5dce5;
+  border: 1px solid rgba(220, 239, 246, 0.2);
+  border-radius: 22px;
+  background: rgba(5, 24, 38, 0.42);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.22);
 }
 
 .product-design-02-info .info-row {
   display: flex;
-  gap: 30px;
-  margin-bottom: 10px;
+  gap: 18px;
+  margin-bottom: 12px;
   font-size: 15px;
   line-height: 1.4;
 }
 
+.product-design-02-info .info-row:last-child {
+  margin-bottom: 0;
+}
+
 .product-design-02-info .info-label {
   width: 80px;
+  color: rgba(213, 220, 229, 0.76);
 }
 
 .product-design-02-info .info-value {
   color: #e5ebf2;
+}
+
+@media (max-width: 1100px) {
+  .product-design-02-top-left,
+  .product-design-02-title-area {
+    left: 48px;
+  }
+
+  .product-design-02-top-right,
+  .product-design-02-info {
+    right: 48px;
+  }
+
+  .product-design-02-title-area {
+    width: min(520px, 52vw);
+  }
+
+}
+
+@media (max-width: 900px) {
+  .product-design-02 {
+    min-height: auto;
+    padding: 72px 24px 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .product-design-02::before {
+    background-position: center right;
+  }
+
+  .product-design-02::after {
+    background:
+      linear-gradient(180deg, rgba(5, 24, 38, 0.9) 0%, rgba(5, 24, 38, 0.62) 55%, rgba(5, 24, 38, 0.8) 100%);
+  }
+
+  .product-design-02-top-left,
+  .product-design-02-top-right,
+  .product-design-02-title-area,
+  .product-design-02-logo,
+  .product-design-02-info {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    transform: none;
+  }
+
+  .product-design-02-top-left,
+  .product-design-02-top-right {
+    z-index: 3;
+  }
+
+  .product-design-02-top-right {
+    margin-top: -24px;
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .product-design-02-title-area {
+    padding: 22px 0 24px 20px;
+    background: rgba(5, 24, 38, 0.28);
+  }
+
+  .product-design-02-logo {
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+
+  .product-design-02-info {
+    min-width: 0;
+  }
 }
 
 .product-design-02-overview {
@@ -2632,12 +2785,11 @@ body {
   word-break: keep-all;
 }
 
-.product-design-02-overview .vertical-line {
+.product-design-02-overview-vline {
   width: 1px;
   height: 100%;
   margin-left: 52px;
-  background: rgba(0, 0, 0, 0.3);
-  opacity: 0.5;
+  background: rgba(34, 34, 34, 0.8);
 }
 
 .product-design-02-overview .keyword-section {
