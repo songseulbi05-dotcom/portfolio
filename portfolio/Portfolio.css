@@ -126,54 +126,6 @@ body {
   pointer-events: auto;
 }
 
-@media (max-width: 900px) {
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 75px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background: rgba(19, 19, 19, 0.98);
-    padding: 24px 0 32px;
-    gap: 18px;
-    transform: translateY(-130%);
-    opacity: 0;
-    pointer-events: none;
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-  }
-
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-left: 0;
-  }
-
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
-  .navbar {
-    padding: 0 5%;
-    height: 68px;
-  }
-}
-
 /* -- title Section -- */
 .title {
   width: 100%;
@@ -466,293 +418,160 @@ body {
   font-size: 15px;
 }
 
-/* -- contact -- */
-.canvas {
-  width: 100%;
-  min-height: calc(100dvh - 75px);
-  padding: 40px 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
-  background: #d8e3f3;
-}
-
-.canvas h1,
-.canvas h2,
-.canvas h3,
-.canvas h4,
-.canvas h5,
-.canvas h6,
-.canvas p,
-.canvas span,
-.canvas a,
-.canvas label,
-.canvas button,
-.canvas input,
-.canvas textarea,
-.canvas .nav-item span,
-.canvas .toolbar-title,
-.canvas .folder p,
-.canvas .statusbar {
-  font-weight: 300;
-}
-
-.window {
-  width: min(100%, 1500px);
-  height: min(760px, calc(100dvh - 155px));
-  min-height: 560px;
-  background: #f6f6f6;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(78, 86, 98, 0.18);
-  display: flex;
-  box-shadow:
-    0 36px 90px rgba(35, 43, 58, 0.24),
-    0 12px 34px rgba(35, 43, 58, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(24px);
-}
-
-.sidebar {
-  width: 270px;
-  background: rgba(234, 237, 242, 0.72);
+.hero-container {
   position: relative;
-  border-right: 1px solid rgba(167, 174, 184, 0.35);
-  backdrop-filter: blur(30px) saturate(1.45);
-}
-
-.traffic {
+  width: 100%;
+  height: 100vh;
+  background-color: #131313;
   display: flex;
-  gap: 8px;
-  padding: 16px 18px 10px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.16);
+#project-folder {
+  background-color: #6b6b6b;
 }
 
-.red {
-  background: #ff5f57;
-}
-.yellow {
-  background: #febc2e;
-}
-.green {
-  background: #28c840;
-}
-
-.sidebar-content {
-  padding: 6px 10px 20px;
+/* 항상 밑바탕에 고정되어 있는 거대한 투명 PORTFOLIO 문구 (선택사항) */
+.fixed-bg-text {
+  position: absolute;
+  left: 12%;
+  font-size: 8vw;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.03); /* 아주 은은하게 배경으로만 깔림 */
+  letter-spacing: 0.05em;
+  user-select: none;
+  z-index: 1;
 }
 
-.section-title {
-  color: #8b929e;
-  font-size: 11px;
-  font-weight: 600;
-  margin: 17px 12px 7px;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+/* ==========================================
+   카테고리 텍스트 슬라이더 래퍼
+   ========================================== */
+.slider-wrapper {
+  --card-width: min(380px, 62vw);
+  --card-gap: 36px;
+  --slide-offset: -190px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
 }
 
-.nav-item {
-  padding: 6px 10px;
-  border-radius: 7px;
-  margin-bottom: 2px;
-  color: #313846;
-  font-size: 13px;
-  font-weight: 500;
+.slider-track {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  gap: var(--card-gap);
+  transform: translate(var(--slide-offset), -50%);
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.nav-item.active {
-  background: rgba(0, 122, 255, 0.2);
-  color: #174ea6;
-}
-
-.locations {
-  margin: 20px 12px 0;
-  color: #9aa1ac;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.main {
-  flex: 1;
+/* 개별 슬라이드 세트 */
+.slide-item {
+  position: relative;
+  flex: 0 0 var(--card-width);
+  height: min(580px, 72vh);
   display: flex;
   flex-direction: column;
-}
-
-.toolbar {
-  height: 52px;
-  background: rgba(249, 250, 252, 0.86);
-  display: flex;
   align-items: center;
-  padding: 0 18px;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(167, 174, 184, 0.34);
-  backdrop-filter: blur(20px);
-}
-
-.toolbar-left {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.toolbar-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #242a34;
-  margin-left: 8px;
-}
-
-.arrow {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  background: rgba(227, 230, 236, 0.8);
-  color: #7e8794;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  line-height: 1;
-}
-
-.content {
-  flex: 1;
-  padding: 70px 64px 50px;
-  background: linear-gradient(180deg, #fbfbfb 0%, #f7f8fa 100%);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(130px, 1fr));
-  gap: 48px 52px;
-}
-
-.folder {
-  color: #252b35;
+  justify-content: flex-end;
+  opacity: 0.42;
+  transform: scale(0.78);
   text-decoration: none;
+  transition:
+    opacity 0.6s ease-in-out,
+    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 활성화되어 화면에 등장할 때 (active) */
+.slide-item.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 3;
+}
+
+/* 타이포그래피 디테일 세팅 */
+.portfolio-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 16px;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
   text-align: center;
+  user-select: none;
+}
+
+/* 프로젝트별 대표 이미지 */
+.slide-image {
+  display: block;
+  width: 100%;
+  height: calc(100% - 48px);
+  object-fit: cover;
+  border-radius: 18px;
+  opacity: 0.68;
+}
+
+/* 앞쪽의 선명한 흰색 레이어 */
+.main-white {
+  color: #ffffff;
+}
+
+/* ==========================================
+   화살표 버튼 디자인
+   ========================================== */
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(5px);
+  color: #ffffff;
+  font-size: 1.5rem;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 8px 8px;
-  border-radius: 10px;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.folder:hover {
-  transform: translateY(-2px);
-  background: rgba(0, 122, 255, 0.07);
-}
-
-.folder-icon {
-  width: 110px;
-  height: 74px;
-  margin: 12px auto 0;
-  background: linear-gradient(180deg, #7bc5ff 0%, #3d9cff 100%);
-  border-radius: 8px 10px 13px 13px;
-  position: relative;
-  box-shadow:
-    0 12px 18px rgba(55, 126, 207, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.38);
-}
-
-.folder-icon::before {
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: -11px;
-  width: 50px;
-  height: 19px;
-  background: linear-gradient(180deg, #a6dcff 0%, #72c3ff 100%);
-  border-radius: 9px 11px 0 0;
-}
-
-.folder-icon::after {
-  content: "";
-  position: absolute;
-  inset: 13px 0 auto;
-  height: 16px;
-  border-radius: 8px 10px 0 0;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.folder p {
-  width: 154px;
-  margin-top: 13px;
-  font-size: 13px;
-  line-height: 1.35;
-  letter-spacing: 0;
-  color: #29313d;
-}
-
-.pathbar {
-  height: 34px;
-  background: #f4f5f7;
-  padding: 8px 16px;
-  font-size: 12px;
-  color: #657080;
-  border-top: 1px solid rgba(167, 174, 184, 0.3);
-}
-
-.statusbar {
-  height: 32px;
-  background: #eef0f3;
-  font-size: 12px;
-  color: #657080;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
+  align-items: center;
+  z-index: 3;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 }
 
-.slider {
-  display: none;
+.arrow-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-50%) scale(1.05);
 }
 
-@media (max-width: 900px) {
-  .canvas {
-    padding: 32px 24px;
-  }
-
-  .window {
-    height: auto;
-    min-height: 0;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .content {
-    padding: 48px 28px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.arrow-btn:disabled {
+  opacity: 0.24;
+  cursor: default;
 }
 
-@media (max-width: 560px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.arrow-btn:disabled:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  transform: translateY(-50%);
+}
 
-  .folder {
-    min-height: auto;
+.prev-btn {
+  left: 4%;
+}
+.next-btn {
+  right: 4%;
+}
+
+@media (max-width: 760px) {
+  .slider-wrapper {
+    --card-gap: 18px;
   }
 }
 

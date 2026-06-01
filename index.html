@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>송슬비 포트폴리오</title>
-    <link rel="stylesheet" href="./portfolio/portfolio.css" />
+    <link rel="stylesheet" href="portfolio/Portfolio.css" />
   </head>
   <body>
     <!-- header Section -->
@@ -130,96 +130,77 @@
       </div>
     </section>
 
-    <!-- content -->
-    <section class="canvas" id="project-folder">
-      <div class="window">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-          <div class="traffic">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-          </div>
+    <!-- content Section -->
+    <section class="hero-container" id="project-folder">
+      <div class="slider-wrapper">
+        <div class="slider-track">
+          <a class="slide-item active" href="#uiux-section">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/딸기 히어로.png"
+              alt="UI / UX Design project"
+            />
+            <div class="portfolio-text main-white">UI / UX Design 01</div>
+          </a>
 
-          <div class="sidebar-content">
-            <div class="section-title">Favorites</div>
-            <div class="nav-item">
-              <span>Downloads</span>
-            </div>
+          <a class="slide-item" href="#BX-Design">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/프로젝트 1-표지.png"
+              alt="BX Design project"
+            />
+            <div class="portfolio-text main-white">BX Design</div>
+          </a>
 
-            <div class="section-title">iCloud</div>
-            <div class="nav-item">
-              <span>Documents</span>
-            </div>
+          <a class="slide-item" href="#Product-Design">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/커피포트 표지.png"
+              alt="Product Design project"
+            />
+            <div class="portfolio-text main-white">Product Design 01</div>
+          </a>
 
-            <div class="nav-item active">
-              <span>Desktop</span>
-            </div>
+          <a class="slide-item" href="#Product-Design-02">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/가습기 표지.png"
+              alt="Product Design project"
+            />
+            <div class="portfolio-text main-white">Product Design 02</div>
+          </a>
 
-            <div class="nav-item">
-              <span>Shared</span>
-            </div>
+          <a class="slide-item" href="#Space-Design">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/spacedesign.png"
+              alt="Space Design project"
+            />
+            <div class="portfolio-text main-white">Space Design</div>
+          </a>
 
-            <div class="locations">Locations</div>
-          </div>
-        </aside>
+          <a class="slide-item" href="#Capstone-Design">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/습기제거제 목업 1.png"
+              alt="Capstone Design project"
+            />
+            <div class="portfolio-text main-white">Capstone Design</div>
+          </a>
 
-        <!-- Main -->
-        <div class="main">
-          <!-- Toolbar -->
-          <div class="toolbar">
-            <div class="toolbar-left">
-              <span class="arrow">‹</span>
-              <span class="arrow">›</span>
-              <span class="toolbar-title">Desktop</span>
-            </div>
-            <div class="toolbar-right"></div>
-          </div>
-
-          <!-- Content -->
-          <div class="content">
-            <div class="grid">
-              <a class="folder" href="#uiux-section">
-                <div class="folder-icon"></div>
-                <p>01, UI / UX Design</p>
-              </a>
-
-              <a class="folder" href="#BX-Design">
-                <div class="folder-icon"></div>
-                <p>02, BX Design</p>
-              </a>
-
-              <a class="folder" href="#Product-Design">
-                <div class="folder-icon"></div>
-                <p>03, Product Design</p>
-              </a>
-
-              <a class="folder" href="#Space-Design">
-                <div class="folder-icon"></div>
-                <p>04, Space Design</p>
-              </a>
-
-              <a class="folder" href="#Capstone-Design">
-                <div class="folder-icon"></div>
-                <p>05, Capstone Design</p>
-              </a>
-
-              <a class="folder" href="#Convergence-Design">
-                <div class="folder-icon"></div>
-                <p>06, Convergence Design</p>
-              </a>
-            </div>
-          </div>
-
-          <!-- Bottom -->
-          <div class="pathbar">iCloud Drive > Desktop</div>
-
-          <div class="statusbar">
-            6 items, 1.02 TB available on iCloud
-            <div class="slider"></div>
-          </div>
+          <a class="slide-item" href="#Convergence-Design">
+            <img
+              class="slide-image"
+              src="./portfolio/assets/블루투스 스피커 첫페이지.png"
+              alt="Convergence Design project"
+            />
+            <div class="portfolio-text main-white">Convergence Design</div>
+          </a>
         </div>
       </div>
+
+      <button class="arrow-btn prev-btn" aria-label="Previous">&#8592;</button>
+      <button class="arrow-btn next-btn" aria-label="Next">&#8594;</button>
     </section>
 
     <!-- UI/UX Section cover -->
@@ -1889,6 +1870,6 @@
       </div>
     </footer>
 
-    <script src="./portfolio/portfolio.js"></script>
+    <script src="./portfolio/Portfolio.js"></script>
   </body>
 </html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAWONG | 입양 상담 신청</title>
+    <link rel="stylesheet" href="./Home.css" />
+    <link rel="stylesheet" href="./Consultation.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./Home.html" aria-label="PAWONG home">
+        <span>PAWONG</span>
+      </a>
+
+      <nav class="nav-links" aria-label="main navigation">
+        <a href="./Animals.html">아이들 만나기</a>
+        <a href="./Support.html">후원 방법</a>
+        <a href="./Adoption.html">입양 절차</a>
+        <a href="./Consultation.html">상담 신청</a>
+      </nav>
+
+      <a class="header-button" href="./Login.html">로그인</a>
+    </header>
+
+    <main>
+      <section class="consult-hero">
+        <div class="consult-copy">
+          <p class="eyebrow">Adoption Consultation</p>
+          <h1>
+            함께 살 준비를 천천히 <br />
+            확인해요
+          </h1>
+          <p>
+            입양은 아이와 보호자 모두의 삶이 달라지는 약속입니다. PAWONG은
+            <br />
+            생활환경, 가족 구성, 돌봄 시간을 함께 살피며 오래 행복한 만남을
+            도와드립니다.
+          </p>
+        </div>
+
+        <div class="consult-summary" aria-label="입양 상담 안내">
+          <span>상담 가능 시간</span>
+          <strong>10:00 - 20:00</strong>
+          <p>신청서를 남겨주시면 담당자가 순서대로 <br />연락드립니다.</p>
+        </div>
+      </section>
+
+      <section class="consult-section">
+        <form class="consult-form" action="#" method="post">
+          <div class="form-heading">
+            <p class="eyebrow">Application Form</p>
+            <h2>입양 상담 신청서</h2>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              이름
+              <input type="text" name="name" placeholder="홍길동" required />
+            </label>
+
+            <label>
+              연락처
+              <input
+                type="tel"
+                name="phone"
+                placeholder="010-0000-0000"
+                required
+              />
+            </label>
+
+            <label>
+              거주 지역
+              <input type="text" name="area" placeholder="예: 서울 성북구" />
+            </label>
+
+            <label>
+              희망 상담 시간
+              <select name="time">
+                <option>오전 10시 - 오후 1시</option>
+                <option>오후 1시 - 오후 4시</option>
+                <option>오후 4시 - 오후 8시</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            입양을 희망하는 아이 또는 성향
+            <input
+              type="text"
+              name="pet"
+              placeholder="예: 조용한 성격의 중소형견, 고양이도 좋아요"
+            />
+          </label>
+
+          <label>
+            현재 반려동물 경험
+            <textarea
+              name="experience"
+              rows="5"
+              placeholder="반려 경험, 가족 구성, 하루 돌봄 가능 시간 등을 적어주세요."
+            ></textarea>
+          </label>
+
+          <label class="check-line">
+            <input type="checkbox" name="agree" required />
+            <span>입양 상담을 위해 작성한 정보 제공에 동의합니다.</span>
+          </label>
+
+          <button class="primary-button form-button" type="submit">
+            상담 신청하기
+          </button>
+        </form>
+
+        <aside class="consult-guide">
+          <h2>상담 전에 확인해요</h2>
+          <div class="guide-list">
+            <article>
+              <span>01</span>
+              <h3>가족 모두의 동의</h3>
+              <p>
+                함께 사는 가족이 입양을 충분히 이해하고 <br />동의했는지
+                확인합니다.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>생활환경 점검</h3>
+              <p>
+                산책, 병원, 분리 시간 등 아이가 지낼 하루의 <br />리듬을
+                살펴봅니다.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>책임 있는 약속</h3>
+              <p>
+                입양 후 적응 기간에도 꾸준히 소통하며 필요한 안내를 이어갑니다.
+              </p>
+            </article>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>

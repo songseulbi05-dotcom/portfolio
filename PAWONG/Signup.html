@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAWONG | 회원가입</title>
+    <link rel="stylesheet" href="./Home.css" />
+    <link rel="stylesheet" href="./Signup.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./Home.html" aria-label="PAWONG home">
+        <span>PAWONG</span>
+      </a>
+
+      <nav class="nav-links" aria-label="main navigation">
+        <a href="./Animals.html">아이들 만나기</a>
+        <a href="./Support.html">후원 방법</a>
+        <a href="./Adoption.html">입양 절차</a>
+        <a href="./Consultation.html">상담 신청</a>
+      </nav>
+
+      <a class="header-button" href="./Login.html">로그인</a>
+    </header>
+
+    <main>
+      <section class="signup-section">
+        <div class="signup-copy">
+          <p class="eyebrow">Join PAWONG</p>
+          <h1>아이들과의 <br />만남을 더 <br />따뜻하게 <br />준비해요</h1>
+          <p>
+            회원가입 후 관심 있는 아이를 저장하고 <br />상담 신청 내역과 후원
+            정보를 편하게 확인할 수 있어요.
+          </p>
+        </div>
+
+        <form class="signup-form" action="#" method="post">
+          <div class="form-heading">
+            <p class="eyebrow">Sign Up</p>
+            <h2>회원가입</h2>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              이름
+              <input type="text" name="name" placeholder="홍길동" required />
+            </label>
+
+            <label>
+              연락처
+              <input
+                type="tel"
+                name="phone"
+                placeholder="010-0000-0000"
+                required
+              />
+            </label>
+          </div>
+
+          <label>
+            이메일
+            <input
+              type="email"
+              name="email"
+              placeholder="pawong@example.com"
+              required
+            />
+          </label>
+
+          <div class="form-grid">
+            <label>
+              비밀번호
+              <input
+                type="password"
+                name="password"
+                placeholder="8자 이상 입력"
+                required
+              />
+            </label>
+
+            <label>
+              비밀번호 확인
+              <input
+                type="password"
+                name="password_confirm"
+                placeholder="한 번 더 입력"
+                required
+              />
+            </label>
+          </div>
+
+          <label>
+            관심 분야
+            <select name="interest">
+              <option>입양 상담</option>
+              <option>임시보호</option>
+              <option>정기 후원</option>
+              <option>봉사 참여</option>
+            </select>
+          </label>
+
+          <label class="signup-check">
+            <input type="checkbox" name="agree" required />
+            <span>PAWONG 이용약관과 개인정보 처리방침에 동의합니다.</span>
+          </label>
+
+          <button class="primary-button form-button" type="submit">
+            회원가입
+          </button>
+
+          <p class="signin-link">
+            이미 계정이 있다면 <a href="./Login.html">로그인</a>
+          </p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
