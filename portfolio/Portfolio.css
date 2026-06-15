@@ -55,6 +55,9 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
+  border: 0;
+  background: transparent;
+  padding: 0;
   cursor: pointer;
   z-index: 1002;
 }
@@ -138,13 +141,8 @@ body {
   position: relative;
 }
 
-#home,
-#project-folder {
+#home {
   scroll-margin-top: 75px;
-}
-
-#project-folder {
-  min-height: calc(100dvh - 75px);
 }
 
 .title-inner {
@@ -416,163 +414,6 @@ body {
 .license p {
   margin-top: 12px;
   font-size: 15px;
-}
-
-.hero-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-color: #131313;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-#project-folder {
-  background-color: #6b6b6b;
-}
-
-/* 항상 밑바탕에 고정되어 있는 거대한 투명 PORTFOLIO 문구 (선택사항) */
-.fixed-bg-text {
-  position: absolute;
-  left: 12%;
-  font-size: 8vw;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.03); /* 아주 은은하게 배경으로만 깔림 */
-  letter-spacing: 0.05em;
-  user-select: none;
-  z-index: 1;
-}
-
-/* ==========================================
-   카테고리 텍스트 슬라이더 래퍼
-   ========================================== */
-.slider-wrapper {
-  --card-width: min(380px, 62vw);
-  --card-gap: 36px;
-  --slide-offset: -190px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.slider-track {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  gap: var(--card-gap);
-  transform: translate(var(--slide-offset), -50%);
-  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* 개별 슬라이드 세트 */
-.slide-item {
-  position: relative;
-  flex: 0 0 var(--card-width);
-  height: min(580px, 72vh);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  opacity: 0.42;
-  transform: scale(0.78);
-  text-decoration: none;
-  transition:
-    opacity 0.6s ease-in-out,
-    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* 활성화되어 화면에 등장할 때 (active) */
-.slide-item.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 3;
-}
-
-/* 타이포그래피 디테일 세팅 */
-.portfolio-text {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding-top: 16px;
-  font-size: clamp(18px, 2vw, 26px);
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  line-height: 1.1;
-  text-align: center;
-  user-select: none;
-}
-
-/* 프로젝트별 대표 이미지 */
-.slide-image {
-  display: block;
-  width: 100%;
-  height: calc(100% - 48px);
-  object-fit: cover;
-  border-radius: 18px;
-  opacity: 0.68;
-}
-
-/* 앞쪽의 선명한 흰색 레이어 */
-.main-white {
-  color: #ffffff;
-}
-
-/* ==========================================
-   화살표 버튼 디자인
-   ========================================== */
-.arrow-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(5px);
-  color: #ffffff;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  transition:
-    background-color 0.3s,
-    transform 0.2s;
-}
-
-.arrow-btn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-50%) scale(1.05);
-}
-
-.arrow-btn:disabled {
-  opacity: 0.24;
-  cursor: default;
-}
-
-.arrow-btn:disabled:hover {
-  background-color: rgba(255, 255, 255, 0.03);
-  transform: translateY(-50%);
-}
-
-.prev-btn {
-  left: 4%;
-}
-.next-btn {
-  right: 4%;
-}
-
-@media (max-width: 760px) {
-  .slider-wrapper {
-    --card-gap: 18px;
-  }
 }
 
 /* -- UI/UX Section --  */
@@ -1555,13 +1396,12 @@ body {
   z-index: 50;
 }
 
-.product-design-meta dt {
+.product-design-meta .meta-label {
   width: 75px;
   font-weight: 500;
 }
 
-.product-design-meta dd {
-  margin: 0;
+.product-design-meta .meta-value {
   color: #555555;
 }
 
@@ -2643,9 +2483,6 @@ body {
   left: 280px;
   bottom: 170px;
   z-index: 2;
-}
-
-.product-design-02-main img {
   width: 430px;
 }
 
@@ -2654,9 +2491,6 @@ body {
   top: 50px;
   right: 280px;
   z-index: 2;
-}
-
-.product-design-02-top-cut img {
   width: 320px;
 }
 
@@ -2665,9 +2499,6 @@ body {
   right: 310px;
   bottom: -10px;
   z-index: 2;
-}
-
-.product-design-02-bottom-cut img {
   width: 320px;
 }
 
@@ -4131,6 +3962,872 @@ body {
   display: block;
 }
 
+/* ------ project08 ------ */
+.project-08-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+.project-08-section .project-top {
+  width: 100%;
+  padding: 50px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-08-section .project-top p {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.project-08-section .project-visual {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-top: 1px solid #0057ff;
+  border-bottom: 1px solid #0057ff;
+  overflow: hidden;
+}
+
+.project-08-section .project-title {
+  position: absolute;
+  left: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.project-08-section .project-title h1 {
+  font-size: 72px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.project-08-section .project-title h2 {
+  font-size: 64px;
+  font-weight: 700;
+  color: #0057ff;
+}
+
+.project-08-section .project-visual img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-08-section .project-info {
+  left: 120px;
+  right: auto;
+  bottom: 35px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.project-08-section .project-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.project-08-section .project-info dl div {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 10px;
+}
+
+.project-08-section .project-info dt {
+  width: 80px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+}
+
+.project-08-section .project-info dd {
+  font-size: 15px;
+  color: #888;
+}
+
+/* ------ story scene ------ */
+.project-08-story-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  padding: 45px 130px 100px;
+  background: #f0f0ec;
+
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 60px;
+}
+
+.project-08-story-section .story-left {
+  padding-right: 60px;
+  border-right: 1px solid #c8c8c0;
+}
+
+.project-08-story-section .story-box h2,
+.project-08-story-section .story-right h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+.project-08-story-section .story-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.project-08-story-section .line {
+  width: 100%;
+  height: 1px;
+  background: #c8c8c0;
+  margin: 30px 0 34px;
+}
+
+.project-08-story-section .story-box ul {
+  list-style: none;
+  margin-top: 40px;
+}
+
+.project-08-story-section .story-box li {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.project-08-story-section .story-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+
+.project-08-story-section .story-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-08-story-section .keyword-diagram {
+  position: relative;
+  width: 400px;
+  height: 320px;
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.project-08-story-section .circle {
+  width: 165px;
+  height: 165px;
+  border: 1px solid #222;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  color: #222;
+
+  position: absolute;
+}
+
+.project-08-story-section .circle-top {
+  top: 0;
+  left: 92px;
+}
+
+.project-08-story-section .circle-left {
+  bottom: 45px;
+  left: 32px;
+}
+
+.project-08-story-section .circle-right {
+  right: 82px;
+  bottom: 45px;
+}
+
+/* ------ project08 concept ------ */
+.project-08-concept-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  padding: 55px 130px 90px;
+  background: #e8eef5;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+
+.project-08-concept-section .concept-left {
+  padding-right: 60px;
+  border-right: 1px solid #c3ceda;
+}
+
+.project-08-concept-section .concept-right {
+  padding-left: 0;
+}
+
+.project-08-concept-section .concept-box h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 45px;
+  letter-spacing: -0.02em;
+}
+
+.project-08-concept-section .concept-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #111;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.project-08-concept-section .sub-text {
+  margin-bottom: 34px;
+}
+
+.project-08-concept-section .divider {
+  width: 100%;
+  height: 1px;
+  background: #c3ceda;
+  margin: 34px 0 42px;
+}
+
+.project-08-concept-section .concept-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-08-concept-section .concept-box li {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 12px;
+  padding-left: 18px;
+  position: relative;
+  letter-spacing: -0.02em;
+}
+
+.project-08-concept-section .concept-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+
+.project-08-concept-section .bottom-text {
+  margin-top: 34px;
+}
+
+.project-08-concept-section .color-palette {
+  display: flex;
+  gap: 45px;
+  margin-top: 48px;
+  justify-content: center;
+}
+
+.project-08-concept-section .color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.project-08-concept-section .color-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+
+.project-08-concept-section .brown {
+  background: #36261c;
+}
+
+.project-08-concept-section .beige {
+  background: #eaddce;
+}
+
+.project-08-concept-section .gray {
+  background: #b0a299;
+}
+
+.project-08-concept-section .color-item span {
+  font-size: 16px;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+/* ------ project 08 detail ------ */
+.image-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  background: #f3f3f3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px 32px;
+  overflow: hidden;
+}
+
+.image-wrap {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.main-image {
+  flex: 1 1 68%;
+  max-width: none;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.side-images {
+  flex: 0 0 32%;
+  max-width: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  transform: translateX(-80px);
+}
+
+.sub-image {
+  flex: 1 1 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.sub-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+/* ------ project 08 mockup ------ */
+.lifestyle-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  background: #f3f3f3;
+  padding: 0;
+  overflow: hidden;
+}
+
+.lifestyle-image {
+  width: 100%;
+  height: 100%;
+}
+
+.lifestyle-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ------ project 9 section ------ */
+.project-09-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  background: #f3f3f3;
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-09-section .project-top {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: 50px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-09-section .project-top p {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.project-09-section .project-top p:last-child {
+  margin-right: 0;
+}
+
+.project-09-section .project-hero {
+  position: static;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 0;
+  height: calc(100% - 113px);
+  padding: 0 130px;
+}
+
+.project-09-section .project-content {
+  display: flex;
+  flex-direction: column;
+  width: 46%;
+  height: auto;
+  padding-top: 130px;
+}
+
+.project-09-section .project-title {
+  position: relative;
+  z-index: 2;
+}
+
+.project-09-section .project-title h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.project-09-section .project-title h2 {
+  font-size: 76px;
+  font-weight: 800;
+  color: #1565ff;
+  line-height: 1.1;
+}
+
+.project-09-section .project-info {
+  position: absolute;
+  left: 120px;
+  right: auto;
+  bottom: 35px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.project-09-section .project-info h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.project-09-section .info-item {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-09-section .info-item span {
+  width: 80px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #555;
+}
+
+.project-09-section .info-item p {
+  font-size: 15px;
+  color: #888;
+}
+
+.project-09-section .project-image {
+  position: absolute;
+  top: 0;
+  right: -130px;
+  width: 680px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.project-09-section .project-image img {
+  width: 100%;
+  max-width: 650px;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ------ project 9 story ------ */
+.project-09-story-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  padding: 45px 130px 100px;
+  background: #f0f0ec;
+
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 60px;
+}
+
+.project-09-story-section .story-left {
+  padding-right: 60px;
+  border-right: 1px solid #c8c8c0;
+}
+
+.project-09-story-section .story-box h2,
+.project-09-story-section .story-right h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+.project-09-story-section .story-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.project-09-story-section .line {
+  width: 100%;
+  height: 1px;
+  background: #c8c8c0;
+  margin: 30px 0 34px;
+}
+
+.project-09-story-section .story-box ul {
+  list-style: none;
+  margin-top: 40px;
+}
+
+.project-09-story-section .story-box li {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.project-09-story-section .story-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+
+.project-09-story-section .story-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-09-story-section .keyword-diagram {
+  position: relative;
+  width: 400px;
+  height: 320px;
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.project-09-story-section .circle {
+  width: 165px;
+  height: 165px;
+  border: 1px solid #222;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  color: #222;
+  text-align: center;
+
+  position: absolute;
+}
+
+.project-09-story-section .circle-top {
+  top: 0;
+  left: 92px;
+}
+
+.project-09-story-section .circle-left {
+  bottom: 45px;
+  left: 32px;
+}
+
+.project-09-story-section .circle-right {
+  right: 82px;
+  bottom: 45px;
+}
+
+/* ------ project 9 concept ------ */
+.project-09-concept-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  padding: 55px 130px 90px;
+  background: #e8eef5;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+
+.project-09-concept-section .concept-left {
+  padding-right: 60px;
+  border-right: 1px solid #c3ceda;
+}
+
+.project-09-concept-section .concept-right {
+  padding-left: 0;
+}
+
+.project-09-concept-section .concept-box h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 45px;
+  letter-spacing: -0.02em;
+}
+
+.project-09-concept-section .concept-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #111;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.project-09-concept-section .sub-text {
+  margin-bottom: 34px;
+}
+
+.project-09-concept-section .divider {
+  width: 100%;
+  height: 1px;
+  background: #c3ceda;
+  margin: 34px 0 42px;
+}
+
+.project-09-concept-section .concept-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-09-concept-section .concept-box li {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 12px;
+  padding-left: 18px;
+  position: relative;
+  letter-spacing: -0.02em;
+}
+
+.project-09-concept-section .concept-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+
+.project-09-concept-section .bottom-text {
+  margin-top: 34px;
+}
+
+.project-09-concept-section .color-palette {
+  display: flex;
+  gap: 45px;
+  margin-top: 48px;
+  justify-content: center;
+}
+
+.project-09-concept-section .color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.project-09-concept-section .color-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+
+.project-09-concept-section .light-gray {
+  background: #dddcda;
+}
+
+.project-09-concept-section .dark-gray {
+  background: #434343;
+}
+
+.project-09-concept-section .black {
+  background: #181818;
+}
+
+.project-09-concept-section .color-item span {
+  font-size: 16px;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+/* ------ project 9 detail ------ */
+.cart-detail-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  background: #f3f3f3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 100px 120px;
+}
+
+.cart-detail-wrap {
+  width: 100%;
+  max-width: 1400px;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.cart-main-image {
+  flex: 1;
+  max-width: 650px;
+}
+
+.cart-main-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cart-sub-images {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.cart-sub-row {
+  display: flex;
+  gap: 30px;
+}
+
+.cart-sub-image {
+  flex: 1;
+}
+
+.cart-sub-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cart-wide-image {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* ------ project 9 mockup ------ */
+.scenario-section {
+  width: 100%;
+  min-height: calc(100dvh - 75px);
+  height: calc(100dvh - 75px);
+  background: #f3f3f3;
+  padding: 0;
+  overflow: hidden;
+}
+
+.scenario-image {
+  width: 100%;
+  height: 100%;
+}
+
+.scenario-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
 /* ------ end ------ */
 .end-section {
   width: 100%;
