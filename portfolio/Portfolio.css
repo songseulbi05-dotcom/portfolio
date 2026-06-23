@@ -130,96 +130,117 @@ body {
 }
 
 /* -- title Section -- */
-.title {
+@font-face {
+  font-family: "Sprat ExtendedMedium";
+  src:
+    local("Sprat ExtendedMedium"), local("Sprat Extended Medium"),
+    local("Sprat-ExtendedMedium");
+  font-weight: 500;
+}
+
+.cover,
+.end-section {
+  position: relative;
   width: 100%;
+  height: calc(100dvh - 75px);
   min-height: calc(100dvh - 75px);
-  background-color: #131313;
-  display: flex;
-  align-items: center;
-  padding-left: 12%;
   overflow: hidden;
-  position: relative;
+  background: linear-gradient(
+    to bottom,
+    #000000 0%,
+    #0d1b1f 35%,
+    #26363a 70%,
+    #5a6669 100%
+  );
 }
 
-#home {
-  scroll-margin-top: 75px;
-}
-
-.title-inner {
-  position: relative;
-  margin-left: 120px;
-}
-
-.title::before {
+/* 노이즈 텍스처 */
+.cover::before,
+.end-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  background-size: 170px 170px;
-  background-repeat: repeat;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
   opacity: 0.3;
-  mix-blend-mode: soft-light;
-  z-index: 1;
 }
 
-.title-container {
-  position: relative;
-  display: inline-block;
-  width: min(100%, 760px);
-  min-height: 220px;
-  z-index: 2;
-}
-
-.bg-text {
-  font-size: clamp(58px, 8vw, 80px);
-  font-family: "Poppins";
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.28);
-  letter-spacing: 0.1em;
-  margin: 0;
-  line-height: 1;
-  top: 15px;
-  left: 16px;
+.cover > h1,
+.end-section > h1 {
   position: absolute;
-  z-index: 3;
-  opacity: 0;
-  transform: translateY(23px);
-  animation: titleFront 1.4s ease-out forwards;
-  animation-delay: 1.2s;
+  top: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5.4rem;
+  font-family:
+    Didot, "Bodoni 72", "Bodoni MT", "Cormorant Garamond", "Times New Roman",
+    serif;
+  font-weight: 400;
+  color: #e2e2de;
+  letter-spacing: 0.08em;
+  z-index: 10;
+  text-shadow:
+    0 12px 18px rgba(0, 0, 0, 0.34),
+    0 26px 42px rgba(0, 0, 0, 0.3),
+    0 36px 54px rgba(255, 255, 255, 0.12);
 }
 
-.main-text {
+/* 도형 위치 수정 */
+.tribal-shape {
   position: absolute;
-  font-family: "Poppins";
-  top: 40px;
-  left: 0;
-  font-size: clamp(58px, 8vw, 80px);
-  font-weight: 600;
-  color: #f5f5f5;
-  letter-spacing: 0.1em;
-  margin: 0;
-  line-height: 1;
-  white-space: nowrap;
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(24px);
-  animation: titleFront 1.2s ease-out forwards;
-  animation-delay: 0.8s;
+  bottom: -2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1700px;
+  z-index: 12;
+  pointer-events: none;
 }
 
-@keyframes titleFront {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.tribal-shape img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
-@keyframes bg-text {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* 점선 */
+.bottom-line {
+  position: absolute;
+  bottom: 9%;
+  left: 2%;
+  width: 96%;
+  height: 2px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.45);
+  z-index: 8;
+}
+
+/* 하단 텍스트 */
+.cover p,
+.end-section p {
+  position: absolute;
+  bottom: 4%;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: serif;
+  letter-spacing: 1px;
+  z-index: 8;
+}
+
+.left-text {
+  left: 2%;
+}
+
+.center-text {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.right-text {
+  right: 2%;
 }
 
 /* -- About Me -- */
@@ -4829,102 +4850,7 @@ body {
   object-fit: cover;
 }
 /* ------ end ------ */
-.end-section {
-  width: 100%;
-  min-height: calc(100dvh - 75px);
-  background:
-    radial-gradient(
-      circle at 18% 24%,
-      rgba(255, 255, 255, 0.08),
-      transparent 24%
-    ),
-    radial-gradient(
-      circle at 82% 72%,
-      rgba(255, 255, 255, 0.06),
-      transparent 28%
-    ),
-    linear-gradient(180deg, #1b1b1c 0%, #0f0f10 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 24px;
-  overflow: hidden;
-  position: relative;
-}
-
-.end-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.25; /* 노이즈 강도 */
-  z-index: 1;
-}
-
-.end-text-wrap {
-  font-family: "Poppins", sans-serif;
-  position: relative;
-  text-align: center;
-  width: min(100%, 860px);
-  z-index: 2;
-}
-
-.end-kicker {
-  margin: 0 0 20px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.52);
-}
-
-/* 뒤에 흐린 텍스트 */
-.end-bg {
-  font-size: clamp(64px, 12vw, 132px);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.12);
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  margin: 0;
-  line-height: 1.1;
-  white-space: nowrap;
-  transform: translateX(-50%);
-}
-
-/* 앞 텍스트 */
-.end-main {
-  font-size: clamp(64px, 11vw, 120px);
-  font-weight: 600;
-  color: #ffffff;
-  position: relative;
-  margin: 0;
-  line-height: 1;
-  letter-spacing: -0.05em;
-  white-space: nowrap;
-}
-
-.end-sub {
-  margin: 28px auto 0;
-  max-width: 620px;
-  font-size: 16px;
-  line-height: 1.9;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.end-line {
-  width: min(220px, 44vw);
-  height: 1px;
-  margin: 32px auto 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.58) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
+/* end section shares the title cover styles */
 
 /* ------ footer ------ */
 .footer {
