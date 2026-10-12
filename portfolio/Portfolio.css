@@ -67,7 +67,7 @@ body {
   height: 100vh;
   overflow: hidden;
   background-color: #1a130f;
-  background-image: url("./assets/cover.jpg");
+  background-image: url("./assets/cover.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -94,7 +94,7 @@ body {
   text-align: center;
   white-space: nowrap;
   font-family: "Anton", sans-serif;
-  font-size: 320px;
+  font-size: 310px;
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 0.85;
