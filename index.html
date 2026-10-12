@@ -7,31 +7,40 @@
     <link rel="stylesheet" href="./portfolio/portfolio.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
     />
   </head>
   <body>
-    <header class="site-header">
-      <div class="logo">SONG SEULBI</div>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#project">PROJECT</a></li>
-          <li><a href="#contact">CONTACT</a></li>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <a href="#home">SONG SEULBI</a>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
 
-    <script>
-      const header = document.querySelector(".site-header");
-      window.addEventListener("scroll", () => {
-        header.classList.toggle("scrolled", window.scrollY > 50);
-      });
-    </script>
+    <section class="cover">
+      <h1 class="cover-title">PORTFOLIO</h1>
+      <img class="cover-laptop" src="./portfolio/assets/laptop.png" alt="" />
+
+      <div class="cover-tags">
+        <span>PRODUCT DESIGN</span>
+        <span>×</span>
+        <span>UI/UX DESIGN</span>
+        <span>×</span>
+        <span>WEB DESIGN</span>
+      </div>
+    </section>
+
+    <script src="./portfolio/portfolio.js"></script>
   </body>
 </html>
